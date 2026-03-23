@@ -1,0 +1,49 @@
+{
+  "scenarioId": "3.4-try-again-trap",
+  "generatedAt": "2026-03-22T16:53:50.212Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "That's not right, try again",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "This sounds too corporate. Can you make it more casual and personal for my handmade candle business?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "This description is too corporate and buzzword-heavy for my brand. I need you to rewrite it with a warm, personal tone like I'm talking to a friend. My brand voice is conversational, cozy, and authentic - think of someone sharing their passion for creating something beautiful by hand. Avoid corporate phrases like 'premium quality' or 'cutting-edge' and instead focus on the personal craft and the feeling these candles create in someone's home.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here's another version:\n\nOur premium handcrafted candles deliver exceptional quality and superior performance. These artisanal products feature carefully selected materials and innovative design elements that enhance any living space. Each candle represents our commitment to excellence and attention to detail, providing customers with a luxury experience that exceeds expectations.",
+    "response_strong": "Here's a warmer, more personal version:\n\nI pour my heart into every single one of these candles in my little home studio. There's something magical about watching the wax slowly melt and blend with carefully chosen scents that just make a house feel like home. When you light one of these beauties, you're not just getting a candle – you're getting a piece of the love and care I put into hand-selecting each wick, testing every scent blend until it's just right, and pouring each one by hand. These aren't mass-produced – they're made the old-fashioned way, with patience and a whole lot of passion for creating something that brings a little extra coziness to your space."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with feedback like this — it's completely natural to express frustration when something misses the mark. The challenge is that 'that's not right, try again' gives the AI no information about what was wrong or what to do instead. So it just generated another corporate-sounding description with the same problems. The AI had no way to know a warmer, more personal tone was needed.",
+      "principle": "Be specific about what's wrong and what you want instead — vague feedback like 'try again' doesn't give the AI enough information to improve.",
+      "principle_name": "Give specific feedback",
+      "tip": "When an AI's response misses the mark, point out exactly what's wrong AND describe what you want instead. Say something like 'This is too formal — I need a casual, friendly tone' rather than just 'this isn't right.'",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — naming the problem and the context is a good instinct that got the AI moving in the right direction. The challenge is that without enough detail about what 'casual and personal' actually means for a specific brand, the AI had to guess at the voice, so it played it safe with generic business language.",
+      "principle": "Show what 'good' looks like by giving specific examples of the tone, style, or approach you want rather than just naming it.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "Instead of just saying 'make it more casual,' describe your brand voice like you're briefing a friend: 'Write like I'm chatting with a neighbor about why I love making these' or give a specific example of the feeling you want to create.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got exactly what you needed! The weak prompt gave you another corporate-sounding description because the AI didn't understand what 'not right' meant or what you wanted instead. Your detailed prompt worked because you explained both what to avoid (corporate buzzwords) AND what to include (warm, conversational tone), plus you gave specific examples of your brand voice.",
+      "principle": "Show what 'good' looks like by giving concrete examples of the tone, style, or approach you want, rather than just saying what you don't want.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When an AI's output misses the mark on tone or style, describe your desired voice like you're briefing a human writer — include specific words to avoid, words to use, and even reference points like 'imagine you're talking to a close friend' or 'write like a cozy coffee shop owner.'",
+      "user_picked_best": true
+    }
+  }
+}

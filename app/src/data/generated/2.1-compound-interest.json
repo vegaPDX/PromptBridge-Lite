@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.1-compound-interest",
+  "generatedAt": "2026-03-22T16:46:59.274Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "What is compound interest?",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Can you explain compound interest for someone who just started investing? I want to understand how it works with retirement accounts.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I'm 25 and just opened my first retirement account, but I don't have a finance background. Can you explain compound interest in simple terms and show me with a concrete example how it would work over time with my retirement savings? I want to understand why starting early matters.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Compound interest is when you earn interest on both your original investment and the interest that has already been added to it. This creates a snowball effect where your money grows faster over time.",
+    "response_strong": "Think of compound interest as your money making money, which then makes even more money. Here's how it works for your retirement:\n\nLet's say you put $200/month into your retirement account starting at 25. With a 7% annual return:\n\n**Year 1:** You contribute $2,400, it grows to about $2,500\n**Year 10:** You've put in $24,000, but your account has $33,000 (that extra $9,000 came from compound growth)\n**Year 40 (at age 65):** You've contributed $96,000 total, but your account is worth about $525,000!\n\nThat extra $429,000 is compound interest working for you. The key is time - your early contributions have 40 years to compound, while someone starting at 35 only gets 30 years. Starting at 25 instead of 35 could mean having $200,000+ more at retirement, even with the same monthly contributions.\n\nThe magic happens because each year, you earn returns not just on your new $2,400, but on all the growth from previous years too. It starts slow but accelerates dramatically - most of your wealth gets built in the final 10-15 years."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Your question got a textbook definition that didn't connect to your specific situation. The AI gave you the basic concept but no concrete numbers, no timeline relevant to your age, and no clear picture of why this matters for your retirement planning. The stronger prompt produced a detailed example with your exact age and realistic contribution amounts, showing the dramatic long-term impact.",
+      "principle": "Provide context about your situation and background so the AI can tailor its response to your specific needs and knowledge level.",
+      "principle_name": "Provide context",
+      "tip": "Next time, include key details about yourself in your request: your age, experience level, and what you're trying to accomplish. Instead of asking 'What is X?' try 'I'm [situation] and need to understand X because [goal].'",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your prompt got a decent explanation, but the AI gave you a generic definition without the concrete example or personal relevance you needed. The stronger prompt produced a detailed walkthrough with actual numbers showing how $200/month becomes $525,000, plus why your age matters — exactly what someone opening their first retirement account needs to understand.",
+      "principle": "Provide context about who you are and what you're trying to accomplish so the AI can tailor its response to your specific situation and knowledge level.",
+      "principle_name": "Provide context",
+      "tip": "When asking for explanations, always include your background and what you plan to do with the information. Instead of 'explain X,' try 'I'm [your situation] and need to understand X because [your goal].' This helps the AI give you relevant, actionable answers rather than textbook definitions.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got a much more useful response! The weak prompt gave you a basic definition that didn't help you understand the real impact. Your choice included your specific situation (25, first retirement account, no finance background) and asked for concrete examples, so the AI could tailor its explanation with actual numbers and show you exactly why starting early matters for YOUR situation.",
+      "principle": "When you provide context about your specific situation and ask for concrete examples, AI tools can give you personalized, actionable explanations instead of generic definitions.",
+      "principle_name": "Provide context and show what 'good' looks like",
+      "tip": "Always tell the AI your specific situation and ask for examples that relate to you. Instead of 'What is X?' try 'I'm [your situation] and need to understand X - can you show me with an example that applies to my case?'",
+      "user_picked_best": true
+    }
+  }
+}

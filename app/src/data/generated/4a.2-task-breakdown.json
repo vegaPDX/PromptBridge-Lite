@@ -1,0 +1,49 @@
+{
+  "scenarioId": "4a.2-task-breakdown",
+  "generatedAt": "2026-03-22T16:56:51.843Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Help me plan a birthday party",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need to plan a surprise birthday party for my friend. Can you help me figure out what I need to do and organize everything?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I'm planning a surprise birthday party for my close friend who turns 28 next month. I want to start with the most important decision first - can you help me think through venue options? I'm considering my apartment (fits 15 people max), a local restaurant, or renting a small event space. What factors should I evaluate to make this choice, and what questions should I ask potential venues?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I can help you plan a birthday party! You'll need to consider the venue, food, decorations, guest list, and timeline. Start by deciding on a budget and theme, then choose a location that fits your group size. Plan the menu, send invitations, and don't forget decorations and entertainment.",
+    "response_strong": "For choosing the right venue for your friend's surprise 28th birthday party, here are the key factors to evaluate:\n\n**Your apartment pros/cons:**\n- Pros: Free, intimate setting, full control over timing/setup, easy to coordinate surprise\n- Cons: 15-person limit, cleanup responsibility, noise restrictions, limited parking\n\n**Restaurant pros/cons:**\n- Pros: No cleanup, professional service, guaranteed food quality\n- Cons: Less privacy, timing restrictions, harder to coordinate surprise arrival, potentially expensive\n\n**Event space pros/cons:**\n- Pros: Accommodates larger groups, party atmosphere, often includes tables/chairs\n- Cons: Additional cost, booking requirements, may need separate catering\n\n**Key questions for any venue:**\n1. What's the maximum capacity and minimum booking requirements?\n2. What's included (tables, chairs, sound system, parking)?\n3. Can you decorate in advance? What are the setup/breakdown timeframes?\n4. Are there noise restrictions or time limits?\n5. What's the cancellation policy?\n6. For restaurants: Can they accommodate a surprise arrival and do they have a private area?\n\nI'd recommend starting with your apartment if the 15-person limit works - it offers the most control for coordinating the surprise element."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a question like this -- it's a natural way to ask for help. The challenge is that when a request is this general, the AI gives a generic checklist that doesn't actually help move things forward. The stronger version asked for help with one specific decision (venue choice) and provided key details like the friend's age, constraints, and current options. This gave the AI enough information to provide concrete advice and specific questions to ask venues.",
+      "principle": "Be specific, not vague - instead of asking for help with everything at once, focus on one decision and give the AI the details it needs to actually help you.",
+      "principle_name": "Be specific, not vague",
+      "tip": "When you have a complex project, pick the first decision you need to make and ask about that specifically. Include your constraints (like budget, space limits, or timeline) so the AI can give you relevant advice instead of generic suggestions.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "You saw the difference between asking for general help versus asking for specific guidance on one decision. The medium prompt got a generic checklist that dumps everything on you at once, while the strong prompt got detailed, actionable advice about venue selection with specific pros/cons and questions to ask.",
+      "principle": "Break complex requests into smaller, specific parts rather than asking for help with everything at once.",
+      "principle_name": "Be specific, not vague",
+      "tip": "When facing a multi-step project, pick the first or most important decision and ask the AI to help you think through just that one piece thoroughly. You'll get much more useful guidance than if you ask for help with the whole project.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option, which gave you a detailed, actionable response focused on your specific venue decision. The weak prompt got generic party planning advice that didn't help with your immediate choice, while your selected prompt received a thorough breakdown of each venue option with specific pros/cons and targeted questions to ask.",
+      "principle": "When you're specific about what decision you need help with first, AI tools can give you focused, practical guidance instead of overwhelming you with everything at once.",
+      "principle_name": "Be specific, not vague",
+      "tip": "When facing complex projects, identify the one decision that unlocks everything else and ask about that specific choice first. Instead of 'help me plan X,' try 'I need to decide between A, B, and C for my project - what factors should I consider?'",
+      "user_picked_best": true
+    }
+  }
+}

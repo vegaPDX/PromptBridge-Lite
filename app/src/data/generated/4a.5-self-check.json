@@ -1,0 +1,49 @@
+{
+  "scenarioId": "4a.5-self-check",
+  "generatedAt": "2026-03-22T16:58:50.318Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Proofread this email",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Can you proofread this email to my client and fix any grammar or spelling mistakes?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "Please proofread this email to my client for grammar, spelling, factual accuracy, awkward phrasing, and tone. After making any corrections, review your changes and flag anything you're not completely confident about so I can double-check it.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I'd be happy to proofread your email. Please share the email content and I'll review it for you.",
+    "response_strong": "I'd be happy to help you proofread your client email with that comprehensive approach. Please share the email content, and I'll:\n\n1. **Correct** any grammar, spelling, and obvious phrasing issues\n2. **Review factual claims** and highlight any that seem questionable or that I cannot verify\n3. **Assess the tone** to ensure it's appropriate for a client relationship\n4. **Flag uncertainties** - I'll clearly mark any corrections I'm not 100% confident about so you can make the final call\n\nOnce you share the email, I'll provide the corrected version followed by a summary of changes and any items that need your review."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a quick request like this -- it's completely natural. The challenge is that the AI just asked for the email without understanding what kind of help was needed. The stronger prompt got the AI to outline a complete proofreading process that covers grammar, facts, tone, and flags uncertainties -- exactly what's needed for an important client email.",
+      "principle": "When you're specific about what you want, AI tools can give you much more targeted and useful help instead of generic responses.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Before asking an AI to help with any task, list out 2-3 specific things you want it to focus on. Instead of 'help me with this,' try 'help me with X, Y, and Z.'",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it -- focusing on grammar and spelling is a solid instinct. The challenge is that it missed the bigger picture. The strong prompt got a detailed plan covering all the key concerns (factual accuracy, tone, awkward phrasing) plus a smart safety net -- the AI promised to flag anything it wasn't sure about. The medium version worked, but left important quality checks on the table.",
+      "principle": "When the stakes are high, be specific about all the ways you want the AI to help you, not just the obvious ones.",
+      "principle_name": "Be specific, not vague",
+      "tip": "For important tasks, make a mental list of everything that could go wrong, then explicitly ask the AI to check for each one. Don't assume it will catch issues you don't mention.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option, which got you a much more useful response. The weak prompt just asked the AI to wait for your email, while your detailed request got the AI to outline exactly how it would help you — breaking down each type of review you wanted and promising to flag uncertainties. The AI understood your full intent and committed to a systematic approach.",
+      "principle": "When you're specific about what you want, AI tools can give you much more targeted and useful help.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Before hitting send on any AI request, ask yourself: 'What exactly do I want this tool to do?' Then list those specific tasks in your message — the AI will follow your roadmap and give you much better results.",
+      "user_picked_best": true
+    }
+  }
+}

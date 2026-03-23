@@ -1,0 +1,49 @@
+{
+  "scenarioId": "3.7-positive-flip",
+  "generatedAt": "2026-03-22T16:55:33.699Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Don't use bullet points or disclaimers",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Please write this without using bullet points, markdown formatting, or disclaimers. I want natural writing.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "Write in flowing, natural prose that gets straight to the content. Use a confident, conversational tone as if you're speaking directly to the reader. No bullet points, formatting, or introductory phrases like 'here's what you need to know.'",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I understand you don't want bullet points or disclaimers. I can help you with that. What would you like me to write about?",
+    "response_strong": "The morning light filtered through the kitchen window as Sarah considered her options. She could take the safe route and stick with her current job, collecting a steady paycheck while her dreams gathered dust. Or she could leap into the unknown, trading security for the chance to build something meaningful. The decision wasn't really about money or stability—it was about whether she trusted herself enough to bet on her own vision. Every entrepreneur faces this moment, standing at the crossroads between comfort and possibility, knowing that the path forward requires not just courage but the willingness to redefine what success means."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a quick instruction like this -- it's completely natural. The challenge is that it was too brief for the AI to act on, so it asked for clarification instead of writing. The stronger prompt gave the AI a clear picture of exactly what style was needed -- flowing prose with a confident tone -- so it delivered natural writing immediately.",
+      "principle": "Be specific about the style and tone you want, not just what you don't want.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Instead of just saying what to avoid, paint a picture of what you DO want. Try phrases like 'write in a conversational tone as if you're talking to a friend' or 'use the style of a magazine article.'",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it -- it's clearer than the weak option and a good instinct. The challenge is that the AI still asked what to write about instead of diving in. The strong prompt worked because it painted a complete picture of the desired writing style -- 'flowing, natural prose' and 'conversational tone' -- plus gave specific examples of what NOT to include. This gave the AI enough direction to produce polished, engaging content immediately.",
+      "principle": "Show what 'good' looks like by describing the style, tone, and format you want, not just what you don't want.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "Instead of just listing what to avoid, describe the positive qualities you want: 'Write in a conversational tone' or 'Use flowing sentences like a magazine article' gives the AI a clear target to aim for.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the option that gave the AI a clear picture of what you wanted. The weak prompt only told the AI what NOT to do, so it asked for clarification instead of writing. Your choice showed the AI exactly what good writing looks like by describing the tone, style, and approach you wanted.",
+      "principle": "Show what 'good' looks like by describing the specific qualities you want, rather than just listing what you don't want.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When you want a specific style or format, describe the end result you're picturing—like 'write as if you're telling a friend' or 'use short, punchy sentences'—instead of just saying what to avoid.",
+      "user_picked_best": true
+    }
+  }
+}

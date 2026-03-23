@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.5-cover-letter",
+  "generatedAt": "2026-03-22T16:49:40.015Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write me a cover letter",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need help writing a cover letter for a marketing position I'm applying for. I have 3 years of experience in digital marketing and social media management. Can you help me write something professional?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need help writing a tailored cover letter for this specific job posting. Here are the key details:\n\nJob: Digital Marketing Specialist at GreenTech Solutions\nKey requirements: 2+ years social media experience, content creation, analytics reporting, B2B marketing\nCompany focus: Sustainable technology solutions for businesses\n\nMy relevant background:\n- 3 years social media marketing at tech startup\n- Increased engagement 150% through content strategy\n- Created monthly analytics reports for C-suite\n- Experience with B2B lead generation campaigns\n- Passionate about environmental sustainability\n\nPlease write a cover letter that connects my specific experience to their needs and shows genuine interest in their mission.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here's a cover letter template for you:\n\nDear Hiring Manager,\n\nI am writing to express my interest in the position at your company. I believe my skills and experience make me a strong candidate for this role.\n\nI have relevant experience in marketing and would be excited to contribute to your team. I am a hard worker with strong communication skills and attention to detail.\n\nThank you for considering my application. I look forward to hearing from you.\n\nSincerely,\n[Your Name]",
+    "response_strong": "Here's a tailored cover letter for the Digital Marketing Specialist position at GreenTech Solutions:\n\nDear Hiring Manager,\n\nI'm excited to apply for the Digital Marketing Specialist position at GreenTech Solutions. Your mission to provide sustainable technology solutions aligns perfectly with my passion for environmental responsibility and my three years of digital marketing experience in the tech sector.\n\nIn my current role at a tech startup, I've developed exactly the skills you're seeking:\n\n• Social Media Expertise: I've managed comprehensive social media strategies that increased engagement by 150%, demonstrating my ability to create compelling content that resonates with target audiences\n• Analytics & Reporting: I produce detailed monthly analytics reports for our C-suite, translating complex data into actionable insights that drive strategy decisions\n• B2B Marketing: I've successfully executed lead generation campaigns that connect with business decision-makers, understanding the longer sales cycles and relationship-building crucial in B2B environments\n\nWhat particularly draws me to GreenTech Solutions is the opportunity to combine my marketing expertise with meaningful work in sustainability. Having followed your recent product launches in energy-efficient software solutions, I'm eager to help communicate your innovations to businesses ready to reduce their environmental impact.\n\nI'd welcome the opportunity to discuss how my proven track record in tech marketing and genuine enthusiasm for your mission can contribute to GreenTech's continued growth.\n\nBest regards,\n[Your Name]"
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "The weak prompt gave you a generic template that could apply to any job, while the strong prompt would have produced a personalized cover letter that directly connects your experience to the company's specific needs. Without details about the job or your background, the AI had no choice but to create something completely generic.",
+      "principle": "Be specific, not vague — the more relevant details you provide, the more tailored and useful the AI's response will be.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time, include the job posting details and your relevant experience in your request. Think of it like briefing a friend who's helping you — they need context to give you something truly useful rather than generic advice.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — sharing experience details is a solid instinct. The response was decent but still generic because the specific job details and company information were missing. When a request is this general, the AI has to guess what would be relevant, so it creates a template-style letter. In contrast, when given the actual job requirements and company mission, the AI could craft a targeted letter that directly connected the experience to their specific needs.",
+      "principle": "Provide context — the more relevant details you share about your situation, the more tailored and useful the AI's response will be.",
+      "principle_name": "Provide context",
+      "tip": "Always include the job posting details when asking for help with applications. Copy and paste the key requirements, company name, and any mission/values information so the AI can create something specifically for that opportunity rather than a generic template.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got a personalized, compelling cover letter that directly connects your experience to the job requirements. The weak prompt produced a generic template because the AI had no specific information to work with — no job details, no company info, no personal background. Your detailed prompt gave the AI everything needed to craft a targeted response that shows genuine interest and relevant qualifications.",
+      "principle": "When you provide specific context and details, AI tools can create much more relevant and useful responses tailored to your exact situation.",
+      "principle_name": "Provide context",
+      "tip": "Before asking for help with any document or task, gather all the relevant details first — job postings, company info, your background, specific requirements — and include them in your request. The more context you provide, the better the AI can tailor its response to your needs.",
+      "user_picked_best": true
+    }
+  }
+}

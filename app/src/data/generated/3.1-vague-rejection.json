@@ -1,0 +1,49 @@
+{
+  "scenarioId": "3.1-vague-rejection",
+  "generatedAt": "2026-03-22T16:52:01.145Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "This is too formal. Try again.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "This email is too formal for a colleague. Can you make it more casual?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "The content is accurate, but the tone is too formal for a daily colleague. Please rewrite it with a casual, friendly tone - use contractions, simpler language, and drop the business formalities. Keep the same key information but make it sound like how I'd normally talk to them.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I'll make it less formal for you.\n\n[Provides a slightly less formal version but still maintains unnecessarily professional language, unclear what specific changes were made or why]",
+    "response_strong": "Here's the rewritten email with a casual, friendly tone:\n\n[Original]: \"I hope this message finds you well. I am writing to inform you that the quarterly reports will be delayed by approximately three business days due to unforeseen circumstances.\"\n\n[Revised]: \"Hey! Just wanted to give you a heads up that the quarterly reports are going to be about three days late - we hit a few snags but should have everything sorted soon.\"\n\nI've used contractions (\"we're\" → \"we hit\"), simplified the language (\"unforeseen circumstances\" → \"hit a few snags\"), removed formal greetings, and made it conversational while keeping all the important details about the delay."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with feedback like this — it's completely natural to say something feels off. The challenge is that 'too formal, try again' doesn't give the AI enough to work with, so it made minimal changes without understanding what was actually wanted. The strong prompt worked because it explained exactly what 'too formal' meant (business formalities, complex language) and gave specific instructions (use contractions, simpler language, friendly tone).",
+      "principle": "Be specific, not vague — instead of just saying something is wrong, explain what you want changed and how.",
+      "principle_name": "Be specific, not vague",
+      "tip": "When giving feedback to AI tools, replace words like 'better,' 'more casual,' or 'fix this' with specific examples of what you want. Instead of 'make it casual,' try 'use contractions, simple words, and a friendly greeting like Hey instead of Dear.'",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — naming the problem and the audience is a solid instinct. The result was decent, but the AI made improvements without explaining what it changed or why. The strong prompt got a much better response because it specified exactly what 'casual' means (contractions, simpler language, drop formalities) and asked the AI to show its work by comparing before and after.",
+      "principle": "Show what 'good' looks like by giving specific examples of the changes you want, rather than using vague terms like 'casual' or 'formal.'",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When asking for style changes, include 2-3 concrete examples of what you want: 'use contractions like you're instead of you are,' 'say hey instead of dear,' or 'write like you're texting a friend.' This helps the AI understand your exact vision.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got a much better result! The weak prompt was too vague — the AI didn't know what 'less formal' meant to you, so it made minimal changes. Your detailed prompt told the AI exactly what casual tone looks like (contractions, simpler language, no business formalities) and even showed the AI its work by providing a clear before-and-after comparison.",
+      "principle": "Show what 'good' looks like by giving specific examples and criteria rather than vague descriptors like 'better' or 'more casual.'",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When you want an AI to change something, describe the specific qualities you want AND give an example if possible. Instead of 'make it more casual,' try 'use contractions, shorter sentences, and a friendly greeting like I'm talking to a work friend.'",
+      "user_picked_best": true
+    }
+  }
+}

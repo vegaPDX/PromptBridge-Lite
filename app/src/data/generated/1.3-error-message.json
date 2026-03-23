@@ -1,0 +1,49 @@
+{
+  "scenarioId": "1.3-error-message",
+  "generatedAt": "2026-03-22T16:43:44.195Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "403 error help",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I'm getting a 403 Forbidden error when trying to access our company dashboard. It was working yesterday. What could be causing this?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I'm getting a 403 Forbidden error when accessing our company's internal dashboard at dashboard.company.com. It worked fine yesterday and I haven't changed my login credentials. I'm using Chrome on Windows, same as always. I need to troubleshoot this quickly since I have a meeting in an hour that requires data from the dashboard. What are the most likely causes given that nothing changed on my end?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "A 403 error means you don't have permission to access the requested resource. Check your credentials or contact your system administrator.",
+    "response_strong": "Since the dashboard worked yesterday and you haven't changed anything on your end, here are the most likely causes in order of probability:\n\n**Most Likely:**\n1. **Session expired** - Your authentication token may have timed out. Try logging out completely and logging back in.\n2. **Server-side permission changes** - IT may have updated user permissions overnight. Check with colleagues if they're experiencing the same issue.\n3. **Scheduled maintenance** - The dashboard may be temporarily restricted during updates.\n\n**Quick troubleshooting steps (15 minutes):**\n1. Clear your browser cache and cookies for the dashboard site\n2. Try accessing in an incognito/private window\n3. Test the URL from a different browser or device\n4. Check if you can access other company internal tools\n\n**If still blocked:**\nContact your IT helpdesk immediately and mention: \"403 error on dashboard.company.com, worked yesterday, urgent access needed.\" They can quickly check server logs and your account permissions.\n\nGiven your meeting timeline, I'd start with the logout/login and incognito window test first - these solve 70% of sudden 403 errors on previously working internal tools."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Your brief prompt got a generic, unhelpful response that just restated what a 403 error means. The detailed prompt got a prioritized troubleshooting plan with specific steps and timeline awareness. The AI had context about your urgency and situation, so it could provide targeted, actionable advice instead of basic definitions.",
+      "principle": "Provide context so the AI understands your specific situation and can give relevant, targeted help instead of generic information.",
+      "principle_name": "Provide context",
+      "tip": "When asking for technical help, include key details: what you were trying to do, when it last worked, what's changed (or hasn't), and any time constraints you're facing.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your prompt got a decent response, but notice the difference: the basic prompt got a generic answer that just restated what a 403 error means. The detailed prompt got a prioritized troubleshooting plan with specific steps and timeline awareness. The AI had more context to work with, so it could give you actionable solutions instead of just definitions.",
+      "principle": "Provide context - the more relevant details you share about your situation, the more tailored and useful the AI's response will be.",
+      "principle_name": "Provide context",
+      "tip": "Next time you're troubleshooting, include three key details: what specifically isn't working, what changed recently (or what didn't change), and any time pressure you're facing. This helps the AI prioritize solutions for your exact situation.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got a comprehensive, actionable response. The weak prompt only got a generic definition because it lacked context about your specific situation. Your detailed prompt gave the AI everything it needed: what changed (nothing on your end), your timeline constraint (meeting in an hour), and your environment details. This context allowed the AI to prioritize solutions and give you a step-by-step troubleshooting plan.",
+      "principle": "Provide context - the more relevant details you share about your situation, the more tailored and useful the AI's response will be.",
+      "principle_name": "Provide context",
+      "tip": "When asking for technical help, always include what was working before, what changed (or didn't change), your timeline constraints, and your environment details. This helps AI tools give you prioritized solutions instead of generic advice.",
+      "user_picked_best": true
+    }
+  }
+}

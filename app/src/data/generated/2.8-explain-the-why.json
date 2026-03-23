@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.8-explain-the-why",
+  "generatedAt": "2026-03-22T16:51:26.277Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write social media posts for my bakery. Use food emojis, mention Portland, end with our tagline.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need social media posts for my Portland bakery. Please make them warm and friendly, include food emojis, mention that we're located in Portland, and always end with our tagline. Can you write a few examples?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I run a bakery's Instagram account and need help writing posts that connect with our local community. Our audience responds well to visual, casual content (that's why we use food emojis), and we want to emphasize our local roots since Portland customers love supporting neighborhood businesses (hence mentioning our location). We always end with our tagline because it reinforces our brand identity. The warm tone is important because we want people to feel like they're hearing from a friend, not a corporate account. Can you write some sample posts that capture this approach?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here are some social media posts for your bakery:\n\n🥐 Fresh croissants available now in Portland! Come visit us today. [Your tagline here]\n\n🍞 New bread varieties this week in Portland. Stop by and try them. [Your tagline here]\n\n🧁 Cupcakes are ready in Portland! Perfect for any occasion. [Your tagline here]",
+    "response_strong": "Here are some Instagram posts that capture that friendly, community-focused voice:\n\n\"Nothing beats the smell of fresh sourdough filling our little corner of Southeast Portland this morning! 🍞✨ Our neighbors have been lining up since 7am - you folks are the best! Stop by before we sell out (again!) 😊 Sweet dreams are baked fresh daily.\"\n\n\"Rainy Portland Tuesday calls for comfort food, don't you think? ☔️ Our cinnamon rolls are practically giving warm hugs today 🌀🤗 Plus, we just pulled a batch of our famous marionberry scones from the oven - because nothing says Oregon like marionberries! Sweet dreams are baked fresh daily.\"\n\n\"Weekend farmers market prep happening now! 🥖🥨 You'll find us at the Hawthorne market Saturday morning with all your favorites, plus some special Portland-inspired treats we've been experimenting with 👀 Can't wait to see our market family! Sweet dreams are baked fresh daily.\""
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "This is how most people would phrase it — listing out the requirements is a solid starting point. The challenge is that without the reasoning behind them, the AI created generic posts that technically followed the rules but missed the heart of the request. The AI treated the requirements like a checklist rather than understanding the goal of posts that feel personal and community-focused. The strong prompt explained WHY each element matters, which helped the AI create posts that actually sound like they're from a beloved neighborhood bakery.",
+      "principle": "When you explain the reasoning behind your requirements, AI tools can create content that captures the spirit of what you want, not just the technical specifications.",
+      "principle_name": "Provide context",
+      "tip": "Next time you need content with a specific tone or style, explain WHY each requirement matters to your audience - this helps the AI understand the purpose behind the rules and create something that truly fits your needs.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — adding context about tone and style is a good instinct. The result was functional posts that checked all the boxes, but they felt generic and corporate. The weak prompt produced robotic posts that just inserted 'Portland' without meaning, while the strong prompt created posts that felt like they came from a real person who understands their community. The difference was that the strong prompt explained WHY each element mattered, not just WHAT to include.",
+      "principle": "When you explain the reasoning behind your requirements, AI can create content that serves the actual purpose rather than just following a checklist.",
+      "principle_name": "Provide context",
+      "tip": "Next time you need content with specific requirements, add one sentence explaining WHY each requirement matters to your audience or goals. Instead of 'use food emojis,' try 'use food emojis because our audience responds well to visual content.'",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You saw the difference between giving AI a checklist versus explaining your thinking. The weak prompt produced generic, repetitive posts that technically followed your rules but felt robotic. The strong prompt produced posts that actually sounded like a local bakery owner talking to neighbors — specific details like 'Southeast Portland,' 'marionberry scones,' and 'Hawthorne market' made them feel authentic and connected to your community.",
+      "principle": "When you explain WHY you want something (not just WHAT), AI can make better creative decisions that align with your actual goals.",
+      "principle_name": "Provide context",
+      "tip": "Next time you need creative content, spend a sentence explaining the reasoning behind each requirement — like 'we mention location because locals love supporting neighborhood businesses' — so the AI understands your strategy, not just your rules.",
+      "user_picked_best": true
+    }
+  }
+}

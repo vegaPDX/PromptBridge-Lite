@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.2-audience-mismatch",
+  "generatedAt": "2026-03-22T16:47:43.818Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write a message about the database outage this morning",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Help me write a communication about our 2-hour database outage this morning that affected customer services. I need to explain what happened and that it's resolved now.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to write three different messages about our 2-hour database outage this morning that affected customer-facing services. Please help me create: 1) A brief apology email for affected customers focusing on the impact to them, 2) A detailed incident report for our executive team including timeline and business impact, and 3) A technical post-mortem summary for our engineering team focusing on root cause and prevention. The outage ran from 9-11 AM EST and all services are now fully restored.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "We experienced a database outage this morning that affected our services. The issue has been resolved and systems are back online. We apologize for any inconvenience this may have caused.",
+    "response_strong": "Here are three tailored messages for your database outage communication:\n\n**1. Customer Apology Email:**\nSubject: Service Restored - We Apologize for This Morning's Disruption\n\nDear Valued Customer,\n\nWe want to personally apologize for the service interruption you may have experienced between 9:00-11:00 AM EST today. A database issue temporarily prevented access to your account and our customer portal.\n\nAll services are now fully restored, and your data remains secure and intact. We understand how disruptive this was to your morning, and we're taking immediate steps to prevent similar issues.\n\nThank you for your patience and continued trust in our services.\n\n**2. Executive Incident Report:**\nDATABASE OUTAGE - EXECUTIVE SUMMARY\nDuration: 9:00-11:00 AM EST (2 hours)\nImpact: 100% of customer-facing services unavailable\nEstimated affected users: [Insert number]\nRevenue impact: ~$[X] in lost transactions\nResolution: Full service restoration at 11:00 AM\nImmediate actions: Engineering team investigating root cause\nNext steps: Detailed post-mortem scheduled within 48 hours\n\n**3. Engineering Post-Mortem Summary:**\nINCIDENT: Primary Database Outage\nROOT CAUSE: [To be determined - initial investigation suggests connection pool exhaustion]\nTIMELINE:\n- 9:00 AM: First alerts triggered\n- 9:15 AM: On-call engineer engaged\n- 9:45 AM: Root cause identified\n- 10:30 AM: Fix implemented\n- 11:00 AM: Full service verification complete\n\nPREVENTION MEASURES:\n- Review connection pool configuration\n- Implement additional monitoring for early detection\n- Update runbook procedures\n- Schedule load testing for similar scenarios"
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a question like this — it's a natural way to ask. The challenge is that when a request is this general, the AI produces a generic, one-size-fits-all message that wouldn't work for any specific audience. The strong prompt specified exactly who needed what information, so the AI created three distinct messages — a customer apology focusing on impact, an executive summary with business metrics, and a technical post-mortem for engineers.",
+      "principle": "Be specific about what you need rather than asking for something general — different audiences need different information, tone, and level of detail.",
+      "principle_name": "Be specific, not vague",
+      "tip": "When you need communications for multiple audiences, list each group and what they specifically care about (customers want apologies and reassurance, executives want business impact, technical teams want root causes).",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your prompt got a generic, one-size-fits-all response because you didn't specify WHO you were writing for. The AI gave you basic corporate speak that wouldn't work well for customers, executives, or engineers. The stronger prompt specified three different audiences and got three tailored messages — a customer apology focusing on impact, an executive summary with business metrics, and a technical post-mortem for engineers.",
+      "principle": "Different audiences need different information, so tell the AI exactly who will read your content and what they care about most.",
+      "principle_name": "Provide context",
+      "tip": "Before asking for any communication, specify your audience first: 'Write this for customers who were affected' or 'Write this for executives who need business impact data.' The AI will automatically adjust tone, detail level, and focus.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got exactly what you needed — three distinct, professional messages tailored for different audiences. The weak prompt would have given you one generic message that wouldn't work for customers, executives, or engineers. Your detailed request specified the audiences, formats, and key information, so the AI could craft appropriate tone and content for each group.",
+      "principle": "When you need multiple outputs for different audiences, specify exactly who each message is for and what information they need — this lets the AI adjust tone, detail level, and focus appropriately.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time you need communications for different groups, list each audience and briefly describe what they care about most (customers want reassurance, executives want business impact, technical teams want root cause details).",
+      "user_picked_best": true
+    }
+  }
+}

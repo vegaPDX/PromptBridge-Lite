@@ -1,0 +1,49 @@
+{
+  "scenarioId": "4a.1-step-by-step",
+  "generatedAt": "2026-03-22T16:56:09.842Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Split this bill",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Help me split a dinner bill of $187 among 5 people. Three had steak ($38 each), two shared an appetizer ($16), and four split two bottles of wine ($45 each).",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to split a dinner bill fairly among 5 people. Work through this step by step before giving the final amounts each person owes: Total bill $187. Three people had steak special ($38 each), two people shared an appetizer ($16 total), one person didn't drink alcohol, and the other four split two bottles of wine ($45 each bottle).",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "To split $187 among 5 people equally, each person would pay $37.40.",
+    "response_strong": "I'll work through this step-by-step to split the bill fairly based on what each person consumed.\n\n**Step 1: Break down the costs**\n- 3 steak specials: 3 × $38 = $114\n- Shared appetizer: $16\n- 2 bottles of wine: 2 × $45 = $90\n- Other items: $187 - $114 - $16 - $90 = -$33\n\nWait, let me recalculate. The itemized costs ($114 + $16 + $90 = $220) exceed the total bill of $187. Let me assume the $187 total is correct and work backwards.\n\n**Step 2: Allocate costs fairly**\n- Each person who had steak: pays for their $38 steak\n- Appetizer: $16 ÷ 2 people = $8 each for those who shared it\n- Wine: $90 ÷ 4 people = $22.50 each for those who drank\n- Remaining amount ($187 - $114 - $16 - $90 = -$33): This suggests the itemized prices don't match the total\n\n**Final amounts per person:**\nGiven the $187 total, I'll proportionally adjust:\n- 3 people with steak + wine: ~$43 each\n- 1 person with appetizer + wine: ~$31\n- 1 person with appetizer only (no alcohol): ~$8\n\nPlease verify the individual item prices, as they don't sum to $187."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a quick request like this -- it's completely natural. The challenge is that a simple 'Split this bill' gets an equal split ($37.40 each) that ignores who ordered what. The detailed prompt got a step-by-step breakdown that fairly allocated costs based on what each person actually consumed, and even caught a math error in the numbers.",
+      "principle": "When you give AI tools specific details and context, they can provide much more useful and accurate help than when you're vague.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time you need help with calculations or problem-solving, include all the relevant details in your first message rather than expecting the AI to guess what you need.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it -- it includes the key details, which is a great instinct. The challenge is that the AI got confused because the math didn't add up ($220 in items vs $187 total bill). The strong prompt asked the AI to 'work through this step by step,' which helped it catch the discrepancy and explain the problem clearly. Without that instruction, the AI had to guess how to handle the mismatch.",
+      "principle": "When you ask AI to show its work step-by-step, it catches errors and explains problems instead of just giving you a potentially wrong answer.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When asking AI to solve complex problems, add 'work through this step by step' or 'show your calculations' to your request. This helps the AI catch mistakes and gives you confidence in the answer.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got a much better response! The weak prompt treated this as simple division, ignoring who ordered what. Your strong prompt asked the AI to work step-by-step and be fair, so it caught the math error in your scenario and showed its reasoning throughout.",
+      "principle": "When you ask AI tools to 'work step-by-step' and explain their thinking, they catch errors and show you how they reached their answer.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "For any complex calculation or analysis, add 'work through this step-by-step' to your request. This forces the AI to break down its thinking and makes it much more likely to spot mistakes.",
+      "user_picked_best": true
+    }
+  }
+}

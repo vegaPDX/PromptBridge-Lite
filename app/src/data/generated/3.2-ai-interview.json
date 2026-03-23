@@ -1,0 +1,49 @@
+{
+  "scenarioId": "3.2-ai-interview",
+  "generatedAt": "2026-03-22T16:52:36.245Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Help me plan a team offsite for 8 people",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need to plan a team offsite for 8 people and have a rough budget in mind. Can you help me figure out what I need to consider?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to plan a team offsite for 8 people but I'm not sure where to start. I have some rough ideas and a budget range, but I haven't thought through all the details yet. Can you interview me with questions to help me think through everything I need to consider - like logistics, activities, dietary needs, and anything else I might be overlooking?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I can help you plan a team offsite for 8 people. You'll need to consider the location, budget, activities, accommodation, meals, and transportation. Popular options include retreat centers, hotels with meeting spaces, or renting a house. Plan team-building activities, set an agenda, and book everything in advance. Make sure to account for dietary restrictions and accessibility needs.",
+    "response_strong": "I'd be happy to help you plan your team offsite by walking through the key considerations together. Let me ask you some questions to help organize your thinking:\n\n**Purpose & Goals:**\n- What's the main objective? (team bonding, strategic planning, celebration, etc.)\n- How long are you thinking? (half-day, full day, overnight, weekend?)\n\n**Practical Details:**\n- What's your rough budget range per person?\n- When are you hoping to do this?\n- Where is your team based, and how far are people willing to travel?\n\n**Your Team:**\n- Any dietary restrictions, accessibility needs, or mobility considerations?\n- What's the group dynamic like - do they know each other well?\n- Any activities they particularly love or hate?\n\n**Logistics:**\n- Do you need meeting/presentation space for work sessions?\n- Will this be during work hours or include personal time?\n- Who's handling booking and coordination?\n\nOnce I understand these basics, I can help you think through venue options, activity ideas, and create a planning timeline. What would you like to tackle first?"
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this — it's completely natural to describe the task and ask for help. The challenge is that when a request is this general, the AI gives a generic checklist instead of personalized help. The stronger version asked the AI to interview with questions, which produced a detailed conversation that would actually help think through the specific situation and needs.",
+      "principle": "Ask the AI to ask you questions when you're not sure what information to provide or how to get started.",
+      "principle_name": "Ask the AI to ask you questions",
+      "tip": "When you're facing a complex task and don't know where to begin, explicitly ask the AI to interview you or ask you questions to gather the details it needs to give you personalized help.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — mentioning context like a budget is a good instinct. The result was a generic checklist, though, because the prompt didn't ask the AI to actively help think through the specific situation. The strong option explicitly asked the AI to interview with questions, which triggered a much more interactive and useful response that actually walks through the planning process step-by-step.",
+      "principle": "Ask the AI to ask you questions - when you're unsure about something complex, explicitly request that the AI interview you to help organize your thinking.",
+      "principle_name": "Ask the AI to ask you questions",
+      "tip": "When facing a complex task you're unsure about, add 'Can you interview me with questions to help me think through...' to your request. This transforms the AI from a generic advice-giver into an interactive planning partner.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got a much more useful response! Instead of getting a generic list of things to consider, the AI became your planning partner. It asked specific questions about your goals, budget, team needs, and logistics - exactly what you need when you're feeling overwhelmed and don't know where to start.",
+      "principle": "When you're uncertain or need help thinking through a complex problem, ask the AI to interview you with questions rather than trying to give it incomplete information upfront.",
+      "principle_name": "Ask the AI to ask you questions",
+      "tip": "Next time you're facing a complex task where you're not sure what information to provide, try saying 'Can you interview me with questions to help me think through...' - this turns the AI into a collaborative partner who guides you through the process step by step.",
+      "user_picked_best": true
+    }
+  }
+}

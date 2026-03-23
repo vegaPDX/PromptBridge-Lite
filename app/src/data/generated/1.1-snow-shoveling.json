@@ -1,0 +1,49 @@
+{
+  "scenarioId": "1.1-snow-shoveling",
+  "generatedAt": "2026-03-22T16:42:30.425Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Do you know about snow shoveling?",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "What's the best way to shovel snow from a driveway?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to clear 8 inches of heavy wet snow from my 30-foot driveway before leaving for work in 45 minutes. What's the most efficient technique and strategy to avoid injury and get it done quickly?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Yes, I can help with snow shoveling. It involves using a shovel to remove snow from surfaces like driveways and walkways. Make sure to lift with your legs and take breaks to avoid injury.",
+    "response_strong": "Here's your efficient 45-minute snow clearing strategy:\n\n**Preparation (5 minutes):**\n- Use a snow pusher/scoop shovel rather than a lifting shovel for heavy wet snow\n- Spray cooking spray on the blade to prevent sticking\n- Dress in layers you can remove as you warm up\n\n**Technique for 8 inches of heavy snow:**\n- Clear in two 4-inch passes rather than trying to lift the full depth\n- Push rather than lift whenever possible - wet snow is extremely heavy\n- Work from the center of the driveway outward to avoid moving snow twice\n- Create a path down the middle first, then push snow to alternating sides\n\n**Time-saving strategy:**\n- Start with the area behind your car so you can back out immediately when done\n- Focus on tire tracks first - you don't need to clear every inch perfectly\n- Leave a 6-foot width rather than clearing the entire driveway if time runs short\n\n**Injury prevention:**\n- Bend your knees, keep your back straight\n- Take 30-second breaks every 10 minutes\n- Switch hand positions frequently\n\nThis approach should have your driveway passable in 35-40 minutes."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "This is how most people would phrase it — it's completely natural. The challenge is that when a request is this general, the AI gives basic information instead of solving your specific problem. The strong prompt included crucial details (8 inches, heavy wet snow, 30-foot driveway, 45-minute deadline) that let the AI create a detailed action plan tailored to the exact situation.",
+      "principle": "Be specific, not vague — the more details you provide about your situation, the more useful and actionable the AI's response will be.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Before asking any AI tool for help, pause and include the key specifics: What exactly are you dealing with? What constraints do you have? What's your goal? These details transform generic advice into a custom solution.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your question got a decent answer, but notice the difference: the weak prompt got generic advice anyone could find online, while the strong prompt got a complete action plan tailored to your exact situation. The AI gave you a step-by-step strategy because it knew your specific constraints (45 minutes, 8 inches of heavy snow, 30-foot driveway).",
+      "principle": "When you give the AI specific details about your situation, it can create solutions that actually fit your needs instead of giving generic advice.",
+      "principle_name": "Provide context",
+      "tip": "Next time you ask any AI tool for help, include the key details that make your situation unique - your timeline, the specific challenge you're facing, and what success looks like for you.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the most specific option and got a detailed, actionable plan instead of generic advice. The weak prompt was too vague ('Do you know about...?') so the AI gave basic information. Your choice included crucial details — 8 inches of heavy wet snow, 30-foot driveway, 45-minute deadline — which let the AI create a step-by-step strategy tailored to your exact situation.",
+      "principle": "When you give the AI specific context about your situation (measurements, timeframes, constraints), it can provide solutions that actually fit your needs instead of generic advice.",
+      "principle_name": "Provide context",
+      "tip": "Before asking any AI tool for help, include the key details of your situation: What exactly are you working with? What's your timeline? What constraints do you have? This transforms vague responses into practical, personalized guidance.",
+      "user_picked_best": true
+    }
+  }
+}

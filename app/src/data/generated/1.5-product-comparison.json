@@ -1,0 +1,49 @@
+{
+  "scenarioId": "1.5-product-comparison",
+  "generatedAt": "2026-03-22T16:44:55.859Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "What's the best laptop?",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need a laptop for work and personal use with a budget of $1,200. What do you recommend?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need help choosing a laptop for both work and personal use with a $1,200 budget. For work, I primarily use Microsoft Office, video calls, and light photo editing. For personal use, I stream videos and do some casual gaming. I prefer something portable (under 4 lbs) with good battery life (8+ hours) and a 14-15 inch screen. Can you recommend 3 specific models and explain the key differences between them?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "The best laptop depends on your needs and budget. Popular options include MacBook Air, Dell XPS, HP Spectre, and Lenovo ThinkPad. Consider factors like processor speed, RAM, storage, and display quality when making your decision.",
+    "response_strong": "Based on your requirements, here are 3 excellent laptops within your $1,200 budget:\n\n**1. ASUS Zenbook 14 OLED (UM3402) - $1,099**\n- AMD Ryzen 7 processor, 16GB RAM, 512GB SSD\n- 14\" OLED display, 2.8 lbs, 12+ hour battery\n- Best for: Stunning display for photo editing and streaming\n- Trade-off: Less gaming performance than others\n\n**2. Acer Swift X 14 - $1,149**\n- Intel Core i7, 16GB RAM, 512GB SSD, RTX 3050 GPU\n- 14\" IPS display, 3.2 lbs, 8-9 hour battery\n- Best for: Casual gaming and photo editing performance\n- Trade-off: Slightly shorter battery life\n\n**3. HP Pavilion Plus 14 - $999**\n- Intel Core i7, 16GB RAM, 512GB SSD\n- 14\" 2.8K display, 3.1 lbs, 9+ hour battery\n- Best for: Great value with premium features\n- Trade-off: Integrated graphics limit gaming options\n\nAll three handle Office and video calls excellently. The ASUS offers the best display, the Acer provides dedicated gaming graphics, and the HP gives you the most budget headroom."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Your question 'What's the best laptop?' got you a generic list of brands and vague advice to 'consider factors.' The detailed request got you 3 specific recommendations with prices, specs, and clear trade-offs explained. The AI had no way to know what 'best' meant for your situation without your specific needs and constraints.",
+      "principle": "Be specific, not vague — AI tools need concrete details about your situation to give you useful, actionable advice instead of generic responses.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time you ask any AI tool for recommendations, include your budget, main use cases, and 2-3 specific preferences (like screen size or weight). This transforms generic advice into tailored options you can actually choose between.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your prompt included the key basics (budget and use case) which got you a decent response, but the AI had to guess about your specific needs. The stronger prompt provided detailed requirements like weight preferences, battery life needs, and specific tasks, which allowed the AI to give targeted recommendations with clear comparisons and trade-offs.",
+      "principle": "Be specific, not vague — the more details you provide about your exact needs and preferences, the more tailored and useful the AI's recommendations will be.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time you ask for product recommendations, include your specific use cases, must-have features, and any deal-breakers upfront. Instead of just saying 'work and personal use,' mention the actual programs you'll run and activities you'll do.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the detailed prompt and got three specific laptop recommendations with exact prices, specs, and trade-offs explained. The vague prompt only produced generic advice about 'considering factors' without any actionable recommendations. Your detailed request gave the AI everything it needed to provide genuinely helpful guidance.",
+      "principle": "When you provide specific context about your needs, constraints, and preferences, AI tools can give you tailored recommendations instead of generic advice.",
+      "principle_name": "Provide context",
+      "tip": "Before asking for recommendations, list your specific requirements (budget, use cases, preferences) and ask for a specific format like '3 options with pros and cons' rather than just 'what's best?'",
+      "user_picked_best": true
+    }
+  }
+}

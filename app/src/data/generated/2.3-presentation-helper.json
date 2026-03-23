@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.3-presentation-helper",
+  "generatedAt": "2026-03-22T16:48:18.629Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Help me make a presentation about my project",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need to create a 10-minute presentation about our customer migration project. We've moved 340 of 500 accounts and should finish by June, but there's a legacy system issue in April. Can you help structure this?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to create a 10-minute presentation for my VP and directors about our customer migration project. Key details: 340 of 500 accounts migrated, on track for June completion, but legacy system deprecation in April poses main risk. My audience will want to understand timeline confidence, risk mitigation plans, and what support they need to provide. Please help me structure this presentation with executive-appropriate content and clear asks.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I can help you create a presentation about your project. Here's a basic structure you could use:\n\n1. Introduction\n2. Project Overview\n3. Current Status\n4. Challenges\n5. Next Steps\n6. Conclusion\n\nMake sure to include relevant data and keep it engaging for your audience. Would you like me to elaborate on any of these sections?",
+    "response_strong": "Here's an executive-focused structure for your 10-minute customer migration presentation:\n\n**Slide 1: Executive Summary (1 min)**\n- 68% complete (340/500 accounts migrated)\n- On track for June delivery\n- Critical risk: Legacy system deprecation April 2024\n\n**Slide 2: Progress Dashboard (2 min)**\n- Migration velocity: X accounts/week\n- Quality metrics: Success rate, rollback incidents\n- Timeline confidence: High/Medium/Low with reasoning\n\n**Slide 3: April Risk Deep-dive (3 min)**\n- Legacy system deprecation impact on remaining 160 accounts\n- Mitigation options: Accelerated timeline vs. temporary bridge solution\n- Resource implications for each option\n\n**Slide 4: Path Forward (2 min)**\n- Recommended approach with trade-offs\n- Dependencies requiring leadership support\n- Go/no-go decision points\n\n**Slide 5: Executive Asks (2 min)**\n- Specific decisions needed from leadership\n- Resource approvals or priority changes\n- Communication support for customer-facing teams\n\nEnd with clear next steps and timeline for their decisions. Focus on business impact rather than technical details."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this — it's completely natural to ask for help without listing every detail upfront. The challenge is that without knowing the audience, timeline, or specific situation, the AI defaulted to generic presentation advice that could apply to any project. The stronger version included the audience (VP and directors), key metrics, and the critical April risk, which let the AI create an executive-focused presentation with specific content recommendations.",
+      "principle": "Provide context about your situation, audience, and constraints so the AI can tailor its response to your specific needs.",
+      "principle_name": "Provide context",
+      "tip": "Always include three key pieces of context: WHO you're presenting to, WHAT the stakes are, and WHEN any critical deadlines occur. This transforms generic advice into targeted solutions.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — it's a solid prompt with the key facts and a clear ask for structure. The response covered the main content areas, which is a good start. However, the AI didn't know the audience was executives, so it gave generic advice rather than executive-specific guidance like decision points, business impact focus, and clear asks for leadership support.",
+      "principle": "Provide context about your audience and situation so the AI can tailor its response to what matters most to the people you're communicating with.",
+      "principle_name": "Provide context",
+      "tip": "Always tell the AI who your audience is and what they care about most — this transforms generic advice into targeted, useful guidance that fits your specific situation.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got a detailed, executive-ready presentation structure. The weak prompt would have given you generic slides that don't match your specific situation or audience needs. Your choice included crucial context about your audience (VP and directors), specific metrics (340 of 500 accounts), and what executives care about (timeline confidence, risk mitigation, support needed).",
+      "principle": "Provide context about your audience and their specific needs so the AI can tailor its response appropriately.",
+      "principle_name": "Provide context",
+      "tip": "Always tell AI tools who your audience is and what they care about — this transforms generic advice into targeted, useful content that actually fits your situation.",
+      "user_picked_best": true
+    }
+  }
+}

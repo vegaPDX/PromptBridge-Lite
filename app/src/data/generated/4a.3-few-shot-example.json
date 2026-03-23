@@ -1,0 +1,49 @@
+{
+  "scenarioId": "4a.3-few-shot-example",
+  "generatedAt": "2026-03-22T16:57:36.711Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write product descriptions for my handmade jewelry",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need help writing product descriptions for 10 new handmade jewelry pieces for my Etsy shop. I want them to be short, warm, and tell the story behind each piece. Can you help me create descriptions that match this style?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need product descriptions for 10 new handmade jewelry pieces. Here are 3 examples of descriptions I love from my current listings:\n\n\"Born from a sunrise walk on the beach, this delicate silver chain holds three tiny pearls like captured dewdrops. 16-inch length.\"\n\n\"Hammered by hand in my studio, this copper cuff whispers of autumn leaves and cozy evenings. Adjustable, fits most wrists.\"\n\n\"Inspired by my grandmother's garden, these emerald studs bring a touch of vintage charm to any outfit. Sterling silver posts.\"\n\nPlease write descriptions for my new pieces following this same style and structure.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here are some product descriptions for your handmade jewelry:\n\n1. Beautiful handcrafted necklace made with quality materials\n2. Elegant earrings perfect for any occasion\n3. Stylish bracelet with unique design elements\n4. Classic ring featuring premium stones\n5. Trendy pendant with artistic flair\n6. Sophisticated anklet for everyday wear\n7. Charming brooch with vintage appeal\n8. Modern cufflinks for professional settings\n9. Delicate chain with eye-catching details\n10. Statement piece that complements any wardrobe",
+    "response_strong": "Here are 10 product descriptions following your warm, story-driven style:\n\n1. \"Crafted during a quiet winter evening, this rose gold locket holds secrets close to the heart. Vintage-inspired engravings dance across its surface. 18-inch chain included.\"\n\n2. \"These moonstone drops caught my eye like stars reflected in still water. Hand-wrapped in sterling silver, they sway gently with every step. Hypoallergenic ear wires.\"\n\n3. \"Forged from recycled brass in my workshop, this statement cuff bears the marks of countless gentle hammer strikes. Bold yet comfortable, fits wrists 6-8 inches.\"\n\n4. \"Inspired by morning frost on windowpanes, this crystal cluster ring sparkles with captured light. Size 7, sterling silver band with delicate prong setting.\"\n\n5. \"Born from sketches in my travel journal, this compass pendant points toward adventure. Antique bronze finish on a 20-inch leather cord.\"\n\n6. \"These tiny hoop earrings whisper of summer meadows, each one hand-textured to catch the light differently. 14k gold-filled, perfect for sensitive ears.\"\n\n7. \"Woven like a spider's web at dawn, this delicate silver bracelet celebrates life's beautiful connections. Adjustable sliding clasp, 6-9 inch range.\"\n\n8. \"Carved from a piece of driftwood found on my favorite shore, this pendant brings the ocean's calm wherever you go. Natural hemp cord, 16-inch length.\"\n\n9. \"These garnet studs glow like embers from a campfire story. Set in warm sterling silver, they add a touch of magic to everyday moments. 6mm stones.\"\n\n10. \"Hand-stamped with an ancient symbol for strength, this copper disc reminds you of your inner power. Hangs from a simple 18-inch sterling chain.\""
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this -- it's completely natural. The challenge is that without examples of a specific style or detailed guidance, the AI falls back on basic templates like 'Beautiful handcrafted necklace' and 'Elegant earrings perfect for any occasion.' The strong prompt showed the AI exactly what was needed by providing three sample descriptions, which let it capture the warm, story-driven voice perfectly.",
+      "principle": "Show what 'good' looks like by providing examples of the style, tone, or format you want the AI to follow.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "Next time you want AI to match a specific style or tone, include 2-3 examples of what you love. This works for everything from writing styles to email formats — the AI learns much faster from examples than from descriptions alone.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "You gave the AI helpful direction about your style preferences, but without concrete examples to follow, it had to guess what 'short, warm, and story-focused' meant to you. The result was generic descriptions that missed your specific voice and structure. The strong prompt showed actual examples from your existing listings, which let the AI perfectly match your unique storytelling style and format.",
+      "principle": "Show what 'good' looks like by providing specific examples rather than just describing your preferences in words.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "Next time you want AI to match a specific style or format, include 2-3 concrete examples of exactly what you want, rather than just describing it. This works for everything from writing tone to email formats to social media posts.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got exactly what you needed! The weak prompt gave you generic, lifeless descriptions that could describe anyone's jewelry. But your detailed prompt with examples produced descriptions that perfectly matched your warm, story-driven style — complete with origin stories, sensory details, and technical specs in the same format.",
+      "principle": "Show what 'good' looks like by providing specific examples of the style, tone, or format you want the AI to follow.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When you want AI to match a specific style or format, always include 2-3 concrete examples from your own work rather than just describing what you want in words.",
+      "user_picked_best": true
+    }
+  }
+}

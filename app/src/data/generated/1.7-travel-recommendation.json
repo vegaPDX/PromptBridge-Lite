@@ -1,0 +1,49 @@
+{
+  "scenarioId": "1.7-travel-recommendation",
+  "generatedAt": "2026-03-22T16:46:08.423Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Where should I go for a weekend trip?",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I'm planning a long weekend trip in the next two months with a friend. We have around $800 each to spend. What are some good destination ideas?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "My friend and I are planning a 3-4 day trip sometime between now and mid-March, departing from Chicago. We each have a budget of around $800 including flights and accommodation. We enjoy outdoor activities, good food scenes, and interesting architecture. We'd prefer destinations within a 4-hour flight. Can you suggest some specific destinations with brief explanations of what makes each appealing for our interests and budget?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "There are many great weekend trip destinations! Popular options include national parks, beach towns, mountain resorts, or vibrant cities. Consider your interests, budget, and travel time when choosing. Some general ideas: Austin, Portland, Denver, or Asheville for a mix of culture and outdoors.",
+    "response_strong": "Here are some excellent destinations from Chicago that fit your criteria:\n\n**Nashville, TN** ($600-700 total) - 1.5hr flight, amazing food scene from hot chicken to craft cocktails, beautiful architecture in Music Row and downtown, plus nearby hiking at Radnor Lake. Great walkable neighborhoods.\n\n**Denver, CO** ($650-750 total) - 2hr flight, incredible mountain access for hiking/skiing, thriving food scene in RiNo district, stunning architecture from Union Station to the Art Museum. Easy light rail from airport.\n\n**Savannah, GA** ($550-650 total) - 2hr flight, gorgeous historic architecture in the squares, excellent Low Country cuisine, nearby Tybee Island for outdoor activities, very walkable historic district.\n\n**Montreal, Canada** ($500-600 total) - 2.5hr flight, incredible food scene, stunning old architecture in Old Montreal, winter activities like ice skating, favorable exchange rate stretches your budget.\n\nEach offers direct flights from Chicago and fits comfortably within your $800 budget while hitting all your interests."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "This is how most people would phrase it — it's completely natural. The challenge is that when a request is this general, the AI gives a generic list of cities without any useful details. The stronger version included specific details (departing Chicago, $800 budget, interests) and asked for explanations, which produced detailed recommendations with costs, flight times, and reasons why each place matches the stated preferences.",
+      "principle": "Be specific, not vague — the more details you provide about your situation and what you want, the more useful and tailored the response will be.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Before asking any AI tool for recommendations, write down 3-4 key details about your situation (like budget, location, preferences) and include them in your request. This transforms generic advice into personalized suggestions.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your prompt got you a decent list of destinations with budget estimates, but the AI had to make assumptions about your location, interests, and what kind of trip experience you wanted. The stronger prompt got much more tailored suggestions because it included your departure city, specific interests, and travel preferences - so the AI could give you flight times, neighborhood recommendations, and explanations of why each place matched what you're looking for.",
+      "principle": "Provide context - the more relevant details you share upfront, the more personalized and useful the AI's response will be.",
+      "principle_name": "Provide context",
+      "tip": "Before asking for recommendations, include your starting location, specific interests or preferences, and any constraints that matter to you (like maximum travel time or must-have activities).",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got incredibly useful results! The weak prompt gave you generic suggestions like 'consider your interests and budget' — advice you already knew. Your detailed prompt got you specific destinations with exact costs, flight times, and explanations of why each place matches your love of food, architecture, and outdoor activities.",
+      "principle": "When you provide specific context about your situation, constraints, and preferences, AI tools can give you tailored recommendations instead of generic advice.",
+      "principle_name": "Provide context",
+      "tip": "Always include your key constraints upfront — budget, location, timeframe, and what you actually care about. This transforms vague suggestions into actionable options you can immediately research or book.",
+      "user_picked_best": true
+    }
+  }
+}

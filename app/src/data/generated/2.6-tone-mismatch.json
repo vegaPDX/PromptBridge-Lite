@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.6-tone-mismatch",
+  "generatedAt": "2026-03-22T16:50:14.956Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write a message about schedule changes",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need to write two messages about our team meetings moving from Monday mornings to Wednesday afternoons - one casual message for my team and one professional email for the department",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to communicate a schedule change where our team meetings are moving from Monday mornings to Wednesday afternoons starting next month. Please write two versions: 1) A casual Slack message for my immediate team members who attend these meetings regularly, and 2) A professional email for the broader department who may be affected by our availability changes. The Slack message should be brief and conversational, while the email should be more formal with clear subject line and proper context about why this affects them.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here's a message about your schedule changes:\n\nHi everyone,\n\nThere will be some changes to our schedule starting soon. Please adjust your calendars accordingly and let me know if you have any questions.\n\nThanks",
+    "response_strong": "Here are both versions for your schedule change communication:\n\n**Slack Message for Team:**\nHey team! 👋 Quick heads up - starting next month we're moving our weekly meetings from Monday mornings to Wednesday afternoons. I'll send out updated calendar invites soon. Let me know if Wednesdays don't work for anyone!\n\n**Professional Email for Department:**\n\nSubject: Team Meeting Schedule Change - Effective [Next Month]\n\nDear Department Colleagues,\n\nI wanted to inform you that our team's weekly meetings will be moving from Monday mornings to Wednesday afternoons, effective [start date]. This change may impact our availability for cross-departmental collaborations and requests during that time slot.\n\nIf you regularly coordinate with our team or have standing commitments that might be affected by this change, please don't hesitate to reach out so we can discuss any necessary adjustments.\n\nThank you for your understanding.\n\nBest regards,\n[Your name]"
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this — it's completely natural to keep it short. The challenge is that when a request is this general, the AI creates one bland message instead of the two distinct communications needed, with no useful content about the actual schedule change. The stronger prompt worked because it spelled out the specific requirements, audiences, and tone for each message.",
+      "principle": "Be specific, not vague — the more details you provide about what you need, the more useful the AI's response will be.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time, include the key details upfront: what you need (two messages), who they're for (team vs. department), what tone to use (casual vs. professional), and the specific information to include (Monday to Wednesday change).",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — mentioning two audiences and the general tone is a good instinct. The challenge is that the AI had to guess what 'casual' and 'professional' meant without more detail, so it produced generic messages that lacked the specific voice and context each audience needed.",
+      "principle": "Show what 'good' looks like by describing the specific tone, style, and key elements you want in your output.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When asking for different versions of the same content, describe the specific characteristics you want for each version — like 'brief and conversational with emojis' versus 'formal with clear subject line and context about impact.'",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got exactly what you needed! The detailed prompt produced two distinct, well-crafted messages that matched your specific requirements — a casual Slack message with emoji and conversational tone, plus a professional email with proper subject line and context about departmental impact. The weak prompt's vague request resulted in a generic, unhelpful response that didn't address your dual audience needs.",
+      "principle": "When you provide specific context about your audience, format, and tone requirements, AI tools can tailor their responses to match exactly what each situation demands.",
+      "principle_name": "Provide context",
+      "tip": "When you need content for different audiences, explicitly describe each audience and what tone/format works for them — AI tools excel at code-switching between communication styles when you give them clear parameters.",
+      "user_picked_best": true
+    }
+  }
+}

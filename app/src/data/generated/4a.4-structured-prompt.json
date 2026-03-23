@@ -1,0 +1,49 @@
+{
+  "scenarioId": "4a.4-structured-prompt",
+  "generatedAt": "2026-03-22T16:58:18.139Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "I need a workout plan for building muscle and cardio, 3 days a week at home with dumbbells and pull-up bar, but I have a shoulder injury so keep that in mind when suggesting exercises.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Can you create a 3-day weekly workout routine for me? I want to build upper body strength and improve cardio. I have dumbbells and a pull-up bar at home, and each workout should be around 45 minutes. I have a previous shoulder injury on my left side that I need to be careful with.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "Please create a structured 3-day weekly workout routine with the following specifications:\n\nGOALS:\n- Build upper body strength\n- Improve cardiovascular fitness\n\nCONSTRAINTS:\n- 3 days per week maximum\n- 45 minutes per session\n- Home gym only\n\nAVAILABLE EQUIPMENT:\n- Dumbbells (various weights)\n- Pull-up bar\n\nMEDICAL CONSIDERATIONS:\n- Previous shoulder injury on left side - please modify or avoid exercises that could aggravate this\n\nPlease organize the routine by day and include warm-up/cool-down recommendations.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here's a basic 3-day workout plan:\n\nDay 1: Upper body - dumbbell press, rows, curls, tricep extensions\nDay 2: Cardio - jumping jacks, burpees, mountain climbers\nDay 3: Full body - squats, lunges, pull-ups, dumbbell swings\n\nFor your shoulder injury, avoid overhead movements and listen to your body. Start with lighter weights and progress gradually.",
+    "response_strong": "# 3-Day Home Workout Routine (45 minutes/session)\n\n## **DAY 1: Upper Body Strength Focus**\n**Warm-up (5 min):** Arm circles, band pull-aparts, light shoulder rolls\n\n**Main Workout (35 min):**\n- Chest-supported dumbbell rows: 3x8-10 (protects shoulder)\n- Single-arm dumbbell press (right arm focus): 3x8-10\n- Assisted pull-ups/negative pull-ups: 3x5-8\n- Dumbbell bicep curls: 3x10-12\n- Tricep kickbacks: 3x10-12\n- Farmer's walks: 2x30 seconds\n\n**Cool-down (5 min):** Gentle shoulder stretches, chest doorway stretch\n\n## **DAY 2: Cardio + Core**\n**Warm-up (5 min):** Light movement, arm swings\n\n**Main Workout (35 min):** Circuit format (3 rounds)\n- Dumbbell thrusters (light weight): 45 sec\n- Mountain climbers: 45 sec\n- Dumbbell step-ups: 45 sec\n- High knees: 45 sec\n- Plank hold: 30 sec\n- Rest: 90 sec between rounds\n\n**Cool-down (5 min):** Walking in place, deep breathing\n\n## **DAY 3: Functional Strength**\n**Warm-up (5 min):** Dynamic stretching, light movements\n\n**Main Workout (35 min):**\n- Goblet squats: 3x12-15\n- Single-arm dumbbell rows (supported): 3x8-10 each arm\n- Romanian deadlifts: 3x10-12\n- Modified push-ups (incline if needed): 3x8-12\n- Dumbbell reverse lunges: 3x8-10 each leg\n- Dead bugs: 3x10 each side\n\n**Cool-down (5 min):** Full-body stretching routine\n\n## **Shoulder Injury Modifications:**\n- No overhead pressing movements\n- Use supported positions for rows\n- Start with lighter weights on left side\n- Stop immediately if you feel shoulder discomfort\n- Focus on right-side strength while left side recovers"
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a question like this -- it's a natural way to ask. The challenge is that the important details got buried, so the AI gave a generic plan that ignored the time limit, didn't structure the workouts properly, and provided vague shoulder advice. In contrast, the detailed prompt produced a complete program with specific exercises, timing, modifications for the injury, and clear daily structure.",
+      "principle": "Be specific, not vague — the more details you provide upfront, the more tailored and useful the response will be.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time, organize your request with clear sections (like GOALS, CONSTRAINTS, EQUIPMENT) so the AI can address each requirement systematically instead of guessing what matters most to you.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your prompt included most of the important details, which got you a decent workout plan with some shoulder modifications. However, the response was less organized and specific compared to what the strongest prompt produced. The AI gave you basic exercise names but didn't provide the detailed structure, timing, or comprehensive safety modifications you saw in the stronger response.",
+      "principle": "When you organize your request clearly with headers and bullet points, AI tools can mirror that structure and give you more organized, actionable responses.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "Next time, use clear formatting in your request — bullet points, headers, or numbered lists. When you show the AI exactly how you want information organized, it will match that structure and give you more useful, scannable results.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got a comprehensive, structured workout plan! The weak prompt produced a vague, generic response that barely addressed your shoulder injury, while your detailed prompt resulted in specific exercises, timing, modifications for your injury, and even warm-up/cool-down routines. The AI had all the information it needed to create something truly useful.",
+      "principle": "When you provide specific context and constraints upfront, AI tools can give you detailed, personalized responses instead of generic advice.",
+      "principle_name": "Provide context",
+      "tip": "Next time you need help with something complex, organize your request with clear sections like GOALS, CONSTRAINTS, and REQUIREMENTS — it helps the AI understand exactly what you need and creates better, more actionable responses.",
+      "user_picked_best": true
+    }
+  }
+}

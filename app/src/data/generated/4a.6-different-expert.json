@@ -1,0 +1,49 @@
+{
+  "scenarioId": "4a.6-different-expert",
+  "generatedAt": "2026-03-22T16:59:27.415Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "My knee hurts when I run. What should I do?",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I'm a runner and my knee has been hurting during my morning runs. Can you give me some advice on what might be causing this and what I should do about it?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "You are a sports medicine doctor. I'm a 32-year-old recreational runner who runs 3-4 miles every morning. Over the past two weeks, I've developed pain on the outside of my right knee that starts about 10 minutes into my run and gets worse. The pain is sharp and located just below my kneecap. I run on pavement and haven't changed my shoes or routine recently. What could be causing this pain and what steps should I take?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "You should rest your knee and see a doctor if the pain persists. Try ice and anti-inflammatory medication. Consider getting proper running shoes and warming up before running.",
+    "response_strong": "Based on your description, you're likely experiencing lateral knee pain consistent with iliotibial band syndrome (ITBS) or patellofemoral pain syndrome. The sharp pain below your kneecap that develops 10 minutes into running on pavement is a classic presentation.\n\nImmediate steps:\n1. Reduce running intensity by 50% for the next week\n2. Apply ice for 15-20 minutes after runs\n3. Take ibuprofen as directed for inflammation\n\nAssessment needed:\n- Check your running shoes - even without routine changes, shoes lose cushioning after 300-500 miles\n- Evaluate your running surface - consistent pavement running increases impact stress\n- Consider gait analysis - you may be overstriding or have developed compensation patterns\n\nRed flags requiring immediate medical attention:\n- Pain that persists at rest\n- Swelling or warmth around the knee\n- Inability to bear weight normally\n\nIf pain continues beyond one week of modified activity, schedule an appointment with a sports medicine physician or physical therapist for proper biomechanical assessment and targeted treatment plan."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a question like this -- it's completely natural. The challenge is that without details like age, running habits, pain location, or symptoms, the AI defaults to basic suggestions anyone could find online. The detailed prompt produced specific medical insights because it gave the AI the context needed for targeted advice.",
+      "principle": "Provide context — the more relevant details you share, the more tailored and useful the AI's response becomes.",
+      "principle_name": "Provide context",
+      "tip": "Next time you ask for advice about a problem, include the key details: your situation, specific symptoms, timeline, and what you've already tried. Think of it like talking to a specialist who needs background information to help you properly.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it -- including context about being a runner is a great instinct. The challenge is that the strong prompt went further by giving the AI a clear role (sports medicine doctor) and precise details (age, running pattern, exact pain location and timing). This allowed the AI to provide targeted medical insights with specific action steps instead of general advice.",
+      "principle": "When you give AI tools specific context about your situation and a clear role to play, they can provide much more targeted and useful responses.",
+      "principle_name": "Provide context and state your intent",
+      "tip": "Next time you need specialized advice, start by telling the AI what role to take (\"You are a [expert type]\") and include specific details about your situation - timing, location, what you've tried, and what hasn't changed recently.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got a detailed, actionable response! The weak prompt got generic advice anyone could find online, while your detailed prompt triggered a response that addressed your specific symptoms, timeline, and situation. The AI could provide targeted advice because you gave it the context to act like a sports medicine expert.",
+      "principle": "When you provide specific context and define the AI's role, it can give you much more targeted and useful advice.",
+      "principle_name": "Provide context",
+      "tip": "Before asking for advice, tell the AI what role to play (doctor, teacher, coach) and include specific details about your situation - your age, timeline, exact symptoms, and what you've already tried.",
+      "user_picked_best": true
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.4-role-switch",
+  "generatedAt": "2026-03-22T16:48:59.976Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Explain mortgages",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I'm thinking about buying my first home. Can you explain how mortgages work, including the process and costs?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I'm a first-time homebuyer with no real estate experience, and I'm feeling overwhelmed by the mortgage process. Act like a patient financial advisor and walk me through how mortgages work — the step-by-step process, what costs I should expect, and what red flags to watch out for. Explain it in simple terms like you're talking to someone who's never done this before.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "A mortgage is a loan used to purchase real estate where the property serves as collateral. You make monthly payments that include principal and interest over a set term, typically 15-30 years. If you don't pay, the lender can foreclose on the property.",
+    "response_strong": "I understand how overwhelming this can feel - buying your first home is a big step! Let me break down mortgages in simple terms.\n\n**What a mortgage actually is:**\nThink of it as the bank lending you money to buy a house, with the house itself as their guarantee. If you can't pay, they can take the house back.\n\n**The step-by-step process:**\n1. **Get pre-approved** - The lender reviews your income, debts, and credit to see how much they'll lend you\n2. **Shop for homes** within your approved budget\n3. **Make an offer** and get it accepted\n4. **Apply for the actual mortgage** with all your documents\n5. **Home inspection and appraisal** - Making sure the house is worth what you're paying\n6. **Final approval and closing** - Sign papers and get your keys!\n\n**Costs to expect:**\n- **Down payment** (3-20% of home price)\n- **Closing costs** (2-5% of home price) - includes appraisal, title insurance, attorney fees\n- **Monthly payments** covering principal, interest, taxes, and insurance\n- **PMI** (private mortgage insurance) if you put down less than 20%\n\n**Red flags to watch for:**\n- Pressure to borrow more than you're comfortable with\n- Rates significantly higher than current market rates\n- Lenders who won't clearly explain fees\n- Being rushed through paperwork\n- \"Interest-only\" or \"balloon payment\" loans as a first-timer\n\nRemember: A good rule of thumb is that your total monthly housing payment shouldn't exceed 28% of your gross monthly income. Take your time and ask questions - any legitimate lender will be happy to explain things clearly."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a question like this — it's a natural way to ask. The challenge is that a bare request gets a textbook definition that doesn't actually help a first-time buyer. The AI gave technical facts but missed that someone in this situation is overwhelmed and needs practical guidance. The stronger prompt told the AI exactly who the person is, what role it should play, and what kind of explanation would actually be useful.",
+      "principle": "When you provide context about your situation and state your intent clearly, AI tools can tailor their response to your actual needs instead of giving generic information.",
+      "principle_name": "Provide context and state your intent",
+      "tip": "Before asking any question, tell the AI tool who you are in this situation and what you're trying to accomplish. Instead of 'Explain X,' try 'I'm [your situation] and I need to understand X because [your goal].'",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — including personal context and a clear question is a solid approach. The response covered the basics, but the strong version produced something much more helpful. The key difference: the strong prompt told the AI exactly who the person is (first-time buyer, no experience, feeling overwhelmed) and what role to play (patient financial advisor). This context helped the AI tailor its explanation with the right tone, structure, and level of detail.",
+      "principle": "When you provide context about your background and situation, AI tools can customize their responses to match your exact needs instead of giving generic information.",
+      "principle_name": "Provide context",
+      "tip": "Before asking your question, tell the AI who you are and what you're trying to accomplish. Instead of just asking 'explain X,' try 'I'm a [your situation] trying to [your goal]. Explain X like you're talking to someone in my position.'",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got a comprehensive, personalized response! The weak prompt treated you like a dictionary lookup and gave bare-bones facts. Your choice told the AI exactly who you are (first-time buyer), how you feel (overwhelmed), what role you wanted it to play (patient advisor), and what format would help you most (step-by-step, simple terms). This context let the AI tailor everything — tone, examples, and structure — specifically for your situation.",
+      "principle": "When you provide context about who you are, what you need, and how you want information presented, AI tools can give you responses that actually fit your specific situation instead of generic answers.",
+      "principle_name": "Provide context",
+      "tip": "Before asking your question, spend one sentence describing your situation and experience level. Instead of 'How do I invest?' try 'I'm 25 with $5,000 saved and no investing experience. How should I start investing?' This small addition transforms generic advice into guidance that actually applies to you.",
+      "user_picked_best": true
+    }
+  }
+}

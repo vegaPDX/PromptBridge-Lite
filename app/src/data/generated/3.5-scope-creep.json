@@ -1,0 +1,49 @@
+{
+  "scenarioId": "3.5-scope-creep",
+  "generatedAt": "2026-03-22T16:54:22.250Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Make it shorter",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "This is too long, can you give me a shorter list of book recommendations?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "This is too much information. Please give me just your top 5 recommendations, with one sentence each describing why you chose them, focusing on contemporary fiction.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here's a shorter version:\n\n1. The Seven Husbands of Evelyn Hugo\n2. Where the Crawdads Sing\n3. The Midnight Library\n4. Educated\n5. Atomic Habits\n6. The Silent Patient\n7. Becoming\n8. The Guest List\n9. The Thursday Murder Club\n10. Project Hail Mary",
+    "response_strong": "Here are my top 5 contemporary fiction recommendations:\n\n1. **The Seven Husbands of Evelyn Hugo** by Taylor Jenkins Reid - A captivating story about a reclusive Hollywood icon that masterfully blends glamour with genuine emotional depth.\n\n2. **Where the Crawdads Sing** by Delia Owens - An atmospheric mystery set in the marshlands that beautifully combines coming-of-age themes with environmental storytelling.\n\n3. **The Midnight Library** by Matt Haig - A thought-provoking exploration of life's possibilities that manages to be both philosophical and deeply accessible.\n\n4. **Klara and the Sun** by Kazuo Ishiguro - A haunting tale told from an artificial friend's perspective that examines love, sacrifice, and what makes us human.\n\n5. **The Guest List** by Lucy Foley - A cleverly structured psychological thriller set at a wedding that keeps you guessing until the final pages."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this -- it's completely natural to say 'make it shorter.' The challenge is that the AI just cut the list in half but didn't address the real needs. It still mixed genres and gave no explanations. The stronger prompt specified exactly what was needed (5 books, contemporary fiction, one-sentence reasons), so the AI delivered a focused, useful response.",
+      "principle": "Be specific about what you want rather than just saying what you don't want.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Instead of saying 'make it shorter' or 'this is too long,' specify the exact format you want: how many items, what type of information, and any constraints that matter to you.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it -- it's clearer than just saying 'make it shorter.' The challenge is that the AI still gave 10 books instead of a truly focused list. The strong prompt got exactly 5 books with helpful one-sentence explanations because it specified the exact number, format, and genre.",
+      "principle": "Be specific about what you want rather than just describing what you don't want.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Instead of saying something is 'too long' or 'too much,' tell the AI exactly what you want: how many items, what format, and any other constraints that matter to you.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option and got exactly what you needed! Your specific request produced a focused list of 5 books with helpful one-sentence explanations, all in your preferred genre. The weak prompt just cut the list in half but still gave you 10 books with no context, while your approach gave the AI clear boundaries (5 books, contemporary fiction) and a specific format (one sentence explaining each choice).",
+      "principle": "When you're specific about what you want — the number, format, and focus — AI tools can give you exactly what you're looking for instead of guessing.",
+      "principle_name": "Be specific, not vague",
+      "tip": "When an AI gives you too much information, don't just ask for 'less' — specify exactly how much you want (5 items, 2 paragraphs, 3 examples) and what format works best for you.",
+      "user_picked_best": true
+    }
+  }
+}

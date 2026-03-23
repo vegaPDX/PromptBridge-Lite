@@ -1,0 +1,49 @@
+{
+  "scenarioId": "3.3-ai-write-prompt",
+  "generatedAt": "2026-03-22T16:53:14.538Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Can you write me a prompt for meal prep?",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Write a prompt I can use for weekly meal planning that includes the preferences we discussed about high-protein meals and quick cooking times.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "Based on our conversation, please write me a reusable prompt that I can use each week for meal prep planning. It should capture all the key requirements we established: high-protein meals, 30-minute maximum cook times, budget-friendly ingredients, and recipes that make good lunch leftovers. Structure it so I can just copy-paste it and get consistent results each time.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Sure! Here's a basic meal prep prompt: 'Help me plan meals for the week. I want healthy recipes that are easy to make and good for meal prep. Please include a shopping list.'",
+    "response_strong": "Here's a reusable weekly meal prep prompt that captures all your requirements:\n\n---\n\n\"I need a weekly meal prep plan with the following specifications:\n\n**Requirements:**\n- High-protein meals (aim for 25-30g protein per serving)\n- Maximum 30-minute cook time per recipe\n- Budget-friendly ingredients (under $12 per serving)\n- Recipes that work well as next-day lunch leftovers\n\n**Please provide:**\n1. 4-5 main recipes for the week\n2. Prep timeline and batch cooking tips\n3. Storage instructions for optimal freshness\n4. Complete grocery list organized by store section\n5. Estimated total cost and prep time\n\n**Format:** Present each recipe with cook time, protein content, and leftover storage notes.\"\n\n---\n\nThis prompt will give you consistent, targeted results each week while allowing for recipe variety. Just copy and paste it whenever you need your weekly meal prep plan!"
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this — it's a natural way to ask for help. The challenge is that a general request produces a generic prompt that misses all the specific requirements already worked out. The AI didn't know to include protein goals, time limits, budget needs, or leftover preferences because they weren't mentioned. The stronger approach produced a detailed, reusable template that captured every requirement and would give consistent results each week.",
+      "principle": "When asking an AI to create something for you, be specific about what elements to include rather than assuming it remembers or knows what you want.",
+      "principle_name": "Be specific, not vague",
+      "tip": "When asking an AI to write a prompt for you, list out the key requirements you want captured — treat the AI like it's meeting you for the first time and needs all the important details spelled out.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — referencing a previous conversation and key preferences is a good approach. The result was a prompt that included the key preferences, but it missed some important details. The AI gave a basic template mentioning high-protein and quick cooking, but without exact requirements like the 30-minute limit, budget constraints, or leftover quality. The stronger option produced a detailed, copy-paste-ready prompt with specific metrics and a clear structure that would give consistent results every week.",
+      "principle": "When asking an AI to create something for you to reuse, be explicit about all the details you want captured and how you want it structured.",
+      "principle_name": "Ask the AI to write prompts for you",
+      "tip": "When you want an AI to write a prompt for you, list out every specific requirement and constraint you discussed, plus tell it exactly how you want to use the final prompt (like 'copy-paste ready' or 'for weekly use').",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option, which asked the AI to create a comprehensive, reusable prompt based on your established conversation. The result was a detailed template that captures all your specific requirements (protein amounts, cook times, budget, leftovers) and tells future AI interactions exactly what format you want. Compare this to the weak option, which produced a generic prompt that would give you inconsistent results because it lacks your specific needs.",
+      "principle": "When you want the AI to help you communicate better with AI tools in the future, be explicit about what elements from your current conversation should be preserved and how you want the new prompt structured.",
+      "principle_name": "Ask the AI to write prompts for you",
+      "tip": "When asking an AI to create a reusable prompt for you, always specify that it should be 'copy-paste ready' and include the exact format or structure you want in the results. This ensures you get consistent, useful responses every time you use it.",
+      "user_picked_best": true
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "scenarioId": "1.2-meal-plan",
+  "generatedAt": "2026-03-22T16:43:06.262Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Give me healthy dinner ideas",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I want to eat healthier this week. Can you suggest some quick dinner recipes that are nutritious?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I'm trying to eat healthier this week but only have 30 minutes max for dinner prep on weeknights. Can you suggest 5 nutritious dinner ideas that use common ingredients and include prep time estimates? I have a full kitchen and eat most foods except shellfish.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here are some healthy dinner ideas: grilled chicken with vegetables, salmon with rice, salad with protein, stir-fry with tofu, and quinoa bowls. These options provide good nutrition and can be prepared in various ways.",
+    "response_strong": "Here are 5 nutritious 30-minute dinner ideas using common ingredients:\n\n1. **Sheet Pan Chicken & Vegetables** (25 mins)\n   - Chicken thighs, broccoli, bell peppers, olive oil, garlic powder\n   - Season everything, roast at 425°F\n\n2. **Black Bean & Sweet Potato Tacos** (20 mins)\n   - Microwave diced sweet potato (8 mins), sauté with canned black beans\n   - Serve in whole wheat tortillas with avocado\n\n3. **Lemon Garlic Salmon with Green Beans** (18 mins)\n   - Pan-sear salmon fillets, steam green beans in same pan\n   - Finish with lemon and minced garlic\n\n4. **Turkey & Vegetable Stir-fry** (15 mins)\n   - Ground turkey, frozen mixed vegetables, soy sauce, ginger\n   - Serve over quick-cooking brown rice or cauliflower rice\n\n5. **Chickpea & Spinach Curry** (22 mins)\n   - Canned chickpeas, canned diced tomatoes, spinach, curry powder\n   - Simmer together, serve over microwaved quinoa\n\nAll recipes serve 2-3 people and use ingredients typically found at any grocery store."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Your prompt got generic suggestions without the practical details you actually needed. The AI gave you broad categories like 'grilled chicken with vegetables' but no cooking times, specific ingredients, or consideration of your time constraints. The stronger prompt got you 5 complete recipes with exact prep times, ingredient lists, and step-by-step instructions because it told the AI exactly what information would be useful.",
+      "principle": "Be specific about what you need rather than asking for general categories — the more details you provide about your situation and constraints, the more tailored and actionable the response will be.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Next time, include your key constraints upfront (like '30 minutes max') and specify the format you want (like 'include prep times and ingredients'). This helps the AI give you information you can actually use instead of ideas you'll need to research further.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "Your choice got you decent suggestions, but notice how the stronger prompt produced much more actionable results. The weak prompt gave vague ideas like 'grilled chicken with vegetables' while the strong prompt delivered specific recipes with exact prep times, ingredients, and cooking methods. The key difference was that the strong prompt told the AI exactly what constraints you were working with.",
+      "principle": "Provide context about your specific situation so the AI can give you tailored advice instead of generic suggestions.",
+      "principle_name": "Provide context",
+      "tip": "Next time you ask for recommendations, include your key constraints upfront — like time limits, dietary restrictions, or what equipment you have available. This helps the AI give you solutions that actually fit your real situation.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option and got exactly what you needed! The weak prompt produced generic suggestions without timing or specifics, while your detailed request got you 5 complete recipes with prep times, ingredient lists, and cooking methods. The AI could give you practical help because you told it your constraints (30 minutes, common ingredients, dietary restrictions).",
+      "principle": "When you provide specific context about your situation and constraints, AI tools can give you much more useful and actionable advice.",
+      "principle_name": "Provide context",
+      "tip": "Before asking for suggestions, always include your key limitations or requirements — like time constraints, skill level, budget, or what you have available. This helps any AI tool tailor its response to your actual situation.",
+      "user_picked_best": true
+    }
+  }
+}

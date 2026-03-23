@@ -1,0 +1,49 @@
+{
+  "scenarioId": "3.6-draft-review-refine",
+  "generatedAt": "2026-03-22T16:55:03.558Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write a thank you email for job interview",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Help me write a professional thank-you email after my job interview. I want to express gratitude, reiterate my interest, and mention something specific from our conversation. Can you draft something and then help me improve it?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to write a thank-you email after my job interview, but I want to use a multi-step approach to get the best result. First, please draft a thank-you email for a marketing coordinator position interview. Then, review that draft against these criteria: professional tone, specific mention of interview topics, clear reiteration of interest, and appropriate length. Finally, suggest 2-3 specific improvements based on your review.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Subject: Thank You\n\nDear Hiring Manager,\n\nThank you for taking the time to interview me for the position. I enjoyed our conversation and learning more about the role and company.\n\nI am very interested in this opportunity and believe my skills would be a good fit. Please let me know if you need any additional information.\n\nThank you again for your consideration.\n\nBest regards,\n[Your Name]",
+    "response_strong": "**DRAFT EMAIL:**\n\nSubject: Thank you for the Marketing Coordinator interview - [Your Name]\n\nDear [Interviewer's Name],\n\nThank you for taking the time to meet with me yesterday to discuss the Marketing Coordinator position at [Company Name]. I was particularly excited to learn about your upcoming product launch campaign and how this role would contribute to developing the social media strategy we discussed.\n\nOur conversation reinforced my enthusiasm for this opportunity. My experience managing multi-channel campaigns at my current role, combined with my proficiency in the analytics tools you mentioned, positions me well to contribute immediately to your team's goals.\n\nI look forward to the possibility of joining your marketing team and contributing to [Company Name]'s continued growth.\n\nBest regards,\n[Your Name]\n\n**REVIEW AGAINST CRITERIA:**\n✓ Professional tone: Maintained throughout\n✓ Specific interview topics: Referenced product launch and social media strategy\n✓ Clear interest reiteration: Expressed enthusiasm and fit\n✓ Appropriate length: Concise but comprehensive\n\n**SUGGESTED IMPROVEMENTS:**\n1. Add a specific timeline reference (\"Thank you for our meeting yesterday afternoon\" vs. \"yesterday\")\n2. Include one concrete example of relevant experience with metrics (\"increased engagement by 40%\")\n3. End with a subtle next-step prompt (\"I'm happy to provide additional portfolio samples if helpful\")"
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this -- it's a natural first instinct. The challenge is that the AI had no specific details to work with, so it created a bland, one-size-fits-all template that could apply to any job interview. In contrast, the detailed approach produced a personalized email with specific interview references, a structured review process, and concrete suggestions for improvement.",
+      "principle": "When you want high-quality results, break complex tasks into clear steps and tell the AI exactly what you want it to do at each stage.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "Next time you need something polished, ask the AI to work in stages: create a draft, review it against specific criteria you provide, then suggest improvements. This gets you much better results than hoping for perfection in one shot.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it -- it's a solid starting point with helpful structure. The challenge is that it missed the multi-step approach that makes AI really shine. The strong prompt got a draft, a detailed review against specific criteria, AND concrete improvement suggestions -- essentially three rounds of work in one request.",
+      "principle": "Ask the AI to ask you questions or break complex tasks into multiple steps to get more thorough, thoughtful results.",
+      "principle_name": "Ask the AI to ask you questions",
+      "tip": "When you have a complex task, tell the AI exactly what steps you want it to take (like 'first draft this, then review it against these criteria, then suggest improvements'). This gets you much more comprehensive help than asking for everything at once.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You chose the strongest approach and got a comprehensive, multi-layered response. Instead of just getting a basic email, the AI provided a polished draft, evaluated it against your specific criteria, and offered targeted improvements. The weak prompt produced a generic template that could apply to any job, while your detailed request created a strategic, personalized email with built-in quality control.",
+      "principle": "When you break down complex tasks into clear steps and give the AI specific evaluation criteria, it can act as both creator and critic, delivering higher-quality results with built-in improvements.",
+      "principle_name": "Ask the AI to write prompts for you",
+      "tip": "For any important writing task, try the 'draft-review-improve' approach: ask the AI to create something, evaluate it against your specific criteria, then suggest concrete improvements. This turns one mediocre output into a polished final product.",
+      "user_picked_best": true
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "scenarioId": "2.7-format-request",
+  "generatedAt": "2026-03-22T16:50:43.874Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Summarize this article",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Can you summarize the main productivity techniques from this article? I want to be able to reference them later.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "Extract the key productivity techniques from this article and format them as 5 numbered bullet points with the technique name and a brief explanation of how to implement it. I need this for quick reference during my workday.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I'd be happy to help you summarize an article! However, I don't see any article content in your message. Could you please share the article text you'd like me to summarize?",
+    "response_strong": "I'd be happy to extract the key productivity techniques for you in that format! However, I don't see the article content in your message. Once you share the article text, I'll provide exactly what you requested: 5 numbered bullet points with technique names and brief implementation explanations that you can quickly reference during your workday."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this — it's the natural way to ask for a summary. The challenge is that without specifics, the AI had to ask for clarification instead of being ready to help effectively. Notice how the strong prompt got a much more helpful response — even though both needed the article content, the AI could confirm exactly what format and focus was wanted.",
+      "principle": "Be specific about what you want the AI to do and how you want the output formatted, rather than using generic requests.",
+      "principle_name": "Be specific, not vague",
+      "tip": "Instead of saying 'summarize this,' tell the AI exactly what format you want (bullet points, numbered list, table) and what specific information to focus on (key techniques, main arguments, action items).",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it — mentioning the goal of referencing info later is a good instinct. The response was better than the vague option A, but notice how option C got a much more helpful response even though both forgot to include the article. The AI understood exactly what format was wanted and confirmed it would deliver 5 numbered bullet points with implementation details. The challenge is that without specifying the format, the AI had to guess how to make it useful.",
+      "principle": "Show what 'good' looks like by specifying the exact format, structure, or style you want in your output.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "When asking for summaries or analysis, always specify the format: 'Give me 3 bullet points,' 'Write this as a numbered list,' or 'Format this as a table.' This helps the AI deliver exactly what you can actually use.",
+      "user_picked_best": false
+    },
+    "strong": {
+      "what_happened": "You picked the strongest option! Even though both responses noted the missing article, the strong prompt got a much more helpful reply. The AI understood exactly what you wanted (5 numbered bullet points with technique names and implementation details) and confirmed it would deliver that specific format for your workday reference.",
+      "principle": "When you show the AI exactly what 'good' looks like by specifying the format and structure you want, it can deliver precisely what you need instead of guessing.",
+      "principle_name": "Show what 'good' looks like",
+      "tip": "Next time you want information organized in a specific way, describe the exact format: 'Give me 3 bullet points,' 'Make a table with two columns,' or 'Write this as a step-by-step checklist.' The AI will match your structure perfectly.",
+      "user_picked_best": true
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "scenarioId": "4a.7-document-detective",
+  "generatedAt": "2026-03-22T17:00:02.768Z",
+  "generatedWith": "claude-sonnet-4-20250514",
+  "options": [
+    {
+      "id": "a",
+      "text": "Summarize my lease",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I have a rental lease agreement that I need help understanding. Can you help me find information about pets, deposits, and early termination?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "[Full lease agreement text]\n\nI need to quickly find specific information from this rental lease agreement. Please help me locate and explain:\n1. What is the pet policy (are pets allowed, any restrictions, pet deposits/fees)?\n2. What are the security deposit rules (amount, when it's returned, deductions)?\n3. What happens if I need to break the lease early (penalties, notice requirements, process)?",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I'd be happy to help summarize your lease, but I don't see the lease document attached. Could you please share the lease agreement text so I can provide you with a summary of its key terms and conditions?",
+    "response_strong": "Based on your lease agreement, here's the specific information you requested:\n\n**Pet Policy:**\n- Pets are allowed with prior written approval from landlord\n- Maximum 2 pets, under 50 lbs each\n- $300 non-refundable pet fee per pet\n- $25/month pet rent per pet\n- Tenant liable for all pet-related damages\n\n**Security Deposit Rules:**\n- Amount: $1,800 (equivalent to 1.5 months' rent)\n- Returned within 30 days of lease termination\n- Deductions allowed for: unpaid rent, cleaning beyond normal wear, repairs for tenant-caused damage\n- Must provide forwarding address in writing\n\n**Early Lease Termination:**\n- 60-day written notice required\n- Early termination fee: 2 months' rent\n- Responsible for rent until unit is re-rented or lease expires (whichever comes first)\n- Must allow showings during notice period\n- Security deposit still subject to standard deduction rules\n\nAll these provisions are found in Sections 8, 12, and 15 of your lease agreement respectively."
+  },
+  "feedback": {
+    "weak": {
+      "what_happened": "Most people start with a request like this -- it's a natural first instinct. The challenge is that asking to 'summarize my lease' without including the actual lease document leaves the AI with nothing to work with, so it has to ask for the document first. The stronger approach included the full lease text AND specified exactly what information was needed, allowing the AI to immediately extract those specific details.",
+      "principle": "AI tools can only work with the information you give them — if you want analysis of a document, you need to share that document.",
+      "principle_name": "Provide context",
+      "tip": "When you need help with any document (contract, email, report), always paste the full text into your message along with your specific questions. Don't assume the AI can access files or remember previous conversations.",
+      "user_picked_best": false
+    },
+    "medium": {
+      "what_happened": "This is how most people would phrase it -- being clear about what information is needed is a great instinct. The challenge is that without the actual lease document included, the AI has to ask for the missing information instead of giving answers. The stronger approach included the full lease text upfront, so the AI could immediately provide specific answers about pets, deposits, and early termination.",
+      "principle": "Always provide the context and materials the AI needs to complete your task in your initial request.",
+      "principle_name": "Provide context",
+      "tip": "When asking AI tools to analyze documents, always paste or upload the full document text in your first message. Don't make the AI ask for what it needs — give it everything upfront so you get answers immediately instead of having to go back and forth."
+    },
+    "strong": {
+      "what_happened": "You chose the strongest option, which included the actual lease text and a clear, organized request for specific information. This gave the AI everything it needed to provide detailed, actionable answers with exact policy details and section references. The weak option failed because it asked for help without providing the document to analyze.",
+      "principle": "Always provide the AI with the source material it needs to work with, rather than asking it to work with information it doesn't have access to.",
+      "principle_name": "Provide context",
+      "tip": "When you need help analyzing a document, always paste the full text (or relevant sections) directly into your message rather than just describing what you have.",
+      "user_picked_best": true
+    }
+  }
+}
