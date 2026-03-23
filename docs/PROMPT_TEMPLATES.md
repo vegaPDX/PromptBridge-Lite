@@ -1,6 +1,8 @@
 # PromptBridge — LLM Prompt Templates
 
-These are the system prompts and prompt structures for each of the four LLM-powered components. All prompts are designed for Claude (Anthropic API) but written to be portable to any capable LLM.
+These are the system prompts and prompt structures used by the content generation script (`scripts/generate-content.js`) to produce the 30 static JSON files that ship with the app. The public web app does not make any LLM calls — all content is pre-generated.
+
+The prompts are designed for Claude (Anthropic API) but portable to any capable LLM. The generation script also supports Gemini (free tier).
 
 ---
 
@@ -230,13 +232,9 @@ Analyze this prompt and provide an improved version as described in your instruc
 
 ---
 
-## Response simulation for free-form mode
+## Note on client-side prompts (removed)
 
-After the analysis, the tool makes a second LLM call using the Response Simulator prompt (template #2 above) with:
-- `prompt_weak` = the user's original prompt
-- `prompt_strong` = the improved prompt from the analysis
-
-This produces the side-by-side comparison for free-form mode.
+The app previously included client-side LLM calls for Freeform Analysis, Variation Generation, and Multi-Turn modes. These prompts were defined in `src/data/prompts.js` and consumed by `src/services/llm.js`. Both were removed when the architecture was pivoted to fully static (2026-03-23). The generation-time prompts above (Option Generator, Response Simulator, Feedback Generator) remain in `src/data/prompts.js` for use by the content generation script.
 
 ---
 

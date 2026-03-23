@@ -48,8 +48,8 @@ Read this to the participant at the start:
 ### Task 3: Try "Write Your Own" mode (5 min)
 - Ask them to pick a freeform scenario and write their own prompt
 - Observe: Do they know what to write? Do they struggle with the blank textarea?
-- If no API key: Do they find the Copy & Try flow useful?
-- If API key available: Do they understand the analysis and comparison?
+- Do they use "Check My Skills" to see their heuristic score?
+- Do they use the copy button and AI tool links to try their prompt in a real AI tool?
 
 ### Task 4: Explore (3 min)
 - Ask them to look at their Progress page
@@ -75,10 +75,11 @@ During each session, note:
 - [ ] Did they try "Now Write Your Own" or skip it?
 - [ ] Did they try "Try Again" (round 2)?
 
-**Freeform mode:**
+**Write Your Own mode:**
 - [ ] Did they know what to write in the textarea?
-- [ ] Did they find the Copy & Try flow useful?
-- [ ] Did the analysis feel accurate and helpful?
+- [ ] Did they use "Check My Skills" for heuristic feedback?
+- [ ] Did they use the copy button and AI tool links?
+- [ ] Did they understand the skill score and suggestions?
 
 **Feedback tone:**
 - [ ] Did any feedback make them defensive or frustrated?

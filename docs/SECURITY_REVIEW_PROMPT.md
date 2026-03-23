@@ -1,4 +1,6 @@
-# PromptBridge — Security & Bug Review Prompt (v2)
+# PromptBridge — Security & Bug Review Prompt (v2) — HISTORICAL
+
+> **Note (2026-03-23):** This document is a historical artifact from before the static-only architecture pivot. The review led to a major architectural change: all API key functionality, the LLM service (`llm.js`), HybridMode, MultiTurnMode, and SettingsPage were removed from the public web app. The app now makes no outbound network requests and stores no secrets. Many of the issues described below (API key leakage, error sanitization, CORS, prompt injection via LLM responses) are no longer applicable to the deployed app. This document is preserved for reference.
 
 *Your task is a second-pass deep dive codebase review for PromptBridge (this repository).*
 

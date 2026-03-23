@@ -8,7 +8,9 @@
 
 This document maps every significant NeuroBridge design decision to its PromptBridge equivalent, identifies gaps, and proposes prioritized improvements. The analysis is based on the full NeuroBridge paper (Haroon et al., ASSETS 2025, Best Student Paper), supplementary coverage, and a complete read of the PromptBridge codebase.
 
-**Key finding:** PromptBridge already exceeds NeuroBridge in several dimensions — broader scenario coverage, three-tier architecture (static/free/BYOK), multi-turn practice, and pre/post assessment. The most impactful remaining gaps center on **how the learning loop closes** — specifically, how feedback connects user choices to consequences, and how users practice applying what they just learned.
+**Key finding:** PromptBridge already exceeds NeuroBridge in several dimensions — broader scenario coverage, pre/post assessment, and a copy-to-real-AI workflow. The most impactful remaining gaps center on **how the learning loop closes** — specifically, how feedback connects user choices to consequences, and how users practice applying what they just learned.
+
+> **Note (2026-03-23):** After this analysis was written, the architecture was pivoted to fully static — all API-powered features (Write First/Hybrid, Multi-Turn, API-powered analysis) were removed from the public web app. These features are available only when running the repo locally. References to HybridMode, MultiTurnMode, and API-powered features below reflect the architecture at the time of analysis. The recommendations about Guided Mode improvements (R1-R4, R6-R8) remain fully applicable.
 
 ---
 
@@ -349,16 +351,18 @@ For reference when implementing any of the above, these are the core design prin
   - Confusion during simulation: 3.42/7 (some confusion present)
 - **Limitations noted by researchers:** Small sample, university-only recruitment, no longitudinal follow-up, LLM struggles with bluntness modeling, single character risks stereotyping, uncritical AI trust
 
-## Appendix B: PromptBridge Architecture Reference
+## Appendix B: PromptBridge Architecture Reference (Updated 2026-03-23)
 
-- **Modes:** Guided (static), Freeform (API or copy-and-try), Hybrid/Write First (API), Multi-Turn (API), Assessment (heuristic)
+- **Modes (public app):** Guided Practice (static pre-generated content + heuristic write-your-own), Write Your Own (heuristic scoring + copy-to-real-AI), Assessment (heuristic)
+- **Modes (local dev only):** Write First/Hybrid, Multi-Turn, API-powered analysis — available when running the repo locally with an API key
 - **Scenarios:** 30 guided + 15 freeform across 5 categories
 - **Principles:** 8 (P1-P8), tracked per-user in localStorage
-- **LLM providers:** Gemini (default free tier), Claude, OpenAI via `callLLM()` router
-- **Heuristic scorer:** Client-side regex matching for principle detection when no API available
+- **Architecture:** Fully static site, no outbound network requests, no API keys in the public app
+- **Heuristic scorer:** Client-side regex matching for principle detection — the only scoring method in the public app
 - **Pre-generated content:** 30 JSON files in `app/src/data/generated/` with options, responses, and feedback
 - **Recommendation engine:** Prioritizes scenarios teaching unpracticed principles
 - **Assessment:** Pre/post with different scenario sets, heuristic scoring, before/after comparison
+- **Copy-to-real-AI workflow:** Every scenario includes copy buttons and links to ChatGPT, Claude, Gemini, Copilot
 
 ---
 

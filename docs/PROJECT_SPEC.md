@@ -1,6 +1,6 @@
 # PromptBridge — Project Specification
 
-## Working name: PromptBridge (open to change)
+## Working name: PromptBridge
 
 ---
 
@@ -31,44 +31,37 @@ No technical background required. No AI experience required. The tool meets peop
 
 3. **Show, don't just tell.** The tool shows simulated AI responses side-by-side: what a poorly-phrased prompt produces vs. what a well-phrased prompt produces. Seeing the difference is more powerful than being told about it.
 
-4. **Two learning modes.** Guided mode (pick from 3 options) for beginners who need scaffolding. Free-form mode (write your own, get feedback) for practice and skill-building.
+4. **Two learning modes.** Guided Practice (compare 3 prompt tiers, then write your own) for structured learning. Write Your Own (compose from scratch, get skill feedback, copy to a real AI tool) for open practice.
 
-5. **Open source and free.** No subscriptions, no paywalls. The tool should be accessible to anyone who wants to learn.
+5. **Copy-to-real-AI workflow.** PromptBridge is a training tool, not a replacement for real AI tools. Every scenario includes copy buttons and direct links to ChatGPT, Claude, Gemini, and Copilot. The goal is to build skills that users take elsewhere.
 
-6. **No jargon.** The tool never uses terms like "prompt engineering," "tokens," "context window," or "system prompt" in user-facing content. It uses plain language: "how to talk to AI tools," "giving context," "being specific."
+6. **Open source and free.** No subscriptions, no paywalls, no API keys required. The tool should be accessible to anyone who wants to learn.
+
+7. **No jargon.** The tool never uses terms like "prompt engineering," "tokens," "context window," or "system prompt" in user-facing content. It uses plain language: "how to talk to AI tools," "giving context," "being specific."
+
+8. **Zero-trust static architecture.** The public web app makes no outbound network requests, stores no secrets, and requires no backend. This simplifies security and ensures the tool works anywhere.
 
 ---
 
-## Core features (v1)
+## Core features
 
-### Feature 1: Scenario-based learning (Guided Mode)
+### Feature 1: Scenario-based learning (Guided Practice)
 
-The user is presented with a real-world scenario (e.g., "You need help planning a team meeting agenda"). The tool generates three prompt options — ranging from vague/ineffective to clear/effective. The user picks the one they think will get the best result. The tool then shows:
-
-- A **simulated AI response** to the WORST option (vague, unhelpful, generic)
-- A **simulated AI response** to the BEST option (specific, tailored, useful)
-- **Feedback** explaining WHY one worked and the other didn't, tied to a specific communication principle
+The user is presented with a real-world scenario (e.g., "You need help planning a team meeting agenda"). The tool shows three pre-generated prompt approaches — weak, getting there, and effective — with the simulated AI response each one produces. The user sees the side-by-side comparison and gets feedback explaining WHY the effective prompt works, tied to a specific communication principle. Then the user writes their own prompt for the scenario and gets scored on which skills they applied.
 
 **Scenario categories:**
 1. Vague vs. specific requests (binary questions, keyword-style queries, missing context)
 2. Context-setting and role framing (who you are, what you need, what "good" looks like)
 3. Iterative refinement and follow-up (reviewing output, giving specific feedback, steering)
-4. The full conversation loop (combining all skills in a multi-turn flow)
+4. Smart strategies (few-shot examples, structured prompts, role-switching)
 
-### Feature 2: Free-form practice mode
+### Feature 2: Write Your Own (Freeform practice)
 
-The user picks a scenario category and writes their own prompt from scratch. The tool:
-
-1. Shows a simulated AI response to their prompt (as-written)
-2. Analyzes the prompt and identifies what's strong and what could be improved
-3. Suggests a refined version
-4. Shows a simulated AI response to the refined version — side by side with the original
-
-This mode is for users who've completed some guided scenarios and want to practice on their own.
+The user picks a scenario and writes their own prompt from scratch. A client-side heuristic scorer detects which communication principles are present and which are missing, providing instant feedback. The user can then copy their prompt and try it in any real AI tool.
 
 ### Feature 3: Communication principle tracker
 
-Each scenario and feedback message maps to one or more communication principles:
+Each scenario maps to one or more of 8 communication principles:
 
 - **Be specific, not vague** — Ask for exactly what you want
 - **Provide context** — Who you are, what you're working on, what constraints exist
@@ -79,19 +72,19 @@ Each scenario and feedback message maps to one or more communication principles:
 - **Ask the AI to ask you questions** — Let it interview you instead of guessing what it needs
 - **Ask the AI to write prompts for you** — Once direction is established, let it crystallize the prompt
 
-The tool tracks which principles the user has practiced and which they haven't. This isn't gamification — it's a way for the user to see their coverage and know what to try next.
+The tool tracks which principles the user has practiced and recommends what to try next.
 
-### Feature 4: The "snow shoveling" demo
+### Feature 4: Copy-to-real-AI workflow
 
-A prominent, instantly accessible demo on the landing page that shows the core concept without requiring signup or any interaction:
+Every scenario includes:
+- A **Copy** button for the user's prompt
+- Direct links to **ChatGPT**, **Claude**, **Gemini**, and **Copilot**
 
-**Bad prompt:** "Do you know how to shovel snow faster?"
-**AI response:** "Yes."
+Users practice the skill in PromptBridge, then immediately test it in a real AI tool.
 
-**Good prompt:** "Tell me 5 ways I can speed up shoveling snow in the morning."
-**AI response:** [5 specific, actionable suggestions]
+### Feature 5: Skill Assessment
 
-This demo should make the concept click in under 5 seconds. It's the hook that gets people to try the tool.
+Pre/post assessments with different scenario sets let users measure improvement over time. Heuristic scoring provides objective before-and-after comparison.
 
 ---
 
@@ -105,21 +98,19 @@ This demo should make the concept click in under 5 seconds. It's the hook that g
 
 ---
 
-## Success criteria for v1
-
-A working prototype is successful if:
+## Success criteria
 
 1. A first-time user can complete one guided scenario in under 3 minutes
 2. The side-by-side response comparison makes the user say "oh, I see the difference"
 3. The feedback is specific enough that the user knows exactly what to change
-4. The tool works entirely in a browser with no signup required (for local/demo use)
-5. The LLM integration is clean enough that swapping Claude for another API is straightforward
+4. The tool works entirely in a browser with no signup, no API key, and no setup
+5. Users copy prompts from the tool and use them in real AI tools
 
 ---
 
 ## Open source details
 
-- **License:** MIT (permissive, allows anyone to use, modify, distribute)
+- **License:** AGPL-3.0 (ensures derivative works remain open)
 - **Repository:** GitHub (public)
 - **Contributions:** Welcome — especially scenario contributions and translations
-- **Attribution:** Credit NeuroBridge (Haroon et al., ASSETS 2025) as the inspiration in the README and about page
+- **Attribution:** Credit NeuroBridge (Haroon et al., ASSETS 2025) as the inspiration
