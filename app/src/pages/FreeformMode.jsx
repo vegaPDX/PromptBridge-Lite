@@ -4,14 +4,11 @@ import {
   RefreshCw, Check,
 } from "lucide-react";
 import { PRINCIPLE_MAP } from "../data/principles";
-import { FREEFORM_SCENARIOS } from "../data/scenarios";
 import { scorePrompt, getFeedbackSummary } from "../services/heuristic-scorer";
-import PrincipleBadge from "../components/PrincipleBadge";
-import CopyButton from "../components/CopyButton";
 import AiToolLinks from "../components/AiToolLinks";
 
 export default function FreeformMode({ scenario, onComplete, onBack, practicedPrinciples = [], completedScenarios = [] }) {
-  // States: write | tips | heuristic-results
+  // States: write | heuristic-results
   const [step, setStep] = useState("write");
   const [userPrompt, setUserPrompt] = useState("");
   const [heuristic, setHeuristic] = useState(null);
@@ -23,17 +20,6 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
     const result = scorePrompt(userPrompt.trim(), scenario);
     setHeuristic(result);
     setStep("heuristic-results");
-  };
-
-  // ── Copy & Try ──
-
-  const handleCopyAndTry = async () => {
-    try {
-      await navigator.clipboard.writeText(userPrompt.trim());
-    } catch (err) {
-      console.error("Failed to copy:", err);
-    }
-    setStep("tips");
   };
 
   const resetForm = () => {
@@ -90,57 +76,17 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
             >
               <Send className="w-4 h-4" /> Check My Skills
             </button>
-            <button
-              onClick={handleCopyAndTry}
-              disabled={!userPrompt.trim()}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-emerald-50 hover:bg-emerald-100 disabled:bg-stone-100 disabled:text-stone-300 disabled:cursor-not-allowed text-emerald-700 border border-emerald-200 rounded-xl font-medium transition-colors"
-            >
-              Copy &amp; Try It
-            </button>
           </div>
-        </div>
-      )}
 
-      {/* ── Step: Tips (Copy & Try path) ──────────────────────── */}
-      {step === "tips" && (
-        <div className="animate-fadeIn space-y-6">
-          {/* Success message */}
-          <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-center">
-            <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-3">
-              <Check className="w-5 h-5 text-emerald-500" />
+          {/* Copy & try in a real AI tool */}
+          {userPrompt.trim() && (
+            <div className="mt-6">
+              <AiToolLinks
+                prompt={userPrompt}
+                message="Copy your prompt and try it in any AI tool:"
+              />
             </div>
-            <p className="font-semibold text-emerald-800 mb-1">Prompt copied!</p>
-            <p className="text-stone-600 text-sm">Now paste it into your AI tool and compare what you get to what you expected.</p>
-          </div>
-
-          {/* AI tool links */}
-          <AiToolLinks message="Open any of these and paste your prompt:" />
-
-          {/* Principles to think about */}
-          <div>
-            <p className="text-xs text-stone-500 font-medium uppercase tracking-wide mb-2">Skills to think about for this scenario</p>
-            <div className="flex flex-wrap gap-2">
-              {scenario.principles.map(pid => (
-                <PrincipleBadge key={pid} principleId={pid} size="md" />
-              ))}
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="flex gap-3">
-            <button
-              onClick={resetForm}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition-colors"
-            >
-              <RefreshCw className="w-4 h-4" /> Write Another
-            </button>
-            <button
-              onClick={onBack}
-              className="px-6 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-xl font-medium transition-colors"
-            >
-              Back to List
-            </button>
-          </div>
+          )}
         </div>
       )}
 
