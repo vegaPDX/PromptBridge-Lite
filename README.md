@@ -1,6 +1,12 @@
 # PromptBridge
 
-**An open-source, interactive tool that teaches people how to communicate effectively with AI assistants.**
+**An interactive, open-source tool that teaches people how to communicate effectively with AI assistants.**
+
+### **[Try it now — https://vegapdx.github.io/PromptBridge/](https://vegapdx.github.io/PromptBridge/)**
+
+No signup. No API key needed. Just open and start learning.
+
+---
 
 PromptBridge teaches the universal communication skills that make AI conversations productive — being specific, providing context, avoiding ambiguity, iterating based on feedback, and knowing when and how to refine. The skills you learn here work with any AI tool: ChatGPT, Claude, Gemini, Copilot, or any other conversational AI.
 
@@ -28,7 +34,7 @@ NeuroBridge uses a see-consequences, compare-approaches, receive-feedback intera
 
 ---
 
-## What PromptBridge Does
+## Features
 
 ### 8 Communication Skills
 
@@ -45,7 +51,13 @@ Every scenario teaches one or more of these principles:
 
 ### 45 Practice Scenarios
 
-30 guided scenarios across 4 categories (Vague vs. Specific, Context & Framing, Iterative Refinement, Smart Strategies) plus 15 freeform "Write Your Own" scenarios spread across all 5 categories covering personal, work, school, and coding contexts.
+30 guided scenarios across 4 categories plus 15 freeform "Write Your Own" scenarios covering personal, work, school, and coding contexts:
+
+- **Vague vs. Specific** — Learn why "help me with this" fails and specificity succeeds
+- **Context & Framing** — Practice giving the AI the background it needs
+- **Iterative Refinement** — Build the skill of steering AI through follow-ups
+- **Smart Strategies** — Advanced techniques like few-shot examples, role-switching, and structured prompts
+- **Write Your Own** — Open-ended scenarios to practice without guardrails
 
 ### 4 Learning Modes
 
@@ -69,41 +81,41 @@ Every scenario teaches one or more of these principles:
 - **Personalization** — Optional "What do you use AI for?" question to surface the most relevant scenarios
 - **AI Safety Guide** — Comprehensive risk awareness section sourced from official Anthropic, OpenAI, and Google guidance
 - **Progress Tracking** — Tracks completed scenarios and practiced principles in your browser
+- **Accessible** — ARIA labels, reduced motion support, color contrast compliant, semantic HTML
+- **Mobile Friendly** — Responsive design that works on phones, tablets, and desktops
 
 ---
 
-## Live Demo
+## Contributing
 
-**https://vegapdx.github.io/PromptBridge/**
+Contributions are welcome! The easiest way to contribute is by adding new scenarios. See [docs/CONTRIBUTING_SCENARIOS.md](docs/CONTRIBUTING_SCENARIOS.md) for the format and guidelines.
 
-No signup, no API key needed for guided mode. Just open and start learning.
-
----
-
-## Current Development Status
-
-**Phase: Live public deployment**
-
-The app is a fully functional Vite + React standalone application deployed to GitHub Pages. All features are implemented and building cleanly. The current state:
-
-- 30 guided scenarios with pre-generated content (3 prompt options, 3 AI responses, unified feedback per scenario)
-- 15 freeform "Write Your Own" scenarios across all 5 categories with AI-powered or copy-and-try paths
-- Multi-provider LLM adapter (Gemini, Claude, OpenAI) for real-time features
-- All 4 learning modes (Guided, Write Your Own, Write First, Practice Iterating)
-- Pre/post skill assessment with heuristic scoring
-- Personalization, progression recommendations, and progress tracking
-- Help page with comprehensive user guide and AI safety information
-- Accessibility improvements (ARIA labels, reduced motion, color contrast, semantic HTML)
-- Feedback tone audit (all 30 generated content files reviewed for non-defensive language)
-
-**What has NOT been tested yet:**
-- Full end-to-end user testing with real users (protocol written, not yet executed)
-- Performance under load
-- Cross-browser compatibility beyond Chrome
+For code contributions, open an issue first to discuss the change.
 
 ---
 
-## Local Development Setup
+## Roadmap
+
+### Near-term: Validation & Polish
+
+- **User testing** — Conduct informal usability sessions using the [testing protocol](docs/USER_TESTING_PROTOCOL.md) to identify confusion points and feedback tone issues
+- **QA pass** — Work through the [96-item QA checklist](docs/QA_CHECKLIST.csv)
+- **Cross-browser testing** — Verify Firefox, Safari, Edge, and mobile browsers
+
+### Future
+
+- **Community scenarios** — Open contributions following the [scenario contribution guide](docs/CONTRIBUTING_SCENARIOS.md)
+- **Translations / i18n** — Scenario and feedback localization
+- **Classroom mode** — Features for educators using PromptBridge in workshops or courses
+- **Analytics** — Privacy-respecting analytics (e.g., Plausible) to understand usage patterns
+- **PWA support** — Service worker for offline guided mode
+- **Expanded scenario library** — Domain-specific scenarios (healthcare, legal, software development, academic writing)
+
+---
+
+## Local Development
+
+Want to run PromptBridge locally, fork it, or contribute? Here's how.
 
 ### Prerequisites
 
@@ -139,7 +151,7 @@ To unlock AI-powered feedback, Write First mode, and Practice Iterating mode:
 3. Select "Gemini" as your provider
 4. Paste your API key and click Save
 
-Alternatively, you can set the key as an environment variable:
+Alternatively, set the key as an environment variable:
 
 ```bash
 # Create .env file in the app/ directory
@@ -151,7 +163,7 @@ npm run dev
 
 ### Regenerating Content
 
-If you want to regenerate the static content for guided scenarios (e.g., after editing prompts):
+To regenerate the static content for guided scenarios (e.g., after editing prompts):
 
 ```bash
 cd app
@@ -166,15 +178,6 @@ ANTHROPIC_API_KEY=your-key node scripts/generate-content.js
 GEMINI_API_KEY=your-key node scripts/generate-content.js --provider gemini --scenario 1.1-snow-shoveling
 ```
 
-This generates ~5 API calls per scenario (options, responses, 3x feedback variants). Existing files are skipped automatically.
-
-### Validating Scenarios
-
-```bash
-cd app
-node scripts/validate-scenario.js --all
-```
-
 ### Building for Production
 
 ```bash
@@ -182,108 +185,49 @@ cd app
 npm run build
 ```
 
-Output goes to `app/dist/`.
+Output goes to `app/dist/`. The GitHub Actions workflow handles production builds and deployment automatically on push to `main`.
 
----
-
-## Project Structure
+### Project Structure
 
 ```
 promptbridge/
 ├── README.md
-├── PROJECT_SPEC.md              # Product specification
-├── ARCHITECTURE.md              # Two-phase architecture (artifact → standalone)
-├── SCENARIOS.md                 # Full scenario library documentation
-├── PROMPT_TEMPLATES.md          # LLM prompt design documentation
-├── RESEARCH_FINDINGS.md         # NeuroBridge deep dive and gap analysis
-├── RESEARCH_SESSION.md          # Research session instructions
-├── CONTRIBUTING_SCENARIOS.md    # Guide for contributing new scenarios
-├── USER_TESTING_PROTOCOL.md     # Usability testing protocol
-├── QA_CHECKLIST.csv             # 96-item QA test checklist
+├── LICENSE                         # AGPL-3.0
+├── docs/                           # Project documentation
+│   ├── PROJECT_SPEC.md             # Product specification
+│   ├── ARCHITECTURE.md             # Two-phase architecture (artifact → standalone)
+│   ├── SCENARIOS.md                # Full scenario library documentation
+│   ├── PROMPT_TEMPLATES.md         # LLM prompt design documentation
+│   ├── RESEARCH_FINDINGS.md        # NeuroBridge deep dive and gap analysis
+│   ├── CONTRIBUTING_SCENARIOS.md   # Guide for contributing new scenarios
+│   ├── USER_TESTING_PROTOCOL.md    # Usability testing protocol
+│   └── QA_CHECKLIST.csv            # 96-item QA test checklist
 │
 ├── artifact/
-│   └── PromptBridge.jsx         # Original single-file Claude.ai artifact
+│   └── PromptBridge.jsx            # Original single-file Claude.ai artifact
 │
-└── app/                         # Vite + React standalone app
+├── .github/
+│   ├── workflows/deploy.yml        # GitHub Pages auto-deploy
+│   └── CODEOWNERS                  # PR review requirements
+│
+└── app/                            # Vite + React standalone app
     ├── package.json
     ├── vite.config.js
     ├── scripts/
-    │   ├── generate-content.js  # Static content generation pipeline
-    │   └── validate-scenario.js # Scenario validation script
+    │   ├── generate-content.js     # Static content generation pipeline
+    │   └── validate-scenario.js    # Scenario validation script
     └── src/
-        ├── App.jsx              # Main app — state management and routing
-        ├── index.css            # Tailwind CSS + animations
+        ├── App.jsx                 # Main app — state management and routing
+        ├── index.css               # Tailwind CSS + animations
         ├── data/
-        │   ├── scenarios.js     # All 45 scenario definitions
-        │   ├── principles.js    # 8 communication principles
-        │   ├── prompts.js       # LLM system prompts and message builders
-        │   ├── categories.js    # Scenario category definitions
-        │   ├── demo.js          # Landing page demo content
-        │   ├── assessment-scenarios.js
-        │   ├── icon-map.js
-        │   └── generated/       # 30 pre-generated JSON files (one per guided scenario)
-        ├── pages/
-        │   ├── LandingPage.jsx
-        │   ├── ScenarioSelector.jsx
-        │   ├── GuidedMode.jsx   # Core guided learning interaction
-        │   ├── FreeformMode.jsx # Write-your-own practice
-        │   ├── HybridMode.jsx   # Write-first guided mode
-        │   ├── MultiTurnMode.jsx # Multi-turn practice
-        │   ├── AssessmentMode.jsx
-        │   ├── ProgressPage.jsx
-        │   ├── SettingsPage.jsx
-        │   └── HelpPage.jsx     # User guide + AI safety
-        ├── services/
-        │   ├── llm.js           # Multi-provider LLM adapter
-        │   ├── storage.js       # localStorage persistence
-        │   ├── guided-data.js   # Lazy JSON content loader
-        │   ├── recommendations.js
-        │   └── heuristic-scorer.js
-        └── components/
-            ├── Header.jsx
-            ├── ResponseComparison.jsx
-            ├── PrincipleBadge.jsx
-            ├── CopyButton.jsx
-            ├── MarkdownText.jsx
-            ├── LoadingSpinner.jsx
-            └── ErrorBanner.jsx
+        │   ├── scenarios.js        # All 45 scenario definitions
+        │   ├── principles.js       # 8 communication principles
+        │   ├── prompts.js          # LLM system prompts and message builders
+        │   └── generated/          # 30 pre-generated JSON files (one per guided scenario)
+        ├── pages/                  # 10 page components
+        ├── services/               # LLM adapter, storage, scoring, recommendations
+        └── components/             # Shared UI components
 ```
-
----
-
-## Future Roadmap
-
-### Near-term: Validation & Polish
-
-- **User testing** — Conduct 5-10 informal usability sessions using the [testing protocol](USER_TESTING_PROTOCOL.md) to identify confusion points and feedback tone issues
-- **QA pass** — Work through the [96-item QA checklist](QA_CHECKLIST.csv) to document what works and what needs fixes
-- **Cross-browser testing** — Verify Firefox, Safari, Edge, and mobile browsers
-- **Content quality review** — Review all 30 generated scenario files for response quality and feedback accuracy across all 3 response tiers (weak, medium, strong)
-
-### Mid-term: Public Deployment
-
-- **Static hosting** — Deploy the app to Vercel, Netlify, or GitHub Pages (the static tier works with no backend)
-- **Custom domain** — Set up a public URL
-- **Analytics** — Add privacy-respecting analytics (e.g., Plausible) to understand usage patterns
-- **SEO and sharing** — Open Graph tags, social previews, meta descriptions
-- **PWA support** — Service worker for offline guided mode
-
-### Long-term: Growth & Community
-
-- **Community scenarios** — Open contributions following the [scenario contribution guide](CONTRIBUTING_SCENARIOS.md)
-- **Translations / i18n** — Scenario and feedback localization
-- **Classroom mode** — Features for educators using PromptBridge in workshops or courses
-- **Backend API** — Optional FastAPI backend for server-side LLM calls, usage tracking, and shared progress
-- **Evaluation framework** — Formal pre/post skill measurement aligned with NeuroBridge's evaluation methodology
-- **Expanded scenario library** — Domain-specific scenarios (healthcare communication, legal research, software development, academic writing)
-
----
-
-## Contributing
-
-Contributions are welcome! The easiest way to contribute is by adding new scenarios. See [CONTRIBUTING_SCENARIOS.md](CONTRIBUTING_SCENARIOS.md) for the format and guidelines.
-
-For code contributions, open an issue first to discuss the change.
 
 ---
 
