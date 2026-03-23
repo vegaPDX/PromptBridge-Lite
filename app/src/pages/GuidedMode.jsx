@@ -4,13 +4,11 @@ import {
   PenTool, Send, Check, ChevronDown,
 } from "lucide-react";
 import { loadGuidedContent } from "../services/guided-data";
-import { hasApiKey, analyzeFreeform, simulateResponses } from "../services/llm";
 import { scorePrompt, getFeedbackSummary } from "../services/heuristic-scorer";
 import { PRINCIPLE_MAP } from "../data/principles";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorBanner from "../components/ErrorBanner";
 import PrincipleBadge from "../components/PrincipleBadge";
-import ResponseComparison from "../components/ResponseComparison";
 import CopyButton from "../components/CopyButton";
 import MarkdownText from "../components/MarkdownText";
 import AiToolLinks from "../components/AiToolLinks";
@@ -31,8 +29,6 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
 
   // Write Your Own state
   const [tryPrompt, setTryPrompt] = useState("");
-  const [tryAnalysis, setTryAnalysis] = useState(null);
-  const [tryResponses, setTryResponses] = useState(null);
   const [tryHeuristic, setTryHeuristic] = useState(null);
 
   // Load pre-generated content on mount
@@ -71,31 +67,15 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
 
   const goToWriteOwn = () => {
     setTryPrompt("");
-    setTryAnalysis(null);
-    setTryResponses(null);
     setTryHeuristic(null);
     setStep("write-own");
   };
 
-  const handleCheckSkills = async () => {
+  const handleCheckSkills = () => {
     if (!tryPrompt.trim()) return;
-    if (hasApiKey()) {
-      setStep("write-loading");
-      try {
-        const analysis = await analyzeFreeform(scenario, tryPrompt.trim());
-        setTryAnalysis(analysis);
-        const resp = await simulateResponses(tryPrompt.trim(), analysis.improved_prompt, scenario.situation);
-        setTryResponses(resp);
-        setStep("write-results");
-      } catch (e) {
-        setError(e.message);
-        setStep("write-own");
-      }
-    } else {
-      const result = scorePrompt(tryPrompt.trim(), scenario);
-      setTryHeuristic(result);
-      setStep("write-results");
-    }
+    const result = scorePrompt(tryPrompt.trim(), scenario);
+    setTryHeuristic(result);
+    setStep("write-results");
   };
 
   return (
@@ -312,51 +292,10 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
         </div>
       )}
 
-      {/* Step: Write loading */}
-      {step === "write-loading" && !error && (
-        <LoadingSpinner message="Analyzing your prompt..." />
-      )}
-
       {/* ── Step: Write Results ───────────────────────────────── */}
       {step === "write-results" && (
         <div className="animate-fadeIn space-y-6">
-          {/* API-powered results */}
-          {tryAnalysis && tryResponses && (
-            <>
-              <div className="bg-white rounded-xl border border-stone-200 p-5">
-                <h3 className="font-semibold text-stone-800 mb-4">How you did</h3>
-                <div className="bg-emerald-50 rounded-lg p-4 mb-3 border border-emerald-100">
-                  <p className="text-xs text-emerald-600 font-medium uppercase tracking-wide mb-1">What's working</p>
-                  <p className="text-stone-700 text-sm">{tryAnalysis.strengths}</p>
-                </div>
-                <div className="bg-amber-50 rounded-lg p-4 mb-3 border border-amber-100">
-                  <p className="text-xs text-amber-600 font-medium uppercase tracking-wide mb-1">What to improve</p>
-                  <p className="text-stone-700 text-sm">{tryAnalysis.improvements}</p>
-                </div>
-                <div className="bg-indigo-50 rounded-lg p-4 border border-indigo-100">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1">
-                      <p className="text-xs text-indigo-600 font-medium uppercase tracking-wide mb-1">Improved version</p>
-                      <p className="text-stone-700 text-sm italic">"{tryAnalysis.improved_prompt}"</p>
-                    </div>
-                    <CopyButton text={tryAnalysis.improved_prompt} label="Copy" className="flex-shrink-0 bg-indigo-100 text-indigo-700 hover:bg-indigo-200" />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-semibold text-stone-700 mb-3">See the difference</h3>
-                <ResponseComparison
-                  weakPrompt={tryPrompt}
-                  strongPrompt={tryAnalysis.improved_prompt}
-                  weakResponse={tryResponses.response_weak}
-                  strongResponse={tryResponses.response_strong}
-                />
-              </div>
-            </>
-          )}
-
-          {/* Heuristic results (no API) */}
-          {tryHeuristic && !tryAnalysis && (
+          {tryHeuristic && (
             <div className="bg-white rounded-xl border border-stone-200 p-5">
               <h3 className="font-semibold text-stone-800 mb-4">How you did</h3>
 

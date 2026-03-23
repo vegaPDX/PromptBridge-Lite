@@ -1,60 +1,28 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
-  ArrowLeft, ArrowRight, PenTool, Send, Lightbulb,
+  ArrowLeft, ArrowRight, PenTool, Send,
   RefreshCw, Check,
 } from "lucide-react";
 import { PRINCIPLE_MAP } from "../data/principles";
 import { FREEFORM_SCENARIOS } from "../data/scenarios";
-import { hasApiKey, analyzeFreeform, simulateResponses } from "../services/llm";
 import { scorePrompt, getFeedbackSummary } from "../services/heuristic-scorer";
-import { getRecommendedScenarios, buildRecommendation } from "../services/recommendations";
-import LoadingSpinner from "../components/LoadingSpinner";
-import ErrorBanner from "../components/ErrorBanner";
 import PrincipleBadge from "../components/PrincipleBadge";
-import ResponseComparison from "../components/ResponseComparison";
 import CopyButton from "../components/CopyButton";
 import AiToolLinks from "../components/AiToolLinks";
 
-export default function FreeformMode({ scenario, onComplete, onBack, practicedPrinciples = [], completedScenarios = [], userContext }) {
-  // States: write | tips | loading-analysis | loading-responses | results | heuristic-results
+export default function FreeformMode({ scenario, onComplete, onBack, practicedPrinciples = [], completedScenarios = [] }) {
+  // States: write | tips | heuristic-results
   const [step, setStep] = useState("write");
   const [userPrompt, setUserPrompt] = useState("");
-  const [analysis, setAnalysis] = useState(null);
-  const [responses, setResponses] = useState(null);
   const [heuristic, setHeuristic] = useState(null);
-  const [error, setError] = useState(null);
 
-  // Unmount guard for async operations
-  const unmountedRef = useRef(false);
-  useEffect(() => () => { unmountedRef.current = true; }, []);
+  // ── Check My Skills: heuristic scoring ──
 
-  // ── Check My Skills: API if available, heuristic otherwise ──
-
-  const handleCheckSkills = async () => {
+  const handleCheckSkills = () => {
     if (!userPrompt.trim()) return;
-    if (hasApiKey()) {
-      setStep("loading-analysis");
-      setError(null);
-      try {
-        const result = await analyzeFreeform(scenario, userPrompt.trim(), userContext);
-        setAnalysis(result);
-        setStep("loading-responses");
-        const resp = await simulateResponses(
-          userPrompt.trim(),
-          result.improved_prompt,
-          scenario.situation
-        );
-        setResponses(resp);
-        setStep("results");
-      } catch (e) {
-        setError(e.message);
-        setStep("write");
-      }
-    } else {
-      const result = scorePrompt(userPrompt.trim(), scenario);
-      setHeuristic(result);
-      setStep("heuristic-results");
-    }
+    const result = scorePrompt(userPrompt.trim(), scenario);
+    setHeuristic(result);
+    setStep("heuristic-results");
   };
 
   // ── Copy & Try ──
@@ -68,32 +36,10 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
     setStep("tips");
   };
 
-  const retryFromError = () => {
-    if (!analysis) {
-      handleCheckSkills();
-    } else {
-      setStep("loading-responses");
-      setError(null);
-      simulateResponses(userPrompt.trim(), analysis.improved_prompt, scenario.situation)
-        .then(resp => {
-          if (unmountedRef.current) return;
-          setResponses(resp);
-          setStep("results");
-        })
-        .catch(e => {
-          if (unmountedRef.current) return;
-          setError(e.message);
-        });
-    }
-  };
-
   const resetForm = () => {
     setStep("write");
     setUserPrompt("");
-    setAnalysis(null);
-    setResponses(null);
     setHeuristic(null);
-    setError(null);
   };
 
   return (
@@ -112,8 +58,6 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
         <h2 className="font-serif text-xl font-bold text-stone-800 mb-1">{scenario.title}</h2>
         <p className="text-stone-600 text-sm">{scenario.situation}</p>
       </div>
-
-      {error && <div className="mb-6"><ErrorBanner message={error} onRetry={retryFromError} /></div>}
 
       {/* ── Step: Write ─────────────────────────────────────── */}
       {step === "write" && (
@@ -200,16 +144,7 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
         </div>
       )}
 
-      {/* ── Loading states ──────────────────────────────────── */}
-      {step === "loading-analysis" && !error && (
-        <LoadingSpinner message="Analyzing your request..." />
-      )}
-
-      {step === "loading-responses" && !error && (
-        <LoadingSpinner message="Simulating AI responses..." />
-      )}
-
-      {/* ── Step: Heuristic Results (no API key) ─────────────── */}
+      {/* ── Step: Heuristic Results ───────────────────────────── */}
       {step === "heuristic-results" && heuristic && (
         <div className="space-y-6 animate-fadeIn">
           <div className="bg-white rounded-xl border border-stone-200 p-5">
@@ -284,132 +219,6 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
           </div>
         </div>
       )}
-
-      {/* ── Step: Results (API key path) ────────────────────── */}
-      {step === "results" && analysis && responses && (
-        <div className="space-y-6 animate-fadeIn">
-          {/* Analysis */}
-          <div className="bg-white rounded-xl border border-stone-200 p-5">
-            <h3 className="font-semibold text-stone-800 mb-4">How you did</h3>
-
-            {/* Strengths */}
-            <div className="bg-emerald-50 rounded-lg p-4 mb-3 border border-emerald-100">
-              <p className="text-xs text-emerald-600 font-medium uppercase tracking-wide mb-1">What's working</p>
-              <p className="text-stone-700 text-sm">{analysis.strengths}</p>
-            </div>
-
-            {/* Improvements */}
-            <div className="bg-amber-50 rounded-lg p-4 mb-3 border border-amber-100">
-              <p className="text-xs text-amber-600 font-medium uppercase tracking-wide mb-1">What to improve</p>
-              <p className="text-stone-700 text-sm">{analysis.improvements}</p>
-            </div>
-
-            {/* Improved prompt */}
-            <div className="bg-indigo-50 rounded-lg p-4 border border-indigo-100">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1">
-                  <p className="text-xs text-indigo-600 font-medium uppercase tracking-wide mb-1">Improved version</p>
-                  <p className="text-stone-700 text-sm italic">"{analysis.improved_prompt}"</p>
-                </div>
-                <CopyButton
-                  text={analysis.improved_prompt}
-                  label="Copy improved version"
-                  className="flex-shrink-0 bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Side-by-side comparison */}
-          <div>
-            <h3 className="font-semibold text-stone-700 mb-3">See the difference</h3>
-            <ResponseComparison
-              weakPrompt={userPrompt}
-              strongPrompt={analysis.improved_prompt}
-              weakResponse={responses.response_weak}
-              strongResponse={responses.response_strong}
-            />
-          </div>
-
-          {/* Tip */}
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
-            <div className="flex items-center gap-2 mb-2">
-              <Lightbulb className="w-5 h-5 text-amber-500" />
-              <span className="font-semibold text-amber-800">Try This Next Time</span>
-            </div>
-            <p className="text-stone-700 text-sm">{analysis.tip}</p>
-          </div>
-
-          {/* Principle badges */}
-          <div>
-            <p className="text-xs text-stone-500 font-medium uppercase tracking-wide mb-2">Skills practiced</p>
-            <div className="flex flex-wrap gap-2">
-              {(analysis.principles_present || []).map(pid => (
-                <span key={pid} className="text-xs px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-full font-medium border border-emerald-200">
-                  &#10003; {PRINCIPLE_MAP[pid]?.name}
-                </span>
-              ))}
-              {(analysis.principles_missing || []).map(pid => (
-                <span key={pid} className="text-xs px-2 py-0.5 bg-stone-100 text-stone-500 rounded-full font-medium border border-stone-200">
-                  {PRINCIPLE_MAP[pid]?.name}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Try it for real */}
-          <AiToolLinks
-            prompt={analysis.improved_prompt}
-            message="Try the improved version in a real AI tool and see the difference:"
-          />
-
-          {/* Recommendation callout */}
-          <FreeformRecommendation
-            practicedPrinciples={[...new Set([...practicedPrinciples, ...(analysis.principles_present || []), ...(analysis.principles_missing || [])])]}
-            completedScenarios={[...new Set([...completedScenarios, scenario.id])]}
-          />
-
-          {/* Actions */}
-          <div className="flex gap-3">
-            <button
-              onClick={() => onComplete(scenario, [...(analysis.principles_present || []), ...(analysis.principles_missing || [])])}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition-colors"
-            >
-              Next Scenario <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={resetForm}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-xl font-medium transition-colors"
-            >
-              <RefreshCw className="w-4 h-4" /> Try Again
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function FreeformRecommendation({ practicedPrinciples, completedScenarios }) {
-  const recs = getRecommendedScenarios(practicedPrinciples, completedScenarios, FREEFORM_SCENARIOS, 1);
-  const rec = buildRecommendation(practicedPrinciples, recs);
-  if (!rec) return null;
-
-  return (
-    <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
-      <p className="text-sm text-indigo-700 font-medium mb-1">What to try next</p>
-      <p className="text-sm text-stone-600">
-        Try <strong>"{rec.nextScenario}"</strong> to practice{" "}
-        {rec.newSkills.length === 1
-          ? <strong>{rec.newSkills[0]}</strong>
-          : rec.newSkills.map((s, i) => (
-              <span key={s}>
-                {i > 0 && (i === rec.newSkills.length - 1 ? " and " : ", ")}
-                <strong>{s}</strong>
-              </span>
-            ))
-        }.
-      </p>
     </div>
   );
 }

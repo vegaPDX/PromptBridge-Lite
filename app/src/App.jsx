@@ -7,11 +7,8 @@ import ScenarioSelector from "./pages/ScenarioSelector";
 import GuidedMode from "./pages/GuidedMode";
 import FreeformMode from "./pages/FreeformMode";
 import ProgressPage from "./pages/ProgressPage";
-import SettingsPage from "./pages/SettingsPage";
 import HelpPage from "./pages/HelpPage";
 import AssessmentMode from "./pages/AssessmentMode";
-import HybridMode from "./pages/HybridMode";
-import MultiTurnMode from "./pages/MultiTurnMode";
 
 export default function App() {
   const [page, setPage] = useState("landing");
@@ -108,22 +105,6 @@ export default function App() {
             userContext={userContext}
           />
         )}
-        {page === "hybrid" && selectedScenario && (
-          <HybridMode
-            key={selectedScenario.id}
-            scenario={selectedScenario}
-            onComplete={handleScenarioComplete}
-            onBack={() => navigate("scenarios")}
-          />
-        )}
-        {page === "multiturn" && selectedScenario && (
-          <MultiTurnMode
-            key={selectedScenario.id}
-            scenario={selectedScenario}
-            onComplete={handleScenarioComplete}
-            onBack={() => navigate("scenarios")}
-          />
-        )}
         {page === "progress" && (
           <ProgressPage
             completedScenarios={completedScenarios}
@@ -138,9 +119,6 @@ export default function App() {
             onComplete={handleAssessmentComplete}
             onBack={() => navigate(assessmentData?.pre ? "progress" : "scenarios")}
           />
-        )}
-        {page === "settings" && (
-          <SettingsPage onBack={() => navigate("scenarios")} />
         )}
         {page === "help" && (
           <HelpPage onNavigate={navigate} />

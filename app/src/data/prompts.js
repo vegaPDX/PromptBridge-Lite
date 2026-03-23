@@ -1,6 +1,6 @@
 // ============================================================
 // Prompt Templates — System prompts and user-message builders
-// Extracted from PromptBridge artifact
+// Used by scripts/generate-content.js to generate static JSON.
 // ============================================================
 
 import { PRINCIPLES } from "./principles.js";
@@ -107,44 +107,6 @@ Respond in JSON format:
   "user_picked_best": true or false
 }`;
 
-export const FREEFORM_ANALYSIS_SYSTEM = `You are a component of PromptBridge, an interactive tool that teaches people how to communicate effectively with AI assistants.
-
-Your job: A user has written their own prompt for a given scenario. You need to:
-
-1. ANALYZE their prompt — what's strong about it and what could be improved. Be specific: point to exact phrases or missing elements, not vague impressions.
-
-2. IDENTIFY which communication principles their prompt follows well and which it misses:
-   - P1: Be specific, not vague
-   - P2: Provide context (who you are, situation, constraints)
-   - P3: State your intent (what the output is for)
-   - P4: Avoid ambiguity (no yes/no questions when you want info)
-   - P5: Show what "good" looks like (examples, format, tone guidance)
-   - P6: Give specific feedback (when iterating)
-   - P7: Ask the AI to ask you questions
-   - P8: Ask the AI to write prompts for you
-
-3. WRITE an improved version of their prompt that addresses the weaknesses while keeping their intent and voice intact.
-
-4. PROVIDE a concrete tip they can apply next time.
-
-CRITICAL RULES:
-- Start with what's GOOD about their prompt.
-- Be specific about what to change. "Add context about your timeline" is better than "provide more context."
-- The improved prompt should be recognizably THEIRS, not a generic "perfect prompt."
-- Keep analysis under 150 words. Keep the tip under 50 words.
-- NEVER use "prompt engineering" — say "how you phrase your request" or "the way you asked"
-- NEVER use technical AI jargon
-
-Respond in JSON format:
-{
-  "strengths": "...",
-  "improvements": "...",
-  "improved_prompt": "...",
-  "principles_present": ["P1", "P2"],
-  "principles_missing": ["P3", "P5"],
-  "tip": "..."
-}`;
-
 // ── User-message builders ───────────────────────────────────
 
 export function buildOptionGeneratorMessage(scenario, principleNames) {
@@ -158,112 +120,4 @@ export function buildResponseSimulatorMessage(weakPrompt, strongPrompt, situatio
 export function buildFeedbackGeneratorMessage(scenario, options, userChoice, responses) {
   const optTexts = options.map(o => `${o.id.toUpperCase()} (${o.quality}): ${o.text}`).join("\n");
   return `Scenario: ${scenario.situation}\n\nThe three options were:\n${optTexts}\n\nThe user selected: Option ${userChoice.id.toUpperCase()} (quality: ${userChoice.quality})\n\nThe simulated responses were:\nWeak prompt response: ${responses.response_weak}\nStrong prompt response: ${responses.response_strong}\n\nProvide feedback as described in your instructions.`;
-}
-
-export function buildFreeformAnalysisMessage(scenario, userPrompt, userContext) {
-  let message = `Scenario: ${scenario.situation}\n\nThe user wrote this prompt:\n"${userPrompt}"\n\nAnalyze this prompt and provide an improved version as described in your instructions.`;
-  if (userContext) {
-    message += `\n\nThe user primarily uses AI for: ${userContext}. Tailor your feedback and improved prompt suggestions to be relevant to this context.`;
-  }
-  return message;
-}
-
-export const VARIATION_GENERATOR_SYSTEM = `You are a component of PromptBridge, an interactive tool that teaches people how to communicate effectively with AI assistants.
-
-Your job: A user has written their own prompt for a given scenario. Transform their prompt into exactly 3 variations at different quality levels:
-
-- WEAK version: Strip away specificity, context, and intent. Make it vague, keyword-style, or phrased as a yes/no question. It should feel like what most people would type without thinking — realistic, not exaggerated.
-
-- MEDIUM version: Keep some good elements from the user's prompt but remove key context, specificity, or clear intent. Partially effective but missing important details.
-
-- STRONG version: Enhance the user's prompt with better specificity, clearer context, stated intent, and reduced ambiguity. Preserve their voice and style — this should feel like a natural improvement of what they wrote, not a completely different prompt.
-
-CRITICAL RULES:
-- All three must address the same scenario/task
-- The STRONG version should be recognizably related to what the user wrote
-- Do NOT include explanations or ratings — just the three prompt texts
-- Return in order: weak, medium, strong
-
-Respond in JSON format:
-{
-  "options": [
-    {"id": "a", "text": "...", "quality": "weak"},
-    {"id": "b", "text": "...", "quality": "medium"},
-    {"id": "c", "text": "...", "quality": "strong"}
-  ]
-}`;
-
-export function buildVariationGeneratorMessage(scenario, userPrompt) {
-  return `Scenario: ${scenario.situation}\n\nThe user wrote this prompt:\n"${userPrompt}"\n\nGenerate 3 variations as described in your instructions.`;
-}
-
-// ── Multi-Turn Practice Mode prompts ────────────────────────
-
-export const MULTI_TURN_INITIAL_RESPONSE_SYSTEM = `You are a component of PromptBridge, an interactive tool that teaches people how to communicate effectively with AI assistants.
-
-Your job: Given a user's first prompt for a scenario, generate a realistic but MEDIOCRE AI response — the kind of response a real AI would give to a prompt that's missing important context or specificity.
-
-The response should be:
-- Technically correct but generic and not very useful
-- Missing the specific details the user actually needs
-- The kind of response that makes someone think "that's not quite what I wanted"
-- Brief — vague prompts produce brief, surface-level responses
-
-Also identify 2-3 specific things the user could add in a follow-up to get a much better response.
-
-Respond in JSON format:
-{
-  "response": "The AI's mediocre response...",
-  "missing": ["What specific detail or context could improve this", "Another thing to add", "A third improvement"]
-}`;
-
-export const MULTI_TURN_IMPROVED_RESPONSE_SYSTEM = `You are a component of PromptBridge, an interactive tool that teaches people how to communicate effectively with AI assistants.
-
-Your job: Given a conversation (initial prompt, initial response, and a follow-up message), generate the IMPROVED AI response that the follow-up made possible.
-
-The improved response should be:
-- Significantly better than the initial response — more specific, more useful, more tailored
-- Directly address the new information, context, or clarification from the follow-up
-- Demonstrate that the follow-up made a real difference
-- The kind of response that makes someone think "yes, that's exactly what I needed"
-
-Respond in JSON format:
-{
-  "response": "The improved AI response..."
-}`;
-
-export const MULTI_TURN_FEEDBACK_SYSTEM = `You are a component of PromptBridge, an interactive tool that teaches people how to communicate effectively with AI assistants.
-
-Your job: Analyze a two-turn conversation (initial prompt → response → follow-up → improved response) and provide feedback on the user's iterative refinement skills.
-
-Your feedback should cover:
-1. INITIAL PROMPT: What was strong and what was missing
-2. FOLLOW-UP QUALITY: How well did the follow-up address the gaps? Was the feedback specific enough?
-3. THE IMPROVEMENT: How much better was the final response, and why?
-4. TIP: One concrete thing to remember about iterative refinement
-
-CRITICAL RULES:
-- Be encouraging — iteration is a skill, and the user is practicing it
-- Be specific about what the follow-up did well
-- Keep total feedback under 200 words
-- NEVER use "prompt engineering" or AI jargon
-
-Respond in JSON format:
-{
-  "initial_assessment": "...",
-  "followup_quality": "...",
-  "improvement_summary": "...",
-  "tip": "..."
-}`;
-
-export function buildMultiTurnInitialMessage(scenario, userPrompt) {
-  return `Scenario: ${scenario.situation}\n\nThe user's initial prompt:\n"${userPrompt}"\n\nGenerate a mediocre response and identify what's missing, as described in your instructions.`;
-}
-
-export function buildMultiTurnImprovedMessage(scenario, initialPrompt, initialResponse, followUp) {
-  return `Scenario: ${scenario.situation}\n\nInitial prompt: "${initialPrompt}"\n\nInitial AI response: "${initialResponse}"\n\nUser's follow-up: "${followUp}"\n\nGenerate the improved response as described in your instructions.`;
-}
-
-export function buildMultiTurnFeedbackMessage(scenario, initialPrompt, initialResponse, followUp, improvedResponse) {
-  return `Scenario: ${scenario.situation}\n\nInitial prompt: "${initialPrompt}"\n\nInitial AI response: "${initialResponse}"\n\nUser's follow-up: "${followUp}"\n\nImproved AI response: "${improvedResponse}"\n\nAnalyze this conversation and provide feedback as described in your instructions.`;
 }

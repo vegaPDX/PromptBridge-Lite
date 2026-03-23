@@ -56,6 +56,16 @@ if (PROVIDER === "gemini" && !GEMINI_API_KEY) {
   process.exit(1);
 }
 
+// ── Error sanitization ──────────────────────────────────────
+
+function sanitizeErrorText(text) {
+  return text
+    .replace(/AIza[A-Za-z0-9_-]{30,}/g, "[REDACTED]")
+    .replace(/sk-ant-[A-Za-z0-9_-]+/g, "[REDACTED]")
+    .replace(/sk-[A-Za-z0-9_-]{20,}/g, "[REDACTED]")
+    .slice(0, 500);
+}
+
 // ── LLM Call Functions ──────────────────────────────────────
 
 async function callClaude(systemPrompt, userMessage, { temperature = 0.7, maxTokens = 1024 } = {}) {
@@ -77,7 +87,7 @@ async function callClaude(systemPrompt, userMessage, { temperature = 0.7, maxTok
 
   if (!res.ok) {
     const errText = await res.text().catch(() => "Unknown error");
-    throw new Error(`Claude API error (${res.status}): ${errText}`);
+    throw new Error(`Claude API error (${res.status}): ${sanitizeErrorText(errText)}`);
   }
 
   const data = await res.json();
@@ -103,7 +113,7 @@ async function callGemini(systemPrompt, userMessage, { temperature = 0.7, maxTok
 
   if (!res.ok) {
     const errText = await res.text().catch(() => "Unknown error");
-    throw new Error(`Gemini API error (${res.status}): ${errText}`);
+    throw new Error(`Gemini API error (${res.status}): ${sanitizeErrorText(errText)}`);
   }
 
   const data = await res.json();

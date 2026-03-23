@@ -2,7 +2,7 @@ import React from "react";
 import {
   ArrowRight, HelpCircle, BookOpen, PenTool, Shield,
   AlertTriangle, ExternalLink, Link, Eye, Search,
-  MessageSquare, ChevronRight, RefreshCw, Target, BarChart3,
+  MessageSquare, ChevronRight, Target, BarChart3,
 } from "lucide-react";
 import { PRINCIPLES } from "../data/principles";
 import { resolveIcon } from "../data/icon-map";
@@ -45,24 +45,6 @@ export default function HelpPage({ onNavigate }) {
             title="Write Your Own"
             description="Write your own request from scratch, check which skills you applied, then copy it and try it in any AI tool — ChatGPT, Claude, Gemini, or Copilot."
           />
-        </div>
-        <div className="mt-4">
-          <p className="text-xs text-stone-400 font-medium uppercase tracking-wide mb-2">Advanced modes</p>
-          <p className="text-stone-500 text-xs mb-3">These unlock when you add an API key in <button onClick={() => onNavigate("settings")} className="text-indigo-500 hover:text-indigo-700 underline">Settings</button>.</p>
-          <div className="space-y-3">
-            <ModeCard
-              icon={<MessageSquare className="w-4 h-4 text-stone-400" />}
-              title="Write First"
-              badge="API key"
-              description="Write your request first, then see three AI-generated variations at different quality levels. Evaluate which is strongest and see the difference in AI responses."
-            />
-            <ModeCard
-              icon={<RefreshCw className="w-4 h-4 text-stone-400" />}
-              title="Practice Iterating"
-              badge="API key"
-              description="Write an initial request, see a mediocre AI response, then write a follow-up to improve it. You'll see how iterating transforms the result."
-            />
-          </div>
         </div>
       </Section>
 
@@ -276,57 +258,15 @@ export default function HelpPage({ onNavigate }) {
         </div>
       </Section>
 
-      {/* What's an API key? */}
-      <Section title="What's an API key? Do I need one?">
-        <p>
-          <strong>You don't need one.</strong> PromptBridge is fully functional without any setup —
-          all Guided Practice scenarios, skill checking, and the copy-and-try workflow work immediately.
-        </p>
-        <p className="mt-2">
-          Power users can optionally add a free API key to unlock advanced features like
-          AI-powered analysis, the Write First mode, and multi-turn practice. Think of an API key
-          as a password that lets the app talk to an AI service on your behalf.
-        </p>
-        <div className="mt-3 bg-stone-50 rounded-lg border border-stone-200 p-3">
-          <p className="text-xs text-stone-500 font-medium uppercase tracking-wide mb-2">What unlocks with a free API key</p>
-          <ul className="text-stone-600 text-xs space-y-1">
-            <li>AI-powered feedback in Write Your Own mode (detailed analysis + side-by-side comparison)</li>
-            <li>Richer AI analysis in guided mode's "Write Your Own" step</li>
-            <li>Write First mode (the AI creates variations of your prompt)</li>
-            <li>Practice Iterating mode (multi-turn conversation practice)</li>
-          </ul>
-        </div>
-        <p className="mt-3">
-          If you'd like to try these features, Google offers free Gemini API keys:
-        </p>
-        <a
-          href="https://aistudio.google.com/apikey"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 mt-2 text-indigo-600 hover:text-indigo-700 text-sm font-medium transition-colors"
-        >
-          Get a free key at Google AI Studio <ExternalLink className="w-3.5 h-3.5" />
-        </a>
-        <p className="mt-2 text-stone-500 text-xs">
-          You can also use your own Claude (Anthropic) or OpenAI key.
-          Go to <button onClick={() => onNavigate("settings")} className="text-indigo-500 hover:text-indigo-700 underline">Settings</button> to
-          configure your key.
-        </p>
-      </Section>
-
       {/* Is my data private? */}
       <Section title="Is my data private?">
         <div className="flex items-start gap-3">
           <Shield className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
           <div>
             <p>
-              Everything stays in your browser. Your progress, settings, and API key are stored
-              locally on your device — nothing is sent to PromptBridge servers because there aren't any.
-            </p>
-            <p className="mt-2">
-              When you use Write Your Own mode with an API key, your prompts are sent directly from
-              your browser to the AI provider you chose (Google, Anthropic, or OpenAI). PromptBridge
-              never sees or stores those requests.
+              Everything stays in your browser. Your progress is stored
+              locally on your device — nothing is sent to any server because there aren't any.
+              PromptBridge is a fully static site with no backend.
             </p>
           </div>
         </div>

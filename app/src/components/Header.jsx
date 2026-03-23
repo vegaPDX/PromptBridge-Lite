@@ -1,5 +1,5 @@
 import React from "react";
-import { MessageSquare, BarChart3, Settings, HelpCircle } from "lucide-react";
+import { MessageSquare, BarChart3, HelpCircle } from "lucide-react";
 
 export default function Header({ page, practicedPrinciples, onNavigate }) {
   return (
@@ -51,17 +51,6 @@ export default function Header({ page, practicedPrinciples, onNavigate }) {
             aria-label="Help"
           >
             <HelpCircle className="w-4.5 h-4.5" />
-          </button>
-          <button
-            onClick={() => onNavigate("settings")}
-            className={`p-1.5 rounded-lg transition-colors ${
-              page === "settings"
-                ? "bg-indigo-50 text-indigo-700"
-                : "text-stone-400 hover:text-stone-600 hover:bg-stone-100"
-            }`}
-            aria-label="Settings"
-          >
-            <Settings className="w-4.5 h-4.5" />
           </button>
         </nav>
       </div>

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Check, BookOpen, PenTool, Sparkles, X, MessageSquare, RefreshCw } from "lucide-react";
+import { Check, BookOpen, PenTool, Sparkles, X } from "lucide-react";
 import { groupBy } from "lodash-es";
 import { GUIDED_SCENARIOS, FREEFORM_SCENARIOS } from "../data/scenarios";
 import { CATEGORIES } from "../data/categories";
 import { PRINCIPLE_MAP } from "../data/principles";
 import { resolveIcon } from "../data/icon-map";
 import { getRecommendedScenarios } from "../services/recommendations";
-import { hasApiKey } from "../services/llm";
 
 const CONTEXT_PILLS = [
   { label: "Work emails & docs", tags: ["work"] },
@@ -24,7 +23,7 @@ function getMatchingTags(userContext) {
 export default function ScenarioSelector({ onSelectScenario, completedScenarios, practicedPrinciples = [], userContext, onSetUserContext }) {
   const [activeTab, setActiveTab] = useState("guided");
   const [bannerDismissed, setBannerDismissed] = useState(false);
-  const scenarios = activeTab === "guided" ? GUIDED_SCENARIOS : activeTab === "freeform" ? FREEFORM_SCENARIOS : GUIDED_SCENARIOS;
+  const scenarios = activeTab === "guided" ? GUIDED_SCENARIOS : FREEFORM_SCENARIOS;
 
   // Sort scenarios by relevance match within each category group
   const matchingTags = userContext ? getMatchingTags(userContext) : [];
@@ -97,19 +96,6 @@ export default function ScenarioSelector({ onSelectScenario, completedScenarios,
           <PenTool className="w-4 h-4 inline mr-1.5 -mt-0.5" />
           Write Your Own
         </button>
-        {hasApiKey() && (
-          <button
-            onClick={() => setActiveTab("hybrid")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              activeTab === "hybrid"
-                ? "bg-indigo-600 text-white"
-                : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-            }`}
-          >
-            <MessageSquare className="w-4 h-4 inline mr-1.5 -mt-0.5" />
-            Write First
-          </button>
-        )}
       </div>
 
       {/* Scenario cards grouped by category */}
@@ -131,7 +117,7 @@ export default function ScenarioSelector({ onSelectScenario, completedScenarios,
                 return (
                   <button
                     key={scenario.id}
-                    onClick={() => onSelectScenario(scenario, activeTab === "hybrid" ? "hybrid" : undefined)}
+                    onClick={() => onSelectScenario(scenario)}
                     className={`text-left bg-white rounded-xl border p-4 hover:border-indigo-300 hover:shadow-md transition-all group ${
                       isRecommended && !isCompleted ? "border-indigo-200" : "border-stone-200"
                     }`}
@@ -161,18 +147,6 @@ export default function ScenarioSelector({ onSelectScenario, completedScenarios,
                         </span>
                       ))}
                     </div>
-                    {scenario.multiTurnEligible && hasApiKey() && activeTab === "guided" && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onSelectScenario(scenario, "multiturn");
-                        }}
-                        className="mt-2 inline-flex items-center gap-1 text-xs px-2 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded-full hover:bg-amber-100 transition-colors"
-                        title="Practice refining your prompt across multiple turns"
-                      >
-                        <RefreshCw className="w-3 h-3" /> Practice iterating
-                      </button>
-                    )}
 
                   </button>
                 );

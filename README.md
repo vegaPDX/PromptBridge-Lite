@@ -4,7 +4,7 @@
 
 ### **[Try it now — https://vegapdx.github.io/PromptBridge/](https://vegapdx.github.io/PromptBridge/)**
 
-No signup. No API key needed. Just open and start learning.
+No signup. No API key. No backend. Just open and start learning.
 
 ---
 
@@ -59,20 +59,10 @@ Every scenario teaches one or more of these principles:
 - **Smart Strategies** — Advanced techniques like few-shot examples, role-switching, and structured prompts
 - **Write Your Own** — Open-ended scenarios to practice without guardrails
 
-### 4 Learning Modes
+### 2 Learning Modes
 
 - **Guided Practice** — Compare 3 prompt approaches (weak, medium, effective) side by side. See the AI response each one produces. Learn why specific, context-rich prompts get dramatically better results. Then write your own version and get scored.
-- **Write Your Own** — Write a prompt from scratch for any of 15 diverse scenarios, get AI-powered analysis (with API key) or copy & paste it into ChatGPT, Gemini, Claude, or Copilot to test in a real AI tool.
-- **Write First** — Write your prompt, then evaluate 3 AI-generated variations of it. *(Requires API key)*
-- **Practice Iterating** — Write an initial prompt, see a mediocre response, write a follow-up, see the improvement. *(Requires API key)*
-
-### Three Access Tiers
-
-| Tier | Setup | What works |
-|------|-------|-----------|
-| **Free (static)** | None | All 30 guided scenarios with pre-generated content, replay, heuristic scoring, assessment |
-| **Free (Gemini)** | Free API key from [Google AI Studio](https://aistudio.google.com/apikey) | Everything above + AI-powered freeform analysis, Write First mode, Practice Iterating mode |
-| **BYOK** | Your own Claude or OpenAI key | Same as above, using your preferred provider |
+- **Write Your Own** — Write a prompt from scratch for any of 15 diverse scenarios. Get instant feedback on which communication skills you applied. Copy your prompt and try it in any real AI tool — ChatGPT, Claude, Gemini, or Copilot.
 
 ### Additional Features
 
@@ -81,8 +71,37 @@ Every scenario teaches one or more of these principles:
 - **Personalization** — Optional "What do you use AI for?" question to surface the most relevant scenarios
 - **AI Safety Guide** — Comprehensive risk awareness section sourced from official Anthropic, OpenAI, and Google guidance
 - **Progress Tracking** — Tracks completed scenarios and practiced principles in your browser
+- **Copy-to-Real-AI Workflow** — Every scenario includes copy buttons and links to ChatGPT, Claude, Gemini, and Copilot so you can immediately practice in real tools
 - **Accessible** — ARIA labels, reduced motion support, color contrast compliant, semantic HTML
 - **Mobile Friendly** — Responsive design that works on phones, tablets, and desktops
+
+---
+
+## Architecture
+
+The public web app is a **fully static site** with no backend and no outbound network requests. All content is pre-generated at build time. No API keys are needed or accepted in the deployed app.
+
+- **Frontend:** React 19, Vite 8, Tailwind CSS v4
+- **Content:** 30 pre-generated JSON scenario files (generated once by a local script)
+- **Scoring:** Client-side heuristic scorer using regex pattern matching against the 8 communication principles
+- **Storage:** Progress saved in browser `localStorage`
+- **Deployment:** GitHub Pages (static files only)
+- **Security:** Content Security Policy with no `connect-src` (no outbound requests), frame-buster for clickjacking protection, HTML escaping on all rendered content
+
+---
+
+## Security
+
+PromptBridge is designed as a zero-trust static site:
+
+- **No API keys in the public app** — The deployed web app makes no network requests. There are no API keys, no secrets, and nothing sensitive stored in the browser.
+- **XSS prevention** — All pre-generated content is HTML-escaped before rendering via `dangerouslySetInnerHTML`. All other dynamic content uses React text nodes (auto-escaped).
+- **Content Security Policy** — Strict `<meta>` CSP blocks inline scripts, disallows all outbound connections (`connect-src` omitted), prevents plugin embedding (`object-src 'none'`), and restricts base URIs and form targets.
+- **Clickjacking protection** — JavaScript frame-buster in `main.jsx` (CSP `frame-ancestors` doesn't work in `<meta>` tags, and GitHub Pages doesn't support custom HTTP headers).
+- **Input length limits** — All user prompt textareas are capped at 4,000 characters.
+- **No bundled secrets** — The `.env.example` only contains non-`VITE_` prefixed variables used by the local content generation script.
+
+If you find a security issue, please open an issue or contact the maintainer directly.
 
 ---
 
@@ -91,20 +110,6 @@ Every scenario teaches one or more of these principles:
 Contributions are welcome! The easiest way to contribute is by adding new scenarios. See [docs/CONTRIBUTING_SCENARIOS.md](docs/CONTRIBUTING_SCENARIOS.md) for the format and guidelines.
 
 For code contributions, open an issue first to discuss the change.
-
----
-
-## Security
-
-PromptBridge handles user-provided API keys client-side. The following hardening measures are in place:
-
-- **XSS prevention** — All LLM and pre-generated content is HTML-escaped before rendering. The `MarkdownText` component sanitizes input before `dangerouslySetInnerHTML`.
-- **Content Security Policy** — A `<meta>` CSP tag blocks inline scripts, limits network connections to known API endpoints, and prevents framing (clickjacking).
-- **Error message sanitization** — API error responses are stripped of key-like patterns before display to prevent accidental credential leakage.
-- **Input length limits** — All user prompt textareas are capped at 4,000 characters.
-- **No bundled secrets** — API keys are configured exclusively through the in-app Settings page and stored in `localStorage`. No keys are embedded in the build.
-
-If you find a security issue, please open an issue or contact the maintainer directly.
 
 ---
 
@@ -129,8 +134,6 @@ If you find a security issue, please open an issue or contact the maintainer dir
 
 ## Local Development
 
-Want to run PromptBridge locally, fork it, or contribute? Here's how.
-
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) 18+ (LTS recommended)
@@ -152,22 +155,36 @@ npm run dev
 
 The app will be available at `http://localhost:5173`.
 
-### Guided Mode (no setup needed)
+All 45 scenarios work immediately — 30 guided scenarios with pre-generated content, and 15 write-your-own scenarios with heuristic scoring. No API key required.
 
-All 30 guided scenarios work immediately with pre-generated content. No API key required.
+### Power Users: API-Powered Features (Local Only)
 
-### Freeform Mode + Advanced Features (optional API key)
+For developers and power users who want richer AI-powered analysis, the codebase supports additional modes that require an API key and a local development server. These features are **not available in the public web app** by design — running locally keeps your API key secure (never exposed to the internet).
 
-To unlock AI-powered feedback, Write First mode, and Practice Iterating mode:
+To enable API-powered features locally:
 
-1. Get a free API key from [Google AI Studio](https://aistudio.google.com/apikey)
-2. Open the app and go to Settings (gear icon)
-3. Select "Gemini" as your provider
-4. Paste your API key and click Save
+1. **Get an API key:**
+   - **Free:** [Google AI Studio](https://aistudio.google.com/apikey) (Gemini, free tier)
+   - **Paid:** [Anthropic Console](https://console.anthropic.com) (Claude) or [OpenAI Platform](https://platform.openai.com) (GPT-4o-mini)
+
+2. **Clone and run locally:**
+   ```bash
+   git clone https://github.com/vegaPDX/PromptBridge.git
+   cd PromptBridge/app
+   npm install
+   npm run dev
+   ```
+
+3. **Check out the `api-features` branch** (or the historical code before the static-only pivot) to access the API-powered modes:
+   - **Write First** — Write your prompt, then evaluate 3 AI-generated variations
+   - **Practice Iterating** — Multi-turn conversation practice with AI feedback
+   - **AI-Powered Analysis** — Detailed analysis of your prompts with improved version suggestions and side-by-side response comparison
+
+> **Why local only?** API keys entered into a public website are inherently at risk — they can appear in browser history, network logs, or be exposed via XSS. Running locally eliminates these risks entirely. Your key never leaves your machine.
 
 ### Regenerating Content
 
-To regenerate the static content for guided scenarios (e.g., after editing prompts):
+To regenerate the static content for guided scenarios (e.g., after editing prompts or adding scenarios):
 
 ```bash
 cd app
@@ -199,7 +216,7 @@ promptbridge/
 ├── LICENSE                         # AGPL-3.0
 ├── docs/                           # Project documentation
 │   ├── PROJECT_SPEC.md             # Product specification
-│   ├── ARCHITECTURE.md             # Two-phase architecture (artifact → standalone)
+│   ├── ARCHITECTURE.md             # Architecture documentation
 │   ├── SCENARIOS.md                # Full scenario library documentation
 │   ├── PROMPT_TEMPLATES.md         # LLM prompt design documentation
 │   ├── RESEARCH_FINDINGS.md        # NeuroBridge deep dive and gap analysis
@@ -222,14 +239,22 @@ promptbridge/
     │   └── validate-scenario.js    # Scenario validation script
     └── src/
         ├── App.jsx                 # Main app — state management and routing
+        ├── main.jsx                # Entry point with frame-buster
         ├── index.css               # Tailwind CSS + animations
         ├── data/
         │   ├── scenarios.js        # All 45 scenario definitions
         │   ├── principles.js       # 8 communication principles
-        │   ├── prompts.js          # LLM system prompts and message builders
+        │   ├── prompts.js          # LLM prompt templates (used by generate-content.js)
         │   └── generated/          # 30 pre-generated JSON files (one per guided scenario)
-        ├── pages/                  # 10 page components
-        ├── services/               # LLM adapter, storage, scoring, recommendations
+        ├── pages/                  # 7 page components
+        │   ├── LandingPage.jsx     # Home page
+        │   ├── ScenarioSelector.jsx # Scenario browser with tabs
+        │   ├── GuidedMode.jsx      # Guided practice with pre-generated content
+        │   ├── FreeformMode.jsx    # Write-your-own with heuristic scoring
+        │   ├── AssessmentMode.jsx  # Pre/post skill assessment
+        │   ├── ProgressPage.jsx    # Progress tracking dashboard
+        │   └── HelpPage.jsx        # Help and AI safety guide
+        ├── services/               # Storage, heuristic scoring, recommendations
         └── components/             # Shared UI components
 ```
 
