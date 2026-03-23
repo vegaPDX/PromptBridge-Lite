@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   ArrowLeft, ArrowRight, MessageSquare, Lightbulb, RefreshCw,
-  PenTool, Send, Check,
+  PenTool, Send, Check, ChevronDown,
 } from "lucide-react";
 import { loadGuidedContent } from "../services/guided-data";
 import { hasApiKey, analyzeFreeform, simulateResponses } from "../services/llm";
@@ -21,6 +21,7 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
   const [step, setStep] = useState("loading"); // loading | explore | try-yourself | try-loading | try-results
   const [content, setContent] = useState(null); // { options, responses, feedback }
   const [error, setError] = useState(null);
+  const [expandedTier, setExpandedTier] = useState("weak");
 
   // Try It Yourself state
   const [tryPrompt, setTryPrompt] = useState("");
@@ -86,81 +87,65 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
       {/* Step: Explore */}
       {step === "explore" && content && (
         <div className="animate-fadeIn">
-          {/* Section 1: Three prompt cards */}
+          {/* Collapsible prompt + response accordion */}
           <h3 className="font-semibold text-stone-700 mb-3">Compare three approaches to this scenario</h3>
+          <p className="text-stone-500 text-sm mb-4">Click each tier to see the prompt and what the AI gives back.</p>
           <div className="space-y-3">
-            {/* Weak prompt card */}
-            <div className="bg-rose-50 border-2 border-rose-200 rounded-xl p-4">
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 flex-1">
-                  <div className="w-7 h-7 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0">
-                    <span className="text-rose-500 text-sm font-bold">&times;</span>
-                  </div>
-                  <span className="text-sm font-medium text-rose-700">Weak</span>
+            {[
+              { key: "weak", label: "Weak", quality: "weak", response: content.responses.response_weak,
+                icon: <span className="text-rose-500 text-sm font-bold">&times;</span>,
+                colors: { border: "border-rose-200", bg: "bg-rose-50", headerBg: "bg-rose-50", headerText: "text-rose-700", iconBg: "bg-rose-100", responseBorder: "border-rose-100", responseFrom: "from-rose-50" } },
+              { key: "medium", label: "Getting There", quality: "medium", response: content.responses.response_medium,
+                icon: <ArrowRight className="w-4 h-4 text-amber-500" />,
+                colors: { border: "border-amber-200", bg: "bg-amber-50", headerBg: "bg-amber-50", headerText: "text-amber-700", iconBg: "bg-amber-100", responseBorder: "border-amber-100", responseFrom: "from-amber-50" } },
+              { key: "strong", label: "Effective", quality: "strong", response: content.responses.response_strong,
+                icon: <Check className="w-4 h-4 text-emerald-500" />,
+                colors: { border: "border-emerald-200", bg: "bg-emerald-50", headerBg: "bg-emerald-50", headerText: "text-emerald-700", iconBg: "bg-emerald-100", responseBorder: "border-emerald-100", responseFrom: "from-emerald-50" } },
+            ].map(tier => {
+              const isOpen = expandedTier === tier.key;
+              const promptText = content.options.find(o => o.quality === tier.quality)?.text;
+              return (
+                <div key={tier.key} className={`border-2 ${tier.colors.border} rounded-xl overflow-hidden transition-all`}>
+                  {/* Clickable header */}
+                  <button
+                    onClick={() => setExpandedTier(isOpen ? null : tier.key)}
+                    className={`w-full flex items-center justify-between gap-3 p-4 ${tier.colors.headerBg} hover:brightness-95 transition-all`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className={`w-7 h-7 rounded-full ${tier.colors.iconBg} flex items-center justify-center flex-shrink-0`}>
+                        {tier.icon}
+                      </div>
+                      <span className={`text-sm font-medium ${tier.colors.headerText}`}>{tier.label}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span onClick={(e) => e.stopPropagation()}>
+                        <CopyButton text={promptText} label="Copy prompt" className="text-xs" />
+                      </span>
+                      <ChevronDown className={`w-4 h-4 text-stone-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                    </div>
+                  </button>
+
+                  {/* Expanded content: prompt + response */}
+                  {isOpen && (
+                    <div className="animate-fadeIn">
+                      {/* The prompt */}
+                      <div className={`px-5 pt-4 pb-3 ${tier.colors.bg}`}>
+                        <p className="text-xs text-stone-400 font-medium uppercase tracking-wide mb-1">The prompt</p>
+                        <p className="text-stone-700 text-sm leading-relaxed italic">"{promptText}"</p>
+                      </div>
+
+                      {/* The AI response */}
+                      <div className={`px-5 pt-3 pb-5 bg-gradient-to-b ${tier.colors.responseFrom} to-white`}>
+                        <p className="text-xs text-stone-400 font-medium uppercase tracking-wide mb-2">What the AI gives back</p>
+                        <div className="text-stone-600 text-sm">
+                          <MarkdownText text={tier.response} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <CopyButton text={content.options.find(o => o.quality === "weak")?.text} label="Copy" className="text-xs" />
-              </div>
-              <p className="text-stone-700 text-sm leading-relaxed mt-2">{content.options.find(o => o.quality === "weak")?.text}</p>
-            </div>
-
-            {/* Medium prompt card */}
-            <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-4">
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 flex-1">
-                  <div className="w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                    <ArrowRight className="w-4 h-4 text-amber-500" />
-                  </div>
-                  <span className="text-sm font-medium text-amber-700">Getting There</span>
-                </div>
-                <CopyButton text={content.options.find(o => o.quality === "medium")?.text} label="Copy" className="text-xs" />
-              </div>
-              <p className="text-stone-700 text-sm leading-relaxed mt-2">{content.options.find(o => o.quality === "medium")?.text}</p>
-            </div>
-
-            {/* Strong prompt card */}
-            <div className="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4">
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 flex-1">
-                  <div className="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-emerald-500" />
-                  </div>
-                  <span className="text-sm font-medium text-emerald-700">Effective</span>
-                </div>
-                <CopyButton text={content.options.find(o => o.quality === "strong")?.text} label="Copy" className="text-xs" />
-              </div>
-              <p className="text-stone-700 text-sm leading-relaxed mt-2">{content.options.find(o => o.quality === "strong")?.text}</p>
-            </div>
-          </div>
-
-          {/* Section 2: AI responses */}
-          <h3 className="font-semibold text-stone-700 mt-8 mb-4">See what the AI gives back</h3>
-          <div className="space-y-4">
-            {/* Weak response */}
-            <div className="border-2 border-rose-200 bg-gradient-to-b from-rose-50 to-white rounded-xl p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-rose-500 font-bold">&times;</span>
-                <span className="text-sm font-medium text-rose-700">Response to the weak prompt</span>
-              </div>
-              <MarkdownText text={content.responses.response_weak} />
-            </div>
-
-            {/* Medium response */}
-            <div className="border-2 border-amber-200 bg-gradient-to-b from-amber-50 to-white rounded-xl p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <ArrowRight className="w-4 h-4 text-amber-500" />
-                <span className="text-sm font-medium text-amber-700">Response to the 'getting there' prompt</span>
-              </div>
-              <MarkdownText text={content.responses.response_medium} />
-            </div>
-
-            {/* Strong response */}
-            <div className="border-2 border-emerald-200 bg-gradient-to-b from-emerald-50 to-white rounded-xl p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <Check className="w-4 h-4 text-emerald-500" />
-                <span className="text-sm font-medium text-emerald-700">Response to the effective prompt</span>
-              </div>
-              <MarkdownText text={content.responses.response_strong} />
-            </div>
+              );
+            })}
           </div>
 
           {/* Section 3: Copy the effective prompt CTA */}
