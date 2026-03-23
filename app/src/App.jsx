@@ -15,8 +15,9 @@ export default function App() {
   const [selectedScenario, setSelectedScenario] = useState(null);
 
   // Load progress once on mount (lazy initializer avoids re-reading localStorage on every render)
-  const [completedScenarios, setCompletedScenarios] = useState(() => loadProgress().completedScenarios);
-  const [practicedPrinciples, setPracticedPrinciples] = useState(() => loadProgress().practicedPrinciples);
+  const [initProgress] = useState(() => loadProgress());
+  const [completedScenarios, setCompletedScenarios] = useState(initProgress.completedScenarios);
+  const [practicedPrinciples, setPracticedPrinciples] = useState(initProgress.practicedPrinciples);
 
   // User context for personalization
   const [userContext, setUserContext] = useState(() => loadUserContext());

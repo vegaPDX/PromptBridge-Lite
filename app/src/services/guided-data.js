@@ -25,5 +25,12 @@ export async function loadGuidedContent(scenarioId) {
 
   const mod = await loader();
   // Vite JSON imports expose the data as the default export
-  return mod.default ?? mod;
+  const data = mod.default ?? mod;
+
+  // Ensure response_medium exists (older generated files may lack it)
+  if (data.responses && !data.responses.response_medium) {
+    data.responses.response_medium = data.responses.response_weak || "Response not available.";
+  }
+
+  return data;
 }

@@ -184,18 +184,23 @@ async function generateForScenario(scenario) {
 
   const options = optionsResult.options;
   const weakOpt = options.find(o => o.quality === "weak");
+  const mediumOpt = options.find(o => o.quality === "medium");
   const strongOpt = options.find(o => o.quality === "strong");
 
-  if (!weakOpt || !strongOpt) {
-    throw new Error(`Missing weak/strong options for ${scenario.id}`);
+  if (!weakOpt || !mediumOpt || !strongOpt) {
+    throw new Error(`Missing weak/medium/strong options for ${scenario.id}`);
   }
 
   console.log(`  🔄 Generating responses...`);
   const responses = await callLLM(
     RESPONSE_SIMULATOR_SYSTEM,
-    buildResponseSimulatorMessage(weakOpt.text, strongOpt.text, scenario.situation),
-    { temperature: 0.5, maxTokens: 1500 }
+    buildResponseSimulatorMessage(weakOpt.text, mediumOpt.text, strongOpt.text, scenario.situation),
+    { temperature: 0.5, maxTokens: 2000 }
   );
+
+  if (!responses.response_weak || !responses.response_medium || !responses.response_strong) {
+    throw new Error(`Missing response_weak/response_medium/response_strong for ${scenario.id}`);
+  }
   await sleep(DELAY_MS);
 
   // Generate feedback for each possible user choice

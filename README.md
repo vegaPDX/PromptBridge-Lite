@@ -86,7 +86,7 @@ The public web app is a **fully static site** with no backend and no outbound ne
 - **Scoring:** Client-side heuristic scorer using regex pattern matching against the 8 communication principles
 - **Storage:** Progress saved in browser `localStorage`
 - **Deployment:** GitHub Pages (static files only)
-- **Security:** Content Security Policy with no `connect-src` (no outbound requests), frame-buster for clickjacking protection, HTML escaping on all rendered content
+- **Security:** Content Security Policy with `connect-src 'none'` (no outbound requests), frame-buster for clickjacking protection, HTML escaping on all rendered content
 
 ---
 
@@ -96,7 +96,7 @@ PromptBridge is designed as a zero-trust static site:
 
 - **No API keys in the public app** — The deployed web app makes no network requests. There are no API keys, no secrets, and nothing sensitive stored in the browser.
 - **XSS prevention** — All pre-generated content is HTML-escaped before rendering via `dangerouslySetInnerHTML`. All other dynamic content uses React text nodes (auto-escaped).
-- **Content Security Policy** — Strict `<meta>` CSP blocks inline scripts, disallows all outbound connections (`connect-src` omitted), prevents plugin embedding (`object-src 'none'`), and restricts base URIs and form targets.
+- **Content Security Policy** — Strict `<meta>` CSP blocks inline scripts, explicitly disallows all outbound connections (`connect-src 'none'`), prevents plugin embedding (`object-src 'none'`), and restricts base URIs and form targets.
 - **Clickjacking protection** — JavaScript frame-buster in `main.jsx` (CSP `frame-ancestors` doesn't work in `<meta>` tags, and GitHub Pages doesn't support custom HTTP headers).
 - **Input length limits** — All user prompt textareas are capped at 4,000 characters.
 - **No bundled secrets** — The `.env.example` only contains non-`VITE_` prefixed variables used by the local content generation script.
@@ -156,31 +156,6 @@ npm run dev
 The app will be available at `http://localhost:5173`.
 
 All 45 scenarios work immediately — 30 guided scenarios with pre-generated content, and 15 write-your-own scenarios with heuristic scoring. No API key required.
-
-### Power Users: API-Powered Features (Local Only)
-
-For developers and power users who want richer AI-powered analysis, the codebase supports additional modes that require an API key and a local development server. These features are **not available in the public web app** by design — running locally keeps your API key secure (never exposed to the internet).
-
-To enable API-powered features locally:
-
-1. **Get an API key:**
-   - **Free:** [Google AI Studio](https://aistudio.google.com/apikey) (Gemini, free tier)
-   - **Paid:** [Anthropic Console](https://console.anthropic.com) (Claude) or [OpenAI Platform](https://platform.openai.com) (GPT-4o-mini)
-
-2. **Clone and run locally:**
-   ```bash
-   git clone https://github.com/vegaPDX/PromptBridge.git
-   cd PromptBridge/app
-   npm install
-   npm run dev
-   ```
-
-3. **Check out the `api-features` branch** (or the historical code before the static-only pivot) to access the API-powered modes:
-   - **Write First** — Write your prompt, then evaluate 3 AI-generated variations
-   - **Practice Iterating** — Multi-turn conversation practice with AI feedback
-   - **AI-Powered Analysis** — Detailed analysis of your prompts with improved version suggestions and side-by-side response comparison
-
-> **Why local only?** API keys entered into a public website are inherently at risk — they can appear in browser history, network logs, or be exposed via XSS. Running locally eliminates these risks entirely. Your key never leaves your machine.
 
 ### Regenerating Content
 

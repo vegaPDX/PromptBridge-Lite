@@ -46,6 +46,12 @@ For the WEAK prompt response:
 - Do NOT deliberately produce bad content — produce the kind of genuinely unhelpful-but-technically-correct response a real AI gives to a vague prompt
 - Keep it short — vague prompts produce brief, generic output
 
+For the MEDIUM prompt response:
+- Respond the way an AI assistant would to a partially-effective prompt
+- The response should be better than the weak version but clearly less tailored than the strong version
+- Show that some useful information was provided but key details are missing
+- Moderate length — more helpful than the weak response but still generic in places
+
 For the STRONG prompt response:
 - Respond the way an AI assistant would to a well-crafted, specific prompt
 - Use the context, constraints, and preferences provided in the prompt
@@ -54,7 +60,7 @@ For the STRONG prompt response:
 - This should be a genuinely useful response that demonstrates what good prompting produces
 
 CRITICAL RULES:
-- Both responses must be about the SAME underlying topic/task
+- All three responses must be about the SAME underlying topic/task
 - The contrast should be stark and immediately obvious
 - Do NOT add any meta-commentary about the prompt quality
 - Do NOT include phrases like "Based on your prompt..." or "Since you asked..."
@@ -63,6 +69,7 @@ CRITICAL RULES:
 Respond in JSON format:
 {
   "response_weak": "...",
+  "response_medium": "...",
   "response_strong": "..."
 }`;
 
@@ -113,8 +120,8 @@ export function buildOptionGeneratorMessage(scenario, principleNames) {
   return `Scenario: ${scenario.situation}\n\nThe user's task: ${scenario.title}\n\nCommunication principles being taught: ${principleNames}\n\nAdditional guidance: ${scenario.feedbackNotes || ""}\n\nGenerate 3 prompt options as described in your instructions.`;
 }
 
-export function buildResponseSimulatorMessage(weakPrompt, strongPrompt, situation) {
-  return `Scenario context: ${situation}\n\nWEAK PROMPT: ${weakPrompt}\n\nSTRONG PROMPT: ${strongPrompt}\n\nGenerate realistic AI responses to each prompt.`;
+export function buildResponseSimulatorMessage(weakPrompt, mediumPrompt, strongPrompt, situation) {
+  return `Scenario context: ${situation}\n\nWEAK PROMPT: ${weakPrompt}\n\nMEDIUM PROMPT: ${mediumPrompt}\n\nSTRONG PROMPT: ${strongPrompt}\n\nGenerate realistic AI responses to each prompt.`;
 }
 
 export function buildFeedbackGeneratorMessage(scenario, options, userChoice, responses) {
