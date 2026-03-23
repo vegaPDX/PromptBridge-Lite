@@ -22,8 +22,7 @@ const PROVIDER_STORAGE_KEY = "promptbridge_provider";
 // ── Provider config ─────────────────────────────────────────
 
 /**
- * Read provider configuration from localStorage, falling back to
- * the VITE_GEMINI_API_KEY env var for a zero-config Gemini setup.
+ * Read provider configuration from localStorage.
  *
  * localStorage shape:
  *   { provider: "gemini"|"claude"|"openai", apiKey: "..." }
@@ -41,12 +40,6 @@ export function getProviderConfig() {
     // fall through
   }
 
-  // Fallback: env-var Gemini key
-  const envKey = import.meta.env.VITE_GEMINI_API_KEY;
-  if (envKey) {
-    return { provider: "gemini", apiKey: envKey };
-  }
-
   return { provider: null, apiKey: null };
 }
 
@@ -59,6 +52,18 @@ export function hasApiKey() {
 }
 
 // ── Shared helpers ──────────────────────────────────────────
+
+/**
+ * Strip API key patterns from error messages to prevent leakage.
+ */
+function sanitizeErrorText(provider, status, errText) {
+  const cleaned = errText
+    .replace(/AIza[A-Za-z0-9_-]{30,}/g, "[REDACTED]")
+    .replace(/sk-ant-[A-Za-z0-9_-]+/g, "[REDACTED]")
+    .replace(/sk-[A-Za-z0-9]{20,}/g, "[REDACTED]")
+    .slice(0, 500);
+  return `${provider} API error (${status}): ${cleaned}`;
+}
 
 /**
  * Strip markdown code fences and parse as JSON.
@@ -97,7 +102,7 @@ export async function callGemini(
 
   if (!response.ok) {
     const errText = await response.text().catch(() => "Unknown error");
-    throw new Error(`Gemini API error (${response.status}): ${errText}`);
+    throw new Error(sanitizeErrorText("Gemini", response.status, errText));
   }
 
   const data = await response.json();
@@ -137,7 +142,7 @@ export async function callClaude(
 
   if (!response.ok) {
     const errText = await response.text().catch(() => "Unknown error");
-    throw new Error(`Claude API error (${response.status}): ${errText}`);
+    throw new Error(sanitizeErrorText("Claude", response.status, errText));
   }
 
   const data = await response.json();
@@ -175,7 +180,7 @@ export async function callOpenAI(
 
   if (!response.ok) {
     const errText = await response.text().catch(() => "Unknown error");
-    throw new Error(`OpenAI API error (${response.status}): ${errText}`);
+    throw new Error(sanitizeErrorText("OpenAI", response.status, errText));
   }
 
   const data = await response.json();

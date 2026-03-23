@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  ArrowLeft, Check, Trash2, ExternalLink, Shield,
+  ArrowLeft, Check, Trash2, ExternalLink, Shield, AlertTriangle,
 } from "lucide-react";
 
 const STORAGE_KEY = "promptbridge_provider";
@@ -195,6 +195,18 @@ export default function SettingsPage({ onBack }) {
           Your API key is stored only in your browser's local storage. It is never sent anywhere except directly to the provider's API.
         </p>
       </div>
+
+      {/* Gemini URL key warning */}
+      {provider === "gemini" && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-3 flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+          <p className="text-stone-500 text-xs leading-relaxed">
+            Google's Gemini API sends your API key as part of the URL. This is Google's standard design,
+            but it means the key may appear in your browser history or network logs. If this concerns you,
+            consider using Claude or OpenAI instead, which send keys in request headers.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

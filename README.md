@@ -94,6 +94,20 @@ For code contributions, open an issue first to discuss the change.
 
 ---
 
+## Security
+
+PromptBridge handles user-provided API keys client-side. The following hardening measures are in place:
+
+- **XSS prevention** — All LLM and pre-generated content is HTML-escaped before rendering. The `MarkdownText` component sanitizes input before `dangerouslySetInnerHTML`.
+- **Content Security Policy** — A `<meta>` CSP tag blocks inline scripts, limits network connections to known API endpoints, and prevents framing (clickjacking).
+- **Error message sanitization** — API error responses are stripped of key-like patterns before display to prevent accidental credential leakage.
+- **Input length limits** — All user prompt textareas are capped at 4,000 characters.
+- **No bundled secrets** — API keys are configured exclusively through the in-app Settings page and stored in `localStorage`. No keys are embedded in the build.
+
+If you find a security issue, please open an issue or contact the maintainer directly.
+
+---
+
 ## Roadmap
 
 ### Near-term: Validation & Polish
@@ -150,16 +164,6 @@ To unlock AI-powered feedback, Write First mode, and Practice Iterating mode:
 2. Open the app and go to Settings (gear icon)
 3. Select "Gemini" as your provider
 4. Paste your API key and click Save
-
-Alternatively, set the key as an environment variable:
-
-```bash
-# Create .env file in the app/ directory
-echo "VITE_GEMINI_API_KEY=your-key-here" > .env
-
-# Restart the dev server
-npm run dev
-```
 
 ### Regenerating Content
 

@@ -17,10 +17,9 @@ export default function App() {
   const [page, setPage] = useState("landing");
   const [selectedScenario, setSelectedScenario] = useState(null);
 
-  // Load progress synchronously from localStorage
-  const initialProgress = loadProgress();
-  const [completedScenarios, setCompletedScenarios] = useState(initialProgress.completedScenarios);
-  const [practicedPrinciples, setPracticedPrinciples] = useState(initialProgress.practicedPrinciples);
+  // Load progress once on mount (lazy initializer avoids re-reading localStorage on every render)
+  const [completedScenarios, setCompletedScenarios] = useState(() => loadProgress().completedScenarios);
+  const [practicedPrinciples, setPracticedPrinciples] = useState(() => loadProgress().practicedPrinciples);
 
   // User context for personalization
   const [userContext, setUserContext] = useState(() => loadUserContext());

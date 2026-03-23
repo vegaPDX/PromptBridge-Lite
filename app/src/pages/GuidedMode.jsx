@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   ArrowLeft, ArrowRight, MessageSquare, Lightbulb, RefreshCw,
   PenTool, Send, Check, ChevronDown,
@@ -24,6 +24,10 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
   const [content, setContent] = useState(null);
   const [error, setError] = useState(null);
   const [expandedTier, setExpandedTier] = useState("weak");
+
+  // Unmount guard for async operations
+  const unmountedRef = useRef(false);
+  useEffect(() => () => { unmountedRef.current = true; }, []);
 
   // Write Your Own state
   const [tryPrompt, setTryPrompt] = useState("");
@@ -55,10 +59,14 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
     setStep("loading");
     loadGuidedContent(scenario.id)
       .then(data => {
+        if (unmountedRef.current) return;
         setContent(data);
         setStep("explore");
       })
-      .catch(e => setError(e.message));
+      .catch(e => {
+        if (unmountedRef.current) return;
+        setError(e.message);
+      });
   };
 
   const goToWriteOwn = () => {
@@ -273,10 +281,14 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
           <textarea
             value={tryPrompt}
             onChange={(e) => setTryPrompt(e.target.value)}
+            maxLength={4000}
             placeholder="Type your request here..."
             rows={5}
             className="w-full bg-white border border-stone-300 rounded-xl p-4 text-stone-700 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:border-emerald-300 placeholder:text-stone-300"
           />
+          {tryPrompt.length > 3500 && (
+            <p className="text-xs text-amber-600 mt-1">{4000 - tryPrompt.length} characters remaining</p>
+          )}
           <div className="flex items-center gap-3 mt-3">
             <button
               onClick={handleCheckSkills}

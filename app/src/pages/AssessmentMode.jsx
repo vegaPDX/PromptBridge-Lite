@@ -115,10 +115,14 @@ export default function AssessmentMode({ onComplete, onBack, assessmentData }) {
           <textarea
             value={currentPrompt}
             onChange={(e) => setCurrentPrompt(e.target.value)}
+            maxLength={4000}
             placeholder="How would you ask an AI to help with this?"
             rows={5}
             className="w-full bg-white border border-stone-300 rounded-xl p-4 text-stone-700 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 placeholder:text-stone-300"
           />
+          {currentPrompt.length > 3500 && (
+            <p className="text-xs text-amber-600 mt-1">{4000 - currentPrompt.length} characters remaining</p>
+          )}
           <div className="flex justify-end mt-3">
             <button
               onClick={handleSubmitPrompt}

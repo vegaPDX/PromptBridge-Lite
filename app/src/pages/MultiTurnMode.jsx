@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   ArrowLeft, ArrowRight, Send, RefreshCw, Lightbulb,
   MessageSquare, ChevronRight,
@@ -24,6 +24,10 @@ export default function MultiTurnMode({ scenario, onComplete, onBack }) {
   const [improvedResult, setImprovedResult] = useState(null); // { response }
   const [feedback, setFeedback] = useState(null);
   const [error, setError] = useState(null);
+
+  // Unmount guard for async operations
+  const unmountedRef = useRef(false);
+  useEffect(() => () => { unmountedRef.current = true; }, []);
 
   // ── Step 1: Submit initial prompt ───────────────────────────
 
@@ -94,10 +98,12 @@ export default function MultiTurnMode({ scenario, onComplete, onBack }) {
         improvedResult.response
       )
         .then((fb) => {
+          if (unmountedRef.current) return;
           setFeedback(fb);
           setStep("results");
         })
         .catch((e) => {
+          if (unmountedRef.current) return;
           setError(e.message);
           setStep("results");
         });
@@ -179,10 +185,14 @@ export default function MultiTurnMode({ scenario, onComplete, onBack }) {
           <textarea
             value={initialPrompt}
             onChange={(e) => setInitialPrompt(e.target.value)}
+            maxLength={4000}
             placeholder="Type your request here..."
             rows={5}
             className="w-full bg-white border border-stone-300 rounded-xl p-4 text-stone-700 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 placeholder:text-stone-300"
           />
+          {initialPrompt.length > 3500 && (
+            <p className="text-xs text-amber-600 mt-1">{4000 - initialPrompt.length} characters remaining</p>
+          )}
           <div className="flex justify-end mt-3">
             <button
               onClick={handleSubmitInitial}
@@ -292,10 +302,14 @@ export default function MultiTurnMode({ scenario, onComplete, onBack }) {
             <textarea
               value={followUp}
               onChange={(e) => setFollowUp(e.target.value)}
+              maxLength={4000}
               placeholder="Add more context, clarify what you need, give specific feedback..."
               rows={5}
               className="w-full bg-white border border-stone-300 rounded-xl p-4 text-stone-700 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 placeholder:text-stone-300"
             />
+            {followUp.length > 3500 && (
+              <p className="text-xs text-amber-600 mt-1">{4000 - followUp.length} characters remaining</p>
+            )}
             <div className="flex justify-end mt-3">
               <button
                 onClick={handleSubmitFollowUp}

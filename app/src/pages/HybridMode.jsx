@@ -89,10 +89,14 @@ export default function HybridMode({ scenario, onComplete, onBack }) {
           <textarea
             value={userPrompt}
             onChange={(e) => setUserPrompt(e.target.value)}
+            maxLength={4000}
             placeholder="Type your request here..."
             rows={5}
             className="w-full bg-white border border-stone-300 rounded-xl p-4 text-stone-700 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 placeholder:text-stone-300"
           />
+          {userPrompt.length > 3500 && (
+            <p className="text-xs text-amber-600 mt-1">{4000 - userPrompt.length} characters remaining</p>
+          )}
           <div className="flex justify-end mt-3">
             <button
               onClick={handleWriteSubmit}
