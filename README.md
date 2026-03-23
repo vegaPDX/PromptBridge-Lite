@@ -72,11 +72,19 @@ Every scenario teaches one or more of these principles:
 
 ---
 
+## Live Demo
+
+**https://vegapdx.github.io/PromptBridge/**
+
+No signup, no API key needed for guided mode. Just open and start learning.
+
+---
+
 ## Current Development Status
 
-**Phase: Local development prototype (pre-deployment)**
+**Phase: Live public deployment**
 
-The app is a fully functional Vite + React standalone application. All features are implemented and building cleanly. The current state:
+The app is a fully functional Vite + React standalone application deployed to GitHub Pages. All features are implemented and building cleanly. The current state:
 
 - 30 guided scenarios with pre-generated content (3 prompt options, 3 AI responses, unified feedback per scenario)
 - 15 freeform "Write Your Own" scenarios across all 5 categories with AI-powered or copy-and-try paths
@@ -90,7 +98,6 @@ The app is a fully functional Vite + React standalone application. All features 
 
 **What has NOT been tested yet:**
 - Full end-to-end user testing with real users (protocol written, not yet executed)
-- Production deployment
 - Performance under load
 - Cross-browser compatibility beyond Chrome
 
@@ -282,7 +289,13 @@ For code contributions, open an issue first to discuss the change.
 
 ## License
 
-MIT
+**AGPL-3.0** — [GNU Affero General Public License v3.0](LICENSE)
+
+Copyright (C) 2026 Chris Vega (vegaPDX)
+
+You are free to use, modify, and redistribute this software. If you distribute a modified version — including running it as a web service — you must also make your source code available under the same AGPL-3.0 license.
+
+This license was chosen to honor the spirit of the NeuroBridge research that inspired PromptBridge: knowledge should be shared freely to advance understanding, not locked away for profit.
 
 ---
 
