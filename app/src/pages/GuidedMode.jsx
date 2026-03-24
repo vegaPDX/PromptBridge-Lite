@@ -94,7 +94,7 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Back button */}
-      <button onClick={onBack} className="flex items-center gap-1 text-stone-400 hover:text-stone-600 text-sm mb-6 transition-colors">
+      <button onClick={onBack} className="flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to scenarios
       </button>
 
@@ -105,7 +105,7 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
           <span className="text-xs text-indigo-600 font-medium uppercase tracking-wide">Guided Practice</span>
         </div>
         <h2 className="font-serif text-xl font-bold text-stone-800 mb-1">{scenario.title}</h2>
-        <p className="text-stone-600 text-sm">{scenario.situation}</p>
+        <p className="text-stone-600 text-base">{scenario.situation}</p>
       </div>
 
       {/* Error state */}
@@ -120,7 +120,7 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
       {step === "explore" && content && (
         <div className="animate-fadeIn">
           <h3 className="font-semibold text-stone-700 mb-3">Compare three approaches to this scenario</h3>
-          <p className="text-stone-500 text-sm mb-4">Click each tier to see the prompt and what the AI gives back.</p>
+          <p className="text-stone-600 text-sm mb-4">Click each tier to see the prompt and what the AI gives back.</p>
           <div className="space-y-3">
             {[
               { key: "weak", label: "Weak", quality: "weak", response: content.responses.response_weak,
@@ -162,7 +162,7 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
                     <div className="animate-fadeIn">
                       {/* The prompt */}
                       <div className={`px-5 pt-4 pb-3 ${tier.colors.bg}`}>
-                        <p className="text-xs text-stone-400 font-medium uppercase tracking-wide mb-1">The prompt</p>
+                        <p className="text-xs text-stone-600 font-medium uppercase tracking-wide mb-1">The prompt</p>
                         <p className="text-stone-700 text-sm leading-relaxed italic">"{promptText}"</p>
                       </div>
 
@@ -176,8 +176,8 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
 
                       {/* The AI response */}
                       <div className={`px-5 pt-3 pb-5 bg-gradient-to-b ${tier.colors.responseFrom} to-white`}>
-                        <p className="text-xs text-stone-400 font-medium uppercase tracking-wide mb-2">What the AI gives back</p>
-                        <div className="text-stone-600 text-sm">
+                        <p className="text-xs text-stone-600 font-medium uppercase tracking-wide mb-2">What the AI gives back</p>
+                        <div className="text-stone-700 text-sm leading-relaxed">
                           <MarkdownText text={tier.response} />
                         </div>
                       </div>
@@ -203,15 +203,15 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
                 <Lightbulb className="w-5 h-5 text-amber-500" />
                 <span className="font-semibold text-amber-800">What happened here</span>
               </div>
-              <p className="text-stone-700 text-sm mb-4">{content.feedback.what_happened}</p>
+              <p className="text-stone-700 text-base mb-4">{content.feedback.what_happened}</p>
               <div className="bg-white rounded-lg p-4 mb-4 border border-amber-100">
                 <p className="text-xs text-amber-600 font-medium uppercase tracking-wide mb-1">The Principle</p>
                 <p className="font-semibold text-stone-800 mb-1">{content.feedback.principle_name}</p>
-                <p className="text-stone-600 text-sm">{content.feedback.principle}</p>
+                <p className="text-stone-700 text-sm">{content.feedback.principle}</p>
               </div>
               <div className="bg-white rounded-lg p-4 border border-amber-100">
                 <p className="text-xs text-amber-600 font-medium uppercase tracking-wide mb-1">Try This Next Time</p>
-                <p className="text-stone-700 text-sm">{content.feedback.tip}</p>
+                <p className="text-stone-700 text-base">{content.feedback.tip}</p>
               </div>
             </div>
           )}
@@ -327,7 +327,7 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
                   <p className="font-medium text-stone-800">
                     {getFeedbackSummary(tryHeuristic)}
                   </p>
-                  <p className="text-stone-500 text-xs">
+                  <p className="text-stone-600 text-sm">
                     {tryHeuristic.principlesDetected.length} of {tryHeuristic.principlesDetected.length + tryHeuristic.principlesMissing.length} skills applied
                   </p>
                 </div>

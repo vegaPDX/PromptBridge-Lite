@@ -9,7 +9,7 @@ export default function AiSafetyPage({ onNavigate }) {
     <div className="max-w-3xl mx-auto px-4 py-8">
       <button
         onClick={() => onNavigate("scenarios")}
-        className="flex items-center gap-1 text-stone-400 hover:text-stone-600 text-sm mb-6 transition-colors"
+        className="flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm mb-6 transition-colors"
       >
         <ChevronLeft className="w-4 h-4" /> Back to scenarios
       </button>
@@ -18,7 +18,7 @@ export default function AiSafetyPage({ onNavigate }) {
         <AlertTriangle className="w-6 h-6 text-amber-500" />
         <h1 className="font-serif text-3xl font-bold text-stone-800">Using AI Wisely</h1>
       </div>
-      <p className="text-stone-500 mb-8">
+      <p className="text-stone-600 mb-8">
         AI tools are powerful, but they have real limitations. Here's what every
         user should know — sourced from official guidance by Anthropic, OpenAI, and Google.
       </p>
@@ -136,15 +136,15 @@ function RiskItem({ number, title, description, action, source, sourceText }) {
           {number}
         </span>
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-stone-800 text-sm">{title}</h3>
-          <p className="text-stone-600 text-xs mt-1">{description}</p>
+          <h3 className="font-semibold text-stone-800 text-base">{title}</h3>
+          <p className="text-stone-700 text-sm mt-1">{description}</p>
           {action && (
-            <p className="text-stone-700 text-xs mt-2">
+            <p className="text-stone-700 text-sm mt-2">
               <strong>What to do:</strong> {action}
             </p>
           )}
           {source && sourceText && (
-            <p className="text-stone-400 text-xs mt-2 italic">
+            <p className="text-stone-500 text-sm mt-2 italic">
               {source}: "{sourceText}"
             </p>
           )}

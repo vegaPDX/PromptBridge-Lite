@@ -13,7 +13,7 @@ export default function HelpPage({ onNavigate }) {
         <HelpCircle className="w-6 h-6 text-indigo-500" />
         <h1 className="font-serif text-3xl font-bold text-stone-800">Help</h1>
       </div>
-      <p className="text-stone-500 mb-8">Everything you need to get started.</p>
+      <p className="text-stone-600 mb-8">Everything you need to get started.</p>
 
       {/* What is PromptBridge? */}
       <Section title="What is PromptBridge?">
@@ -90,7 +90,7 @@ export default function HelpPage({ onNavigate }) {
             description="Take a quick 3-scenario assessment to measure your starting point. After completing 10+ scenarios, take it again to see how much you've improved. Find it on the Progress page."
           />
         </div>
-        <p className="mt-3 text-stone-500 text-xs">
+        <p className="mt-3 text-stone-600 text-sm">
           When you first visit the scenario list, you'll also see a question: "What do you use AI for?"
           This is optional — if you answer, it helps surface the most relevant scenarios for you first.
         </p>
@@ -110,8 +110,8 @@ export default function HelpPage({ onNavigate }) {
                   {Icon && <Icon className="w-3.5 h-3.5 text-indigo-500" />}
                 </div>
                 <div>
-                  <p className="font-medium text-stone-700 text-sm">{p.name}</p>
-                  <p className="text-stone-500 text-xs">{p.description}</p>
+                  <p className="font-medium text-stone-800 text-sm">{p.name}</p>
+                  <p className="text-stone-600 text-sm">{p.description}</p>
                 </div>
               </div>
             );
@@ -125,7 +125,7 @@ export default function HelpPage({ onNavigate }) {
           <AlertTriangle className="w-5 h-5 text-amber-500" />
           <h2 className="font-serif text-lg font-bold text-stone-800">Using AI wisely</h2>
         </div>
-        <p className="text-stone-600 text-sm mb-3">
+        <p className="text-stone-700 text-base mb-3">
           AI tools are powerful, but they have real limitations — they can make things up,
           agree with your mistakes, and reflect biases. We've put together a guide covering
           everything you need to know to use AI safely.
@@ -227,7 +227,7 @@ function Section({ title, children }) {
   return (
     <div className="mb-6">
       <h2 className="font-serif text-lg font-bold text-stone-800 mb-2">{title}</h2>
-      <div className="text-stone-600 text-sm leading-relaxed">{children}</div>
+      <div className="text-stone-700 text-base leading-relaxed">{children}</div>
     </div>
   );
 }
@@ -240,12 +240,12 @@ function ModeCard({ icon, title, description, badge }) {
       </div>
       <div>
         <div className="flex items-center gap-2">
-          <p className="font-medium text-stone-700 text-sm">{title}</p>
+          <p className="font-medium text-stone-800 text-sm">{title}</p>
           {badge && (
             <span className="text-xs px-1.5 py-0.5 bg-stone-100 text-stone-500 rounded font-medium">{badge}</span>
           )}
         </div>
-        <p className="text-stone-500 text-xs mt-0.5">{description}</p>
+        <p className="text-stone-600 text-sm mt-0.5">{description}</p>
       </div>
     </div>
   );

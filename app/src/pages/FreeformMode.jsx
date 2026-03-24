@@ -31,7 +31,7 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Back button */}
-      <button onClick={onBack} className="flex items-center gap-1 text-stone-400 hover:text-stone-600 text-sm mb-6 transition-colors">
+      <button onClick={onBack} className="flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to scenarios
       </button>
 
@@ -42,14 +42,14 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
           <span className="text-xs text-indigo-600 font-medium uppercase tracking-wide">Write Your Own</span>
         </div>
         <h2 className="font-serif text-xl font-bold text-stone-800 mb-1">{scenario.title}</h2>
-        <p className="text-stone-600 text-sm">{scenario.situation}</p>
+        <p className="text-stone-600 text-base">{scenario.situation}</p>
       </div>
 
       {/* ── Step: Write ─────────────────────────────────────── */}
       {step === "write" && (
         <div>
           <h3 className="font-semibold text-stone-700 mb-1">Write your request</h3>
-          <p className="text-stone-500 text-sm mb-4">How would you ask an AI to help with this? Write the message you'd actually send.</p>
+          <p className="text-stone-600 text-sm mb-4">How would you ask an AI to help with this? Write the message you'd actually send.</p>
           <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-3 mb-4">
             <p className="text-stone-600 text-sm">
               <strong>Tip:</strong> After writing your prompt, check your skills and then try it in a real AI tool —{" "}
@@ -108,7 +108,7 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
               </div>
               <div>
                 <p className="font-medium text-stone-800">{getFeedbackSummary(heuristic)}</p>
-                <p className="text-stone-500 text-xs">
+                <p className="text-stone-600 text-sm">
                   {heuristic.principlesDetected.length} of {heuristic.principlesDetected.length + heuristic.principlesMissing.length} skills applied
                 </p>
               </div>
