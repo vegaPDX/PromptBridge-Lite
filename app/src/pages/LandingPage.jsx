@@ -38,7 +38,7 @@ export default function LandingPage({ onNavigate }) {
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-stone-800 mb-4">
           Learn to talk to AI
         </h1>
-        <p className="text-lg text-stone-500 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
           What you put in determines what you get out. Better prompts, better results.
           <br className="hidden md:block" />
           See the difference in 5 seconds.
@@ -49,7 +49,7 @@ export default function LandingPage({ onNavigate }) {
       <div className="px-4 mb-8">
         <div className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
           <div className="bg-stone-50 px-6 py-3 border-b border-stone-200">
-            <p className="text-xs text-stone-400 font-medium uppercase tracking-wide">
+            <p className="text-xs text-stone-600 font-medium uppercase tracking-wide">
               Same question, two different ways
             </p>
           </div>
@@ -66,8 +66,8 @@ export default function LandingPage({ onNavigate }) {
                 </div>
               </div>
               <div className="ml-9 bg-rose-50 border border-rose-100 rounded-lg px-4 py-3">
-                <p className="text-stone-600 text-sm">
-                  <span className="text-rose-400 text-xs font-medium mr-2">AI:</span>
+                <p className="text-stone-700 text-sm leading-relaxed">
+                  <span className="text-rose-500 text-xs font-medium mr-2">AI:</span>
                   {DEMO_BAD_RESPONSE}
                 </p>
               </div>
@@ -95,8 +95,8 @@ export default function LandingPage({ onNavigate }) {
                   </div>
                 </div>
                 <div className="ml-9 bg-emerald-50 border border-emerald-100 rounded-lg px-4 py-3">
-                  <div className="text-stone-600 text-sm">
-                    <span className="text-emerald-500 text-xs font-medium mr-2">AI:</span>
+                  <div className="text-stone-700 text-sm leading-relaxed">
+                    <span className="text-emerald-600 text-xs font-medium mr-2">AI:</span>
                     <MarkdownText text={DEMO_GOOD_RESPONSE} />
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function LandingPage({ onNavigate }) {
         <div className="px-4 mb-8 animate-fadeIn">
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 text-center">
             <Lightbulb className="w-5 h-5 text-amber-500 mx-auto mb-2" />
-            <p className="text-stone-700 text-sm max-w-xl mx-auto">
+            <p className="text-stone-700 text-base max-w-xl mx-auto">
               <strong>Same topic. Wildly different results.</strong> The first question can be answered with one word. The second tells the AI exactly what you need — and it delivers.
             </p>
           </div>
@@ -122,12 +122,12 @@ export default function LandingPage({ onNavigate }) {
       {showGood && (
         <div className="px-4 mb-8 animate-fadeIn">
           <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 text-center">
-            <p className="text-stone-700 text-sm">
+            <p className="text-stone-700 text-base">
               Research shows that how you talk to AI really matters —
               clear communication can improve AI accuracy by{" "}
               <strong className="text-indigo-600">up to 27%</strong>.
             </p>
-            <p className="text-stone-400 text-xs mt-1">
+            <p className="text-stone-500 text-xs mt-1">
               Based on peer-reviewed AI research, 2025
             </p>
           </div>
@@ -142,10 +142,10 @@ export default function LandingPage({ onNavigate }) {
         >
           Try It Yourself <ChevronRight className="w-5 h-5" />
         </button>
-        <p className="text-stone-500 text-sm mt-3">
+        <p className="text-stone-600 text-sm mt-3">
           Interactive scenarios that build real skills
         </p>
-        <p className="text-stone-400 text-xs mt-4 max-w-md mx-auto">
+        <p className="text-stone-600 text-base mt-4 max-w-md mx-auto">
           AI tools are powerful but not perfect — they can sound confident even when wrong.{" "}
           <button
             onClick={() => onNavigate("help")}
@@ -170,8 +170,8 @@ export default function LandingPage({ onNavigate }) {
                   {Icon && <Icon className="w-4 h-4 text-indigo-500" />}
                 </div>
                 <div>
-                  <p className="font-medium text-stone-700 text-sm">{p.name}</p>
-                  <p className="text-stone-500 text-xs mt-0.5">{p.description}</p>
+                  <p className="font-medium text-stone-800 text-sm">{p.name}</p>
+                  <p className="text-stone-600 text-sm mt-0.5 leading-snug">{p.description}</p>
                   {p.learnMoreUrl && (
                     <a
                       href={p.learnMoreUrl}

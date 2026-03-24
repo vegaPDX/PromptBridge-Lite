@@ -139,10 +139,10 @@ export default function App() {
       {/* Footer — landing page only */}
       {page === "landing" && (
         <footer className="text-center py-8 px-4 border-t border-stone-200">
-          <p className="text-stone-400 text-xs">
+          <p className="text-stone-500 text-sm">
             PromptBridge — Open source. Built on research into how people communicate with AI (Haroon et al., 2025).
           </p>
-          <p className="text-stone-300 text-xs mt-1">
+          <p className="text-stone-500 text-sm mt-1">
             Skills learned here work with any AI assistant.
           </p>
         </footer>

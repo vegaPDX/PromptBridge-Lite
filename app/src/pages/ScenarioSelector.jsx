@@ -55,7 +55,7 @@ export default function ScenarioSelector({ onSelectScenario, completedScenarios,
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="font-serif text-3xl font-bold text-stone-800 mb-2">Choose a Scenario</h1>
-      <p className="text-stone-500 mb-6">Pick a situation and practice talking to AI effectively.</p>
+      <p className="text-stone-600 mb-6">Pick a situation and practice talking to AI effectively.</p>
 
       {/* Onboarding banner */}
       {!userContext && !bannerDismissed && (
@@ -132,7 +132,7 @@ export default function ScenarioSelector({ onSelectScenario, completedScenarios,
                 </div>
                 <ChevronDown className={`w-5 h-5 text-stone-400 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
               </div>
-              <p className="text-stone-500 text-sm mt-2">{cat.description}</p>
+              <p className="text-stone-600 text-sm mt-2">{cat.description}</p>
             </button>
 
             {isExpanded && (
@@ -165,7 +165,7 @@ export default function ScenarioSelector({ onSelectScenario, completedScenarios,
                           </div>
                         )}
                       </div>
-                      <p className="text-stone-500 text-xs mb-3 line-clamp-2">{scenario.situation}</p>
+                      <p className="text-stone-600 text-sm mb-3 line-clamp-2">{scenario.situation}</p>
                       <div className="flex flex-wrap gap-1">
                         {scenario.principles.map(pid => (
                           <span key={pid} className="text-xs px-1.5 py-0.5 bg-indigo-50 text-indigo-600 rounded font-medium">

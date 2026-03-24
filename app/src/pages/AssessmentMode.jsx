@@ -57,7 +57,7 @@ export default function AssessmentMode({ onComplete, onBack, assessmentData }) {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
-      <button onClick={onBack} className="flex items-center gap-1 text-stone-400 hover:text-stone-600 text-sm mb-6 transition-colors">
+      <button onClick={onBack} className="flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back
       </button>
 
@@ -70,7 +70,7 @@ export default function AssessmentMode({ onComplete, onBack, assessmentData }) {
           <h1 className="font-serif text-2xl font-bold text-stone-800 mb-3">
             {isPost ? "Measure Your Progress" : "See Where You Stand"}
           </h1>
-          <p className="text-stone-500 max-w-md mx-auto mb-6">
+          <p className="text-stone-600 max-w-md mx-auto mb-6">
             You'll see {scenarios.length} scenarios. Write a prompt for each one — just
             like you'd type into an AI tool. No feedback until the end.
           </p>
@@ -103,13 +103,13 @@ export default function AssessmentMode({ onComplete, onBack, assessmentData }) {
             ))}
           </div>
 
-          <p className="text-xs text-stone-400 font-medium uppercase tracking-wide mb-2">
+          <p className="text-xs text-stone-600 font-medium uppercase tracking-wide mb-2">
             Scenario {currentIdx + 1} of {scenarios.length}
           </p>
 
           <div className="bg-white rounded-xl border border-stone-200 p-5 mb-4">
             <h2 className="font-serif text-lg font-bold text-stone-800 mb-1">{currentScenario.title}</h2>
-            <p className="text-stone-600 text-sm">{currentScenario.situation}</p>
+            <p className="text-stone-600 text-base">{currentScenario.situation}</p>
           </div>
 
           <textarea
@@ -151,7 +151,7 @@ export default function AssessmentMode({ onComplete, onBack, assessmentData }) {
             <h2 className="font-serif text-2xl font-bold text-stone-800 mb-1">
               {isPost ? "Your Progress" : "Your Starting Point"}
             </h2>
-            <p className="text-stone-500">
+            <p className="text-stone-600">
               {scores.totalScore >= 75 ? "Strong communication skills!" :
                scores.totalScore >= 40 ? "Good foundation — practice will sharpen these skills." :
                "Everyone starts somewhere. The guided scenarios will help you improve quickly."}
@@ -218,7 +218,7 @@ export default function AssessmentMode({ onComplete, onBack, assessmentData }) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-stone-700 truncate">{s.scenario.title}</p>
-                    <p className="text-xs text-stone-400">
+                    <p className="text-xs text-stone-500">
                       {s.principlesDetected.length} of {s.principlesDetected.length + s.principlesMissing.length} skills
                     </p>
                   </div>
