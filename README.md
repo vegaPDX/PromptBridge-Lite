@@ -124,14 +124,6 @@ If you find a security issue, please open an issue or contact the maintainer dir
 
 ---
 
-## Contributing
-
-Contributions are welcome! The easiest way to contribute is by adding new scenarios. See [docs/CONTRIBUTING_SCENARIOS.md](docs/CONTRIBUTING_SCENARIOS.md) for the format and guidelines.
-
-For code contributions, open an issue first to discuss the change.
-
----
-
 ## Local Development
 
 ### Prerequisites
