@@ -8,7 +8,7 @@ No signup. No API key. No backend. Just open and start learning.
 
 ---
 
-PromptBridge teaches the universal communication skills that make AI conversations productive — being specific, providing context, avoiding ambiguity, iterating based on feedback, and knowing when and how to refine. The skills you learn here work with any AI tool: ChatGPT, Claude, Gemini, Copilot, or any other conversational AI.
+PromptBridge teaches the universal communication skills that make AI conversations productive — being specific, providing context, verifying AI output, understanding AI limitations, and using AI responsibly. The skills you learn here work with any AI tool: ChatGPT, Claude, Gemini, Copilot, or any other conversational AI.
 
 No technical background required. No AI experience required. The tool meets people where they are.
 
@@ -36,10 +36,11 @@ NeuroBridge uses a see-consequences, compare-approaches, receive-feedback intera
 
 ## Features
 
-### 8 Communication Skills
+### 12 Communication Skills
 
-Every scenario teaches one or more of these principles:
+Every scenario teaches one or more of these principles, guided by research in Gricean pragmatics and human-AI communication:
 
+**Communication fundamentals:**
 1. **Be specific, not vague** — Ask for exactly what you want
 2. **Provide context** — Share who you are, what you're working on, what constraints exist
 3. **State your intent** — Explain what you'll use the result for
@@ -49,15 +50,23 @@ Every scenario teaches one or more of these principles:
 7. **Ask the AI to ask you questions** — Let it interview you instead of guessing
 8. **Ask the AI to write prompts for you** — Let it crystallize your request
 
-### 45 Practice Scenarios
+**Verification and critical thinking:**
+9. **Verify before you trust** — Don't take AI answers at face value — ask it to show its work and flag what it's unsure about
+10. **Include everything needed — but nothing extra** — Give the AI all the important details, but cut anything that doesn't help
 
-30 guided scenarios across 4 categories plus 15 freeform "Write Your Own" scenarios covering personal, work, school, and coding contexts:
+**AI awareness and responsibility:**
+11. **Know what AI can't do** — AI has a training cutoff, can't browse the web, has no personal experience, and sometimes avoids topics without explaining why
+12. **Use AI responsibly** — AI can reflect biases, agree when it shouldn't, and produce harmful content — you're the human quality filter
 
-- **Vague vs. Specific** — Learn why "help me with this" fails and specificity succeeds
-- **Context & Framing** — Practice giving the AI the background it needs
-- **Iterative Refinement** — Build the skill of steering AI through follow-ups
-- **Smart Strategies** — Advanced techniques like few-shot examples, role-switching, and structured prompts
-- **Write Your Own** — Open-ended scenarios to practice without guardrails
+### 68 Practice Scenarios
+
+53 guided scenarios across 5 categories plus 15 freeform "Write Your Own" scenarios covering personal, work, school, and coding contexts:
+
+- **Vague vs. Specific** (10) — Learn why "help me with this" fails and specificity succeeds. Includes sycophancy awareness — spotting when AI agrees with your mistakes instead of correcting them.
+- **Context & Framing** (14) — Practice giving the AI the background it needs. Covers training cutoffs, AI's lack of personal experience, and how AI can reflect demographic biases in its output.
+- **Iterative Refinement** (12) — Build the skill of steering AI through follow-ups. Includes verifying AI accuracy, resetting long conversations, and auditing AI output for bias.
+- **Smart Strategies** (17) — Advanced techniques like step-by-step reasoning, few-shot examples, structured prompts, interviewing AI about its own limitations, decoding AI refusals, and red-teaming AI output for errors and bias.
+- **Full Conversation Loop** (15) — Open-ended freeform scenarios to combine all skills in realistic workflows.
 
 ### 2 Learning Modes
 
@@ -66,10 +75,11 @@ Every scenario teaches one or more of these principles:
 
 ### Additional Features
 
+- **Using AI Wisely** — Standalone guide covering 9 critical AI limitations: hallucination, sycophancy, bias, knowledge cutoffs, operational limits, evasiveness, and more. Accessible from the landing page ("Heads Up") and the header navigation.
+- **Collapsible Scenario Categories** — Categories default to collapsed with completion counters, keeping the scenario page clean as the library grows.
 - **Skill Assessment** — Pre/post assessment to measure improvement over time
 - **Progression Recommendations** — The tool suggests what to try next based on which skills you haven't practiced yet
 - **Personalization** — Optional "What do you use AI for?" question to surface the most relevant scenarios
-- **AI Safety Guide** — Comprehensive risk awareness section sourced from official Anthropic, OpenAI, and Google guidance
 - **Progress Tracking** — Tracks completed scenarios and practiced principles in your browser
 - **Copy-to-Real-AI Workflow** — Every scenario includes copy buttons and links to ChatGPT, Claude, Gemini, and Copilot so you can immediately practice in real tools
 - **Accessible** — ARIA labels, reduced motion support, color contrast compliant, semantic HTML
@@ -82,8 +92,8 @@ Every scenario teaches one or more of these principles:
 The public web app is a **fully static site** with no backend and no outbound network requests. All content is pre-generated at build time. No API keys are needed or accepted in the deployed app.
 
 - **Frontend:** React 19, Vite 8, Tailwind CSS v4
-- **Content:** 30 pre-generated JSON scenario files (generated once by a local script)
-- **Scoring:** Client-side heuristic scorer using regex pattern matching against the 8 communication principles
+- **Content:** 53 pre-generated JSON scenario files (generated once by a local script using Claude or Gemini APIs)
+- **Scoring:** Client-side heuristic scorer using regex pattern matching against the 12 communication principles
 - **Storage:** Progress saved in browser `localStorage`
 - **Deployment:** GitHub Pages (static files only)
 - **Security:** Content Security Policy with `connect-src 'none'` (no outbound requests), frame-buster for clickjacking protection, HTML escaping on all rendered content
@@ -164,7 +174,7 @@ npm run dev
 
 The app will be available at `http://localhost:5173`.
 
-All 45 scenarios work immediately — 30 guided scenarios with pre-generated content, and 15 write-your-own scenarios with heuristic scoring. No API key required.
+All 68 scenarios work immediately — 53 guided scenarios with pre-generated content, and 15 write-your-own scenarios with heuristic scoring. No API key required.
 
 ### Regenerating Content
 
@@ -181,6 +191,9 @@ ANTHROPIC_API_KEY=your-key node scripts/generate-content.js
 
 # Single scenario
 GEMINI_API_KEY=your-key node scripts/generate-content.js --provider gemini --scenario 1.1-snow-shoveling
+
+# Regenerate only feedback text (keeps options and responses intact)
+ANTHROPIC_API_KEY=your-key node scripts/generate-content.js --feedback-only
 ```
 
 ### Building for Production
@@ -197,49 +210,55 @@ Output goes to `app/dist/`. The GitHub Actions workflow handles production build
 ```
 promptbridge/
 ├── README.md
-├── LICENSE                         # AGPL-3.0
-├── docs/                           # Project documentation
-│   ├── PROJECT_SPEC.md             # Product specification
-│   ├── ARCHITECTURE.md             # Architecture documentation
-│   ├── SCENARIOS.md                # Full scenario library documentation
-│   ├── PROMPT_TEMPLATES.md         # LLM prompt design documentation
-│   ├── RESEARCH_FINDINGS.md        # NeuroBridge deep dive and gap analysis
-│   ├── CONTRIBUTING_SCENARIOS.md   # Guide for contributing new scenarios
-│   ├── USER_TESTING_PROTOCOL.md    # Usability testing protocol
-│   └── QA_CHECKLIST.csv            # 96-item QA test checklist
+├── PROJECT_OVERVIEW.md                # Project vision, goals, and research foundation
+├── LICENSE                            # AGPL-3.0
+├── docs/                              # Project documentation
+│   ├── PROJECT_SPEC.md
+│   ├── ARCHITECTURE.md
+│   ├── SCENARIOS.md
+│   ├── PROMPT_TEMPLATES.md
+│   ├── RESEARCH_FINDINGS.md
+│   ├── CONTRIBUTING_SCENARIOS.md
+│   ├── USER_TESTING_PROTOCOL.md
+│   └── QA_CHECKLIST.csv
+│
+├── Conversational maxims for AI...md  # Miehling et al. research mapping
+├── Gricean pragmatics meets...md      # Gricean pragmatics evidence base
 │
 ├── artifact/
-│   └── PromptBridge.jsx            # Original single-file Claude.ai artifact
+│   └── PromptBridge.jsx               # Original single-file Claude.ai artifact
 │
 ├── .github/
-│   ├── workflows/deploy.yml        # GitHub Pages auto-deploy
-│   └── CODEOWNERS                  # PR review requirements
+│   ├── workflows/deploy.yml           # GitHub Pages auto-deploy
+│   └── CODEOWNERS                     # PR review requirements
 │
-└── app/                            # Vite + React standalone app
+└── app/                               # Vite + React standalone app
     ├── package.json
     ├── vite.config.js
     ├── scripts/
-    │   ├── generate-content.js     # Static content generation pipeline
-    │   └── validate-scenario.js    # Scenario validation script
+    │   ├── generate-content.js        # Static content generation pipeline
+    │   └── validate-scenario.js       # Scenario validation script
     └── src/
-        ├── App.jsx                 # Main app — state management and routing
-        ├── main.jsx                # Entry point with frame-buster
-        ├── index.css               # Tailwind CSS + animations
+        ├── App.jsx                    # Main app — state management and routing
+        ├── main.jsx                   # Entry point with frame-buster
+        ├── index.css                  # Tailwind CSS + animations
         ├── data/
-        │   ├── scenarios.js        # All 45 scenario definitions
-        │   ├── principles.js       # 8 communication principles
-        │   ├── prompts.js          # LLM prompt templates (used by generate-content.js)
-        │   └── generated/          # 30 pre-generated JSON files (one per guided scenario)
-        ├── pages/                  # 7 page components
-        │   ├── LandingPage.jsx     # Home page
-        │   ├── ScenarioSelector.jsx # Scenario browser with tabs
-        │   ├── GuidedMode.jsx      # Guided practice with pre-generated content
-        │   ├── FreeformMode.jsx    # Write-your-own with heuristic scoring
-        │   ├── AssessmentMode.jsx  # Pre/post skill assessment
-        │   ├── ProgressPage.jsx    # Progress tracking dashboard
-        │   └── HelpPage.jsx        # Help and AI safety guide
-        ├── services/               # Storage, heuristic scoring, guided data, recommendations
-        └── components/             # Header, CopyButton, AiToolLinks, MarkdownText, etc.
+        │   ├── scenarios.js           # All 68 scenario definitions
+        │   ├── principles.js          # 12 communication principles
+        │   ├── categories.js          # Category labels and descriptions
+        │   ├── prompts.js             # LLM prompt templates (used by generate-content.js)
+        │   └── generated/             # 53 pre-generated JSON files (one per guided scenario)
+        ├── pages/                     # 8 page components
+        │   ├── LandingPage.jsx        # Home page with demo
+        │   ├── ScenarioSelector.jsx   # Collapsible category browser with tabs
+        │   ├── GuidedMode.jsx         # Guided practice with pre-generated content
+        │   ├── FreeformMode.jsx       # Write-your-own with heuristic scoring
+        │   ├── AssessmentMode.jsx     # Pre/post skill assessment
+        │   ├── ProgressPage.jsx       # Progress tracking dashboard
+        │   ├── HelpPage.jsx           # Help and getting started
+        │   └── AiSafetyPage.jsx       # "Using AI Wisely" standalone guide
+        ├── services/                  # Storage, heuristic scoring, guided data, recommendations
+        └── components/                # Header, CopyButton, AiToolLinks, MarkdownText, etc.
 ```
 
 ---
@@ -259,5 +278,6 @@ This license was chosen to honor the spirit of the NeuroBridge research that ins
 ## Acknowledgments
 
 - **NeuroBridge** (Haroon et al., Tufts University) — The research that inspired PromptBridge's pedagogical approach. [Read the paper](https://dl.acm.org/doi/10.1145/3663547.3746337)
-- **Anthropic**, **OpenAI**, and **Google** — Prompting best practices documentation that informed the 8 communication principles and AI safety guidance
-- Communication principles are sourced from and aligned with official documentation from all three providers, taught in an AI-agnostic, jargon-free way
+- **Miehling et al.** (IBM Research, EMNLP 2024) — Extended Gricean maxims with Transparency and Benevolence for human-AI communication, providing the framework for principles 9–12 and the AI safety guide
+- **Anthropic**, **OpenAI**, and **Google** — Prompting best practices documentation that informed the communication principles and AI safety guidance
+- Communication principles are guided by research in Gricean pragmatics and human-AI interaction, taught in an AI-agnostic, jargon-free way
