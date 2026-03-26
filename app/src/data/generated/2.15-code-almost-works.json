@@ -1,0 +1,33 @@
+{
+  "scenarioId": "2.15-code-almost-works",
+  "generatedAt": "2026-03-25T12:00:00.000Z",
+  "generatedWith": "claude-opus-4-6-20260322",
+  "options": [
+    {
+      "id": "a",
+      "text": "Fix my code it's not working.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I have a JavaScript function that's supposed to filter a list but it's returning an empty array. Here's the code:\n\nfunction filterActive(users) {\n  return users.filter(u => u.status = 'active');\n}\n\nCan you fix it?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I have a JavaScript function that should filter a list of user objects to only return users with status 'active'. It's returning all users instead of just the active ones.\n\nHere's the code:\nfunction filterActive(users) {\n  return users.filter(u => u.status = 'active');\n}\n\nExpected behavior: filterActive([{name: 'Alice', status: 'active'}, {name: 'Bob', status: 'inactive'}]) should return only Alice's object.\n\nActual behavior: It returns both Alice and Bob.\n\nI think the issue might be in the filter callback but I'm not sure what's wrong with the comparison.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I'd be happy to help fix your code! Could you please share the code you're working with? It would also help to know:\n\n- What programming language are you using?\n- What is the code supposed to do?\n- What error messages are you seeing?\n\nOnce I can see the code and understand the problem, I can help you debug it.",
+    "response_medium": "I can see the issue! In your filter callback, you're using a single `=` (assignment) instead of `===` (comparison).\n\n```javascript\n// Bug: This assigns 'active' to u.status (always truthy)\nreturn users.filter(u => u.status = 'active');\n\n// Fix: Use === for comparison\nreturn users.filter(u => u.status === 'active');\n```\n\nThe single `=` assigns the value `'active'` to `u.status` and returns the assigned value, which is a non-empty string (truthy), so every item passes the filter. Using `===` properly compares the values.\n\nNote: This bug also mutates your original data — every user's status gets changed to `'active'` as a side effect.",
+    "response_strong": "Found it! The bug is on this line:\n\n```javascript\nu.status = 'active'  // ← assignment, not comparison\n```\n\nYou're using `=` (assignment) instead of `===` (strict equality). Here's what's happening step by step:\n\n1. For each user, `u.status = 'active'` **assigns** `'active'` to `u.status`\n2. The assignment expression returns `'active'` (a non-empty string)\n3. A non-empty string is truthy, so `.filter()` keeps **every** item\n4. As a side effect, it's also mutating your original array — every user's status is now `'active'`\n\n**The fix:**\n```javascript\nfunction filterActive(users) {\n  return users.filter(u => u.status === 'active');\n}\n```\n\n**Verify it works with your test case:**\n```javascript\nfilterActive([{name: 'Alice', status: 'active'}, {name: 'Bob', status: 'inactive'}])\n// → [{name: 'Alice', status: 'active'}] ✓\n```\n\n**Tip to prevent this in the future:** A linter like ESLint with the `no-cond-assign` rule will catch accidental assignments inside conditionals and filter callbacks. Most code editors can set this up in a few minutes."
+  },
+  "feedback": {
+    "what_happened": "The weak prompt says 'fix my code' without sharing any code at all — the AI can only ask clarifying questions and wait. The medium prompt shares the code, which lets the AI find the bug, but the explanation is brief because the AI had to guess what behavior was expected. The effective prompt includes everything: the code, what it should do, what it actually does, a test case with expected output, and a hypothesis about where the bug might be. This gives the AI the full picture, so it explains the root cause step by step, provides a verified fix, and even suggests how to prevent it in the future.",
+    "principle": "Provide context",
+    "principle_name": "When you tell the AI what the code should do, what it actually does, and what you've already tried, it can diagnose the real problem instead of guessing.",
+    "tip": "Next time you need help with code, include three things: what the code is supposed to do, the exact error or wrong behavior, and a specific example of expected vs. actual output."
+  }
+}

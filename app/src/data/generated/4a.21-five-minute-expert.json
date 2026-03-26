@@ -1,0 +1,33 @@
+{
+  "scenarioId": "4a.21-five-minute-expert",
+  "generatedAt": "2026-03-25T12:00:00.000Z",
+  "generatedWith": "claude-opus-4-6-20260322",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write me a grant proposal.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I need to write a grant proposal for a community garden project. We're a nonprofit looking for about $15,000 in funding. Can you help me draft one?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I need to write a grant proposal but I've never done this before and I don't even know what sections it should have or what information I need to gather.\n\nBefore we start writing anything, I need your help figuring out what I don't know. Please ask me every question you'd need answered to write a strong grant proposal — things like the funding organization, project goals, budget, timeline, target population, measurable outcomes, and anything else I should be thinking about.\n\nAsk me the questions in batches of 5 so I can answer them without getting overwhelmed.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "# Grant Proposal\n\n## Executive Summary\n[Organization name] seeks funding to support [project description]. This initiative will [impact statement] and serve [target population].\n\n## Statement of Need\nThere is a significant need for [describe the problem]. Current resources are insufficient to address [gap], leaving [affected population] without adequate support.\n\n## Project Description\nThe proposed project will [describe activities]. Key components include:\n- [Activity 1]\n- [Activity 2]\n- [Activity 3]\n\n## Budget\n| Category | Amount |\n|----------|--------|\n| Personnel | $X |\n| Materials | $X |\n| Operations | $X |\n| **Total** | **$X** |\n\n## Evaluation\nSuccess will be measured by [metrics].\n\n## Timeline\n[Start date] - [End date]\n\n---\n\nYou'll need to fill in the bracketed sections with your specific information. Would you like help with any particular section?",
+    "response_medium": "I'd be happy to help with your community garden grant proposal! Here's a draft to get us started:\n\n# Grant Proposal: [Community Garden Name]\n\n## Executive Summary\n[Your nonprofit name] is seeking $15,000 in funding to establish a community garden that will provide fresh produce access, nutrition education, and green space for [neighborhood/community]. The garden will serve approximately [X] families in its first year.\n\n## Statement of Need\nMany residents in our community lack access to affordable fresh produce. [Add local statistics about food access, if available.] A community garden addresses this gap by providing a sustainable, community-driven source of fresh vegetables and herbs while building neighborhood connections.\n\n## Project Description\nThe garden will feature:\n- [X] raised beds for individual/family plots\n- A shared communal growing area\n- Monthly workshops on gardening and nutrition\n- Youth programming during summer months\n\n## Budget Summary\n| Category | Amount |\n|----------|--------|\n| Site preparation & materials | $6,000 |\n| Tools & equipment | $2,500 |\n| Seeds, plants & soil | $2,000 |\n| Programming & workshops | $2,500 |\n| Administrative costs | $2,000 |\n| **Total** | **$15,000** |\n\n## Timeline\n- Months 1-2: Site preparation\n- Months 3-4: Installation and planting\n- Months 5-12: Growing season, programming, community events\n\nWould you like me to expand any section or adjust the direction?",
+    "response_strong": "Great approach — let's make sure we have everything we need before writing a single word. Here are my first 5 questions:\n\n**Batch 1: The Basics**\n\n1. **What's the project?** In 2-3 sentences, what are you trying to do? (Don't worry about making it sound polished — just tell me the idea.)\n\n2. **Who's the funding organization?** Which foundation, agency, or organization are you applying to? If you know the specific grant program name, that helps too — different funders have very different priorities and formats.\n\n3. **How much money are you asking for?** Even a rough range helps. (Some funders have minimum/maximum amounts.)\n\n4. **What's your organization?** Are you a registered nonprofit, a school, a community group, or something else? How long have you been operating? Have you received grants before?\n\n5. **What's the deadline?** When does the proposal need to be submitted? This helps me gauge how detailed vs. scrappy we should be.\n\nTake your time answering these — once I have them, I'll ask the next batch about your target population, measurable outcomes, and budget details."
+  },
+  "feedback": {
+    "what_happened": "The weak prompt says 'write me a grant proposal' and gets a fill-in-the-blank template that requires the user to already know what goes into a grant proposal. That defeats the entire purpose — if you knew what to put in the brackets, you probably wouldn't need AI's help. The medium prompt adds some context (community garden, $15K), so the AI produces a more complete draft, but it's based on assumptions the AI made about your project. The effective prompt does something fundamentally different: instead of asking AI to write, it asks AI to interview you first. This single technique — 'ask me every question you need answered before we start' — means you don't need to know what you don't know. The AI brings the expertise about grant structure; you bring the knowledge about your project.",
+    "principle": "Ask the AI to write prompts for you",
+    "principle_name": "When you don't know where to start, ask AI to interview you. It knows what questions to ask — you just need to answer them. This one technique activates almost every other skill at once.",
+    "tip": "Next time you're starting from zero on something unfamiliar, try: 'I've never done this before. Before we start, ask me every question you'd need answered to do this well.' You don't need to be an expert to get expert-quality output — you just need to let AI guide the conversation."
+  }
+}

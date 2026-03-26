@@ -58,23 +58,25 @@ Every scenario teaches one or more of these principles, guided by research in Gr
 11. **Know what AI can't do** — AI has a training cutoff, can't browse the web, has no personal experience, and sometimes avoids topics without explaining why
 12. **Use AI responsibly** — AI can reflect biases, agree when it shouldn't, and produce harmful content — you're the human quality filter
 
-### 68 Practice Scenarios
+### 76 Practice Scenarios
 
-53 guided scenarios across 5 categories plus 15 freeform "Write Your Own" scenarios covering personal, work, school, and coding contexts:
+61 guided scenarios and 15 freeform "Write Your Own" scenarios across 5 categories, covering personal, work, school, and coding contexts:
 
-- **Vague vs. Specific** (10) — Learn why "help me with this" fails and specificity succeeds. Includes sycophancy awareness — spotting when AI agrees with your mistakes instead of correcting them.
-- **Context & Framing** (14) — Practice giving the AI the background it needs. Covers training cutoffs, AI's lack of personal experience, and how AI can reflect demographic biases in its output.
-- **Iterative Refinement** (12) — Build the skill of steering AI through follow-ups. Includes verifying AI accuracy, resetting long conversations, and auditing AI output for bias.
-- **Smart Strategies** (17) — Advanced techniques like step-by-step reasoning, few-shot examples, structured prompts, interviewing AI about its own limitations, decoding AI refusals, and red-teaming AI output for errors and bias.
-- **Full Conversation Loop** (15) — Open-ended freeform scenarios to combine all skills in realistic workflows.
+- **Vague vs. Specific** (14) — Learn why "help me with this" fails and specificity succeeds. Includes sycophancy awareness — spotting when AI agrees with your mistakes instead of correcting them.
+- **Context & Framing** (19) — Practice giving the AI the background it needs. Covers training cutoffs, AI's lack of personal experience, and how AI can reflect demographic biases in its output.
+- **Iterative Refinement** (15) — Build the skill of steering AI through follow-ups. Includes verifying AI accuracy, resetting long conversations, and auditing AI output for bias.
+- **Smart Strategies** (23) — Advanced techniques like step-by-step reasoning, few-shot examples, structured prompts, interviewing AI about its own limitations, decoding AI refusals, and red-teaming AI output for errors and bias.
+- **Full Conversation Loop** (5) — Open-ended freeform scenarios to combine all skills in realistic workflows.
 
 ### 2 Learning Modes
 
 - **Guided Practice** — Compare 3 prompt approaches (weak, medium, effective) side by side. See the AI response each one produces. Learn why specific, context-rich prompts get dramatically better results. Then write your own version and get scored.
-- **Write Your Own** — Write a prompt from scratch for any of 15 diverse scenarios. Get instant feedback on which communication skills you applied. Copy your prompt and try it in any real AI tool — ChatGPT, Claude, Gemini, or Copilot.
+- **Write Your Own** — Write a prompt from scratch for any of 15 freeform scenarios spread across all 5 categories. Get instant feedback on which communication skills you applied. Copy your prompt and try it in any real AI tool — ChatGPT, Claude, Gemini, or Copilot.
 
 ### Additional Features
 
+- **Welcome Banner** — First-visit banner highlighting 3 key facts most people don't know about AI: confident-sounding errors, sycophancy, and how communication skills fix most frustrations.
+- **Pre-Scenario Reminders** — Dismissible reminder before each scenario that AI can sound confident and still be wrong.
 - **Using AI Wisely** — Standalone guide covering 9 critical AI limitations: hallucination, sycophancy, bias, knowledge cutoffs, operational limits, evasiveness, and more. Accessible from the landing page ("Heads Up") and the header navigation.
 - **Collapsible Scenario Categories** — Categories default to collapsed with completion counters, keeping the scenario page clean as the library grows.
 - **Skill Assessment** — Pre/post assessment to measure improvement over time
@@ -92,8 +94,9 @@ Every scenario teaches one or more of these principles, guided by research in Gr
 The public web app is a **fully static site** with no backend and no outbound network requests. All content is pre-generated at build time. No API keys are needed or accepted in the deployed app.
 
 - **Frontend:** React 19, Vite 8, Tailwind CSS v4
-- **Content:** 53 pre-generated JSON scenario files (generated once by a local script using Claude or Gemini APIs)
+- **Content:** 61 pre-generated JSON scenario files (generated once by a local script using Claude or Gemini APIs)
 - **Scoring:** Client-side heuristic scorer using regex pattern matching against the 12 communication principles
+- **Testing:** Vitest + React Testing Library
 - **Storage:** Progress saved in browser `localStorage`
 - **Deployment:** GitHub Pages (static files only)
 - **Security:** Content Security Policy with `connect-src 'none'` (no outbound requests), frame-buster for clickjacking protection, HTML escaping on all rendered content
@@ -147,7 +150,7 @@ npm run dev
 
 The app will be available at `http://localhost:5173`.
 
-All 68 scenarios work immediately — 53 guided scenarios with pre-generated content, and 15 write-your-own scenarios with heuristic scoring. No API key required.
+All 76 scenarios work immediately — 61 guided scenarios with pre-generated content, and 15 write-your-own scenarios with heuristic scoring. No API key required.
 
 ### Regenerating Content
 
@@ -186,17 +189,13 @@ promptbridge/
 ├── PROJECT_OVERVIEW.md                # Project vision, goals, and research foundation
 ├── LICENSE                            # AGPL-3.0
 ├── docs/                              # Project documentation
-│   ├── PROJECT_SPEC.md
 │   ├── ARCHITECTURE.md
-│   ├── SCENARIOS.md
-│   ├── ROADMAP.md
-│   ├── PROMPT_TEMPLATES.md
-│   ├── RESEARCH_FINDINGS.md
 │   ├── CONTRIBUTING_SCENARIOS.md
-│   ├── USER_TESTING_PROTOCOL.md
-│   ├── QA_CHECKLIST.csv
-│   ├── Conversational maxims for AI...md  # Miehling et al. research mapping
-│   └── Gricean pragmatics meets...md      # Gricean pragmatics evidence base
+│   ├── PROJECT_SPEC.md
+│   ├── PROMPT_TEMPLATES.md
+│   ├── ROADMAP.md
+│   ├── SCENARIOS.md
+│   └── SECURITY_REVIEW_PROMPT.md
 │
 ├── artifact/
 │   └── PromptBridge.jsx               # Original single-file Claude.ai artifact
@@ -208,6 +207,7 @@ promptbridge/
 └── app/                               # Vite + React standalone app
     ├── package.json
     ├── vite.config.js
+    ├── vitest.config.js               # Test configuration
     ├── scripts/
     │   ├── generate-content.js        # Static content generation pipeline
     │   └── validate-scenario.js       # Scenario validation script
@@ -215,12 +215,16 @@ promptbridge/
         ├── App.jsx                    # Main app — state management and routing
         ├── main.jsx                   # Entry point with frame-buster
         ├── index.css                  # Tailwind CSS + animations
+        ├── __tests__/                 # Vitest + React Testing Library tests
         ├── data/
-        │   ├── scenarios.js           # All 68 scenario definitions
+        │   ├── scenarios.js           # All 76 scenario definitions
         │   ├── principles.js          # 12 communication principles
         │   ├── categories.js          # Category labels and descriptions
+        │   ├── assessment-scenarios.js # Pre/post assessment scenario IDs
+        │   ├── demo.js                # Landing page demo prompts and responses
+        │   ├── icon-map.js            # Dynamic Lucide icon resolver
         │   ├── prompts.js             # LLM prompt templates (used by generate-content.js)
-        │   └── generated/             # 53 pre-generated JSON files (one per guided scenario)
+        │   └── generated/             # 61 pre-generated JSON files (one per guided scenario)
         ├── pages/                     # 8 page components
         │   ├── LandingPage.jsx        # Home page with demo
         │   ├── ScenarioSelector.jsx   # Collapsible category browser with tabs
@@ -231,7 +235,7 @@ promptbridge/
         │   ├── HelpPage.jsx           # Help and getting started
         │   └── AiSafetyPage.jsx       # "Using AI Wisely" standalone guide
         ├── services/                  # Storage, heuristic scoring, guided data, recommendations
-        └── components/                # Header, CopyButton, AiToolLinks, MarkdownText, etc.
+        └── components/                # Header, CopyButton, AiToolLinks, AiSafetyBanner, etc.
 ```
 
 ---

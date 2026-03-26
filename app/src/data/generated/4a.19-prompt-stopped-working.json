@@ -1,0 +1,33 @@
+{
+  "scenarioId": "4a.19-prompt-stopped-working",
+  "generatedAt": "2026-03-25T12:00:00.000Z",
+  "generatedWith": "claude-opus-4-6-20260322",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write me a weekly status report like you used to. The same format as before.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Write a weekly status report for my team. Include what we accomplished, what's in progress, and any blockers. Keep it concise and professional. Format it as an email to my manager.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "Write a weekly status report email to my manager (VP of Engineering). Use this exact format:\n\n**Subject:** Weekly Status — [Team Name] — [Date]\n\n**Completed This Week:**\n- [item] — impact/result\n- [item] — impact/result\n\n**In Progress:**\n- [item] — expected completion, % done\n\n**Blockers:**\n- [item] — who/what is needed to unblock\n\n**Next Week Focus:**\n- Top 3 priorities only\n\nHere's last week's report as an example of the style and depth I want:\n\n\"Subject: Weekly Status — Platform Team — March 18\n\nCompleted: Migrated user auth to OAuth 2.0 — reduced login failures by 40%. Shipped batch API endpoint — 3 partner teams unblocked.\n\nIn Progress: Database sharding for orders table — 70% done, targeting Friday. Load testing new caching layer — initial results show 2x throughput.\n\nBlockers: Need DevOps approval for production deploy window — waiting on Jamie since Tuesday.\n\nNext Week: Complete sharding migration. Begin API rate limiting rollout. Prep Q2 capacity planning doc.\"\n\nTone: direct and factual, no filler. My manager wants signal, not narrative.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Here's your weekly status report:\n\nHi Team,\n\nHere's a quick update on where things stand this week.\n\nWe've been making good progress across several areas. The team has been focused on moving key initiatives forward and addressing outstanding items. There are a few things we're still working through, but overall we're in a good position.\n\nPlease let me know if you have any questions or need additional details on any of these items.\n\nBest,\n[Your name]",
+    "response_medium": "Subject: Weekly Status Update\n\nHi [Manager],\n\nHere's the team's weekly update:\n\n**Completed This Week:**\n- Finished the API migration project\n- Resolved 3 critical bugs reported by QA\n- Completed the design review for the new dashboard\n\n**In Progress:**\n- Building out the notification system (targeting end of next week)\n- Performance optimization for the search feature\n- Updating documentation for the new API endpoints\n\n**Blockers:**\n- Waiting on design assets for the mobile redesign\n- Need access to the staging database for testing\n\nLet me know if you'd like more detail on any of these.\n\nBest,\n[Your name]",
+    "response_strong": "Subject: Weekly Status — Platform Team — March 25\n\n**Completed This Week:**\n- Rolled out new caching layer to production — p99 latency dropped from 340ms to 160ms (53% improvement)\n- Closed out Q1 security audit findings — all 4 critical items resolved, 2 medium items deferred to Q2 with mitigation\n- Shipped webhook retry logic — partner integration failures down from 12% to 0.3%\n\n**In Progress:**\n- Database sharding for orders table — 85% done, on track for Wednesday deploy\n- API rate limiting v2 — load testing in staging, targeting Friday rollout behind feature flag\n\n**Blockers:**\n- Production deploy window for sharding needs DevOps sign-off — escalated to Jamie, need resolution by EOD Monday or we slip the Wednesday target\n\n**Next Week Focus:**\n- Complete sharding migration and validate with 48h monitoring window\n- Ship rate limiting to 10% canary traffic\n- Kick off Q2 capacity planning (meeting scheduled Thursday)"
+  },
+  "feedback": {
+    "what_happened": "The weak prompt says 'like you used to' — but AI doesn't remember previous conversations. Every new session starts from scratch, so 'the same as before' means nothing. The AI produces vague filler with no structure. The medium prompt describes the sections, which is much better, but the results are still generic ('finished the API migration project' with no impact data). The effective prompt is resilient: it specifies the exact format with headers, includes a real example from a previous report, and states the tone preference. Even if the AI model changes or updates, this prompt will produce consistent results because nothing is left to interpretation.",
+    "principle": "Show what 'good' looks like",
+    "principle_name": "Prompts that work 'by luck' break when the AI changes. Including your exact format and a sample of previous good output makes your prompt resilient to model updates.",
+    "tip": "If you have a prompt you use regularly, paste in an example of the output you want. This 'anchors' the AI to your expectations instead of relying on it guessing what you mean — and it keeps working even when the AI model updates."
+  }
+}

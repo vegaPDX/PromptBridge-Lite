@@ -26,7 +26,7 @@
   },
   "feedback": {
     "what_happened": "The weak prompt gives no details, so the AI can only offer generic review-writing advice. The medium prompt includes your actual thoughts but buries them in irrelevant order details, leading to a basic review that misses your specific experiences. The effective prompt focuses purely on your product experience with concrete details (loud motor, tricky lid, handles ice well), allowing the AI to craft a detailed, helpful review that highlights both strengths and weaknesses in an organized format.",
-    "principle": "Include everything needed — but nothing extra",
+    "principle": "The AI needs your real experience to write a useful review, but it doesn't need order numbers, shipping details, or pricing info. Separating signal from noise helps the AI focus on what actually matters to readers.",
     "principle_name": "Include everything needed — but nothing extra",
     "tip": "Before asking for help, separate what's relevant to your request from what isn't. For a product review, share your actual experience with the item — not your purchase details."
   },

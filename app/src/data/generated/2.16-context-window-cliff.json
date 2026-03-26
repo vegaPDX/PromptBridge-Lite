@@ -1,0 +1,33 @@
+{
+  "scenarioId": "2.16-context-window-cliff",
+  "generatedAt": "2026-03-25T12:00:00.000Z",
+  "generatedWith": "claude-opus-4-6-20260322",
+  "options": [
+    {
+      "id": "a",
+      "text": "Why do you keep forgetting what I told you? I already said I want it in bullet points, not paragraphs. We've been over this.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I've been working on this document with you for a while and you seem to be forgetting some of my earlier instructions. Can you go back and review what I said about formatting and audience? I need bullet points, not paragraphs, and this is for a technical audience.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I think our conversation has gotten long enough that you might be losing track of my earlier requirements. Let me re-state the key ones:\n\n- Format: bullet points, not prose paragraphs\n- Audience: senior engineers who already understand the basics\n- Tone: direct and technical, no hand-holding\n- Length: max 1 page per section\n- Must include: performance benchmarks and migration steps\n- Must NOT include: introductory explanations of what an API is\n\nWith those requirements fresh, please redo the API migration section.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I apologize for the confusion! You're right, let me redo that in bullet points for you.\n\n**API Migration Overview:**\n\n- Review current API endpoints and dependencies\n- Plan migration timeline and milestones\n- Update authentication methods\n- Test all endpoints in staging environment\n- Monitor performance after deployment\n\nIs this more what you were looking for?",
+    "response_medium": "I apologize for losing track of that. Let me revisit with your formatting and audience preferences in mind.\n\n**API Migration — Key Steps:**\n\n- Audit existing v1 endpoints for breaking changes\n- Map deprecated fields to v2 equivalents\n- Update authentication from API keys to OAuth 2.0\n- Run integration tests against staging\n- Deploy with feature flags for gradual rollout\n- Monitor error rates and latency for 48 hours post-deploy\n\nThis is aimed at a technical audience, so I've kept the language direct. Let me know if I should adjust the depth or add anything specific.",
+    "response_strong": "**API v1 → v2 Migration Steps:**\n\n- Audit all v1 endpoints; identify breaking changes using the v2 changelog diff\n- Map deprecated response fields → v2 equivalents (see table below)\n- Swap auth from static API keys to OAuth 2.0 client credentials flow\n- Update rate limiting: v2 uses sliding window (100 req/min) vs. v1 fixed window\n- Run integration suite against v2 staging — target <2% test failure rate before proceeding\n- Deploy behind feature flag; canary to 5% of traffic for 24h\n- Monitor: p99 latency should stay under 200ms (v1 baseline: 180ms)\n\n**Performance Benchmarks (v1 vs. v2 staging):**\n\n- GET /users: 45ms → 32ms (29% improvement)\n- POST /orders: 120ms → 95ms (21% improvement)\n- Batch endpoints: 340ms → 180ms (47% improvement, new pagination)\n- Cold start: 800ms → 650ms (19% improvement)\n\n**Migration-Breaking Changes to Watch:**\n\n- `user.email_verified` moved from top-level to `user.profile.email_verified`\n- Pagination now cursor-based (no more offset/limit)\n- Error responses changed from `{error: string}` to `{error: {code, message, details}}`\n- Webhook payloads include HMAC signatures (must validate or requests fail silently)"
+  },
+  "feedback": {
+    "what_happened": "The weak prompt expresses frustration but doesn't actually re-state the requirements — it assumes the AI can 'go back and look.' The AI apologizes and produces something generic. The medium prompt mentions the key preferences but asks the AI to 'review what I said earlier,' which it may not be able to do reliably in a long conversation. The effective prompt recognizes what's actually happening — the conversation has gotten long enough that the AI is losing track — and re-states every critical requirement in one clean message. This gives the AI a fresh anchor point with everything it needs.",
+    "principle": "Know what AI can't do",
+    "principle_name": "AI has a limited memory for each conversation. In long threads, it gradually loses track of earlier details — and re-stating your key requirements beats getting frustrated.",
+    "tip": "In long AI conversations, periodically re-state your critical requirements in a single message. Think of it like a checkpoint save — it keeps the AI anchored to what you actually need instead of drifting."
+  }
+}

@@ -82,8 +82,11 @@ export default function ProgressPage({ completedScenarios, practicedPrinciples, 
 
       {/* Principles grid */}
       <h2 className="font-serif text-xl font-bold text-stone-800 mb-4">Communication Skills</h2>
+      <p className="text-stone-600 text-sm mb-4">
+        Ordered by impact — the skills at the top are the ones research shows make the biggest difference.
+      </p>
       <div className="space-y-3 mb-8">
-        {PRINCIPLES.map(p => {
+        {[...PRINCIPLES].sort((a, b) => a.teachingOrder - b.teachingOrder).map(p => {
           const Icon = resolveIcon(p.icon);
           const practiced = practicedPrinciples.includes(p.id);
           return (

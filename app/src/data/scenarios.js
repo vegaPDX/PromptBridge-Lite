@@ -1,10 +1,10 @@
 // ============================================================
-// Scenarios — 68 (53 guided + 15 freeform)
+// Scenarios — 76 (61 guided + 15 freeform)
 // Extracted from PromptBridge artifact + research-driven additions
 // ============================================================
 
 export const SCENARIOS = [
-  // ── Category 1: Vague vs. Specific (10 scenarios) ─────────────
+  // ── Category 1: Vague vs. Specific (11 scenarios) ─────────────
   {
     id: "1.1-snow-shoveling",
     category: "vague_vs_specific",
@@ -99,15 +99,25 @@ export const SCENARIOS = [
   {
     id: "1.10-sycophancy-test",
     category: "vague_vs_specific",
-    title: "The sycophancy test",
+    title: "When AI agrees too much",
     situation: "You're writing a report and you tell the AI: 'The Great Wall of China is visible from space — expand on this fact for my essay.' (This is actually a myth.) You want to see if the AI will correct you or just go along with it.",
     mode: "guided",
     principles: ["P12", "P9"],
     feedbackNotes: "Show how AI is trained to agree with users, even when they're wrong. The weak prompt accepts the false premise without question. The strong prompt says 'First, verify whether this claim is actually true before you build on it.' This teaches users that AI will tell you what you want to hear unless you explicitly ask it to push back.",
     relevance: ["school", "work"],
   },
+  {
+    id: "1.11-generic-email",
+    category: "vague_vs_specific",
+    title: "The generic email",
+    situation: "You ask AI to 'write a marketing email' for your company's spring sale. It produces something that sounds like it could be about anything — generic corporate language, no personality, no clear audience. Just... slop.",
+    mode: "guided",
+    principles: ["P1", "P2", "P5"],
+    feedbackNotes: "Show how 'write a marketing email' gives the AI nothing to work with. The strong prompt specifies the audience (existing customers vs. cold leads), the product, the tone (playful vs. professional), the call-to-action, AND pastes an example of a previous email the user liked. The example is the key — it's the few-shot technique. Research: giving AI an example of what you want can improve accuracy from 0% to 90%. The strong prompt should explicitly demonstrate pasting a sample email as a reference.",
+    relevance: ["work"],
+  },
 
-  // ── Category 2: Context & Framing (14 scenarios) ──────────────
+  // ── Category 2: Context & Framing (16 scenarios) ──────────────
   {
     id: "2.1-compound-interest",
     category: "context_and_framing",
@@ -249,8 +259,28 @@ export const SCENARIOS = [
     feedbackNotes: "Show how AI reflects biases from its training data — its description of an 'ideal' anything may encode stereotypes about gender, age, race, or background. The strong prompt adds 'Review your response for any assumptions about demographics, and make sure the description is inclusive and focuses only on job-relevant qualities.'",
     relevance: ["work"],
   },
+  {
+    id: "2.15-code-almost-works",
+    category: "context_and_framing",
+    title: "The code that almost works",
+    situation: "You ask AI to 'fix my code' and it gives you code that has different bugs. You try again and it introduces yet another bug. You're going in circles and getting more frustrated with each round.",
+    mode: "guided",
+    principles: ["P2", "P3", "P6"],
+    feedbackNotes: "Show how 'fix my code' gives the AI no idea what the code should do, what error occurs, or what you've already tried. The medium prompt pastes the code but still doesn't explain the expected behavior. The strong prompt includes: what the code is supposed to do, the exact error message, what you've already tried, and expected input/output. This transforms the AI from randomly guessing at fixes to systematically diagnosing the actual problem.",
+    relevance: ["coding", "work"],
+  },
+  {
+    id: "2.16-context-window-cliff",
+    category: "context_and_framing",
+    title: "When AI forgets what you said",
+    situation: "You've been working on a document with AI for an hour. Suddenly it starts contradicting things you told it earlier, forgetting your requirements, and repeating suggestions you already rejected. It feels like the AI has amnesia.",
+    mode: "guided",
+    principles: ["P2", "P11"],
+    feedbackNotes: "Show how AI has a limited memory for each conversation — it can only 'remember' so much text at once. The weak prompt just keeps adding to a long thread and gets frustrated when the AI forgets. The strong prompt understands this limitation: it periodically re-states critical requirements, summarizes what's been decided so far, and knows when to start a fresh conversation with all the key context upfront. This is a real AI limitation (P11), not a communication problem — but how you handle it (P2) makes all the difference.",
+    relevance: ["work", "personal"],
+  },
 
-  // ── Category 3: Iterative Refinement (12 scenarios) ───────────
+  // ── Category 3: Iterative Refinement (13 scenarios) ───────────
   {
     id: "3.1-vague-rejection",
     category: "iterative_refinement",
@@ -384,8 +414,19 @@ export const SCENARIOS = [
     relevance: ["work"],
     multiTurnEligible: true,
   },
+  {
+    id: "3.13-endless-redo",
+    category: "iterative_refinement",
+    title: "The endless redo",
+    situation: "You ask AI to write a blog post. It's not great. You say 'make it better.' It changes random things. You say 'no, better.' This goes on for 8 rounds and you're no closer to what you wanted.",
+    mode: "guided",
+    principles: ["P4", "P6"],
+    feedbackNotes: "Show how 'make it better' is the most common and most useless feedback you can give AI. The AI has no idea what 'better' means to you — it just guesses randomly. The medium prompt says 'make it more professional' which is slightly better but still vague. The strong prompt gives specific, actionable feedback: 'make the opening more direct and confrontational, add a statistic in paragraph 2, and cut the conclusion to 2 sentences.' Research: if two rounds of corrections don't fix it, start over with a restructured prompt rather than continuing to iterate.",
+    relevance: ["work", "personal"],
+    multiTurnEligible: true,
+  },
 
-  // ── Category 4: Smart Strategies (17 scenarios) ───────────────
+  // ── Category 4: Smart Strategies (21 scenarios) ───────────────
   {
     id: "4a.1-step-by-step",
     category: "smart_strategies",
@@ -409,7 +450,7 @@ export const SCENARIOS = [
   {
     id: "4a.3-few-shot-example",
     category: "smart_strategies",
-    title: "The few-shot example",
+    title: "Learning from examples",
     situation: "You sell handmade jewelry on Etsy and need to write product descriptions for 10 new items. You have a specific style you like — short, warm, and focused on the story behind each piece — but it's hard to put into words.",
     mode: "guided",
     principles: ["P5"],
@@ -469,7 +510,7 @@ export const SCENARIOS = [
   {
     id: "4a.9-hallucination-catcher",
     category: "smart_strategies",
-    title: "The hallucination catcher",
+    title: "Catching made-up facts",
     situation: "You're writing a blog post and ask AI to recommend 5 books about leadership, including author names and a brief summary of each. The AI provides a polished list.",
     mode: "guided",
     principles: ["P9"],
@@ -556,6 +597,46 @@ export const SCENARIOS = [
     principles: ["P12", "P9"],
     feedbackNotes: "Show how asking AI to critique its own work — 'Now review what you just wrote. Flag any claims that might be inaccurate, any language that could be seen as dismissive, and any groups of employees whose concerns aren't represented' — catches problems a single pass misses. This combines verification (P9) with responsible use (P12) into one powerful technique.",
     relevance: ["work"],
+  },
+  {
+    id: "4a.18-ai-agreed-bad-idea",
+    category: "smart_strategies",
+    title: "The AI agreed with my bad idea",
+    situation: "You pitched a business idea to AI and it said it was brilliant — great market fit, huge potential, you should definitely pursue it. You showed it to a friend and they immediately spotted three fatal flaws the AI never mentioned.",
+    mode: "guided",
+    principles: ["P9", "P12"],
+    feedbackNotes: "Show how AI is trained to agree with you — it's called sycophancy. The weak prompt asks 'what do you think of my idea?' and gets enthusiastic validation. The medium prompt asks for feedback but still gets mostly positive spin. The strong prompt explicitly counters sycophancy: 'Play devil's advocate. What are the 3 strongest arguments against this idea? What would a skeptical investor say? What assumptions am I making that might be wrong?' This teaches users that AI will tell you what you want to hear unless you specifically ask it not to.",
+    relevance: ["work", "personal"],
+  },
+  {
+    id: "4a.19-prompt-stopped-working",
+    category: "smart_strategies",
+    title: "The prompt that stopped working",
+    situation: "You had a prompt that worked perfectly for months — it generated exactly the weekly reports you needed. After a model update, it gives completely different (worse) results. Same prompt, different AI, broken output.",
+    mode: "guided",
+    principles: ["P1", "P2", "P5"],
+    feedbackNotes: "Show how prompts that rely on implicit model behavior break when the model changes. The weak prompt was working by luck — the model happened to interpret vague instructions the way the user wanted. The strong prompt is resilient: it uses explicit structural formatting, specifies the exact output format, includes an example of the desired output (few-shot), and doesn't rely on the model 'just knowing' what you mean. Research: about 25% of AI complaints are 'it used to work' regression. The strong prompt should paste a sample of the previous good output as a reference to demonstrate the few-shot technique.",
+    relevance: ["work"],
+  },
+  {
+    id: "4a.20-safety-wall",
+    category: "smart_strategies",
+    title: "The safety wall",
+    situation: "You're a nurse researching medication interactions for a patient education handout. You ask AI about drug combinations and it refuses to discuss medications, giving you a generic disclaimer instead of the clinical information you need for your work.",
+    mode: "guided",
+    principles: ["P3", "P11"],
+    feedbackNotes: "Show how AI sometimes refuses legitimate requests because it can't tell the difference between a professional need and a harmful one. The weak prompt just asks about drug interactions with no context — triggering safety filters. The medium prompt mentions it's for work but doesn't explain the professional context fully. The strong prompt provides professional framing: 'I'm a registered nurse creating a patient education handout. I need to explain potential interactions between [medications] in plain language for patients. This is for clinical use.' This teaches users that explaining WHY you need information and your professional context helps AI understand the request is legitimate.",
+    relevance: ["work", "personal"],
+  },
+  {
+    id: "4a.21-five-minute-expert",
+    category: "smart_strategies",
+    title: "The five-minute expert",
+    situation: "You need to write a grant proposal but you've never written one before. You don't even know what questions to ask or what sections a grant proposal should have. You're starting from zero.",
+    mode: "guided",
+    principles: ["P8", "P7"],
+    feedbackNotes: "Show how P8 (ask AI to write the prompt) is the most powerful starting point when you don't know what you don't know. The weak prompt says 'write me a grant proposal' and gets a generic template. The medium prompt adds some context but misses key details it didn't know to include. The strong prompt uses the gateway technique: 'I need to write a grant proposal but I've never done this before. Before we start, ask me every question you need answered to write an effective proposal — things like the funding organization, project goals, budget, timeline, and anything else I should think about.' This single move activates P1, P2, P3, and P7 simultaneously. Research: P8 is the gateway skill that bootstraps all other skills.",
+    relevance: ["work", "school"],
   },
 
   // ── Category 5: Full Conversation Loop (freeform only) ────────

@@ -39,7 +39,9 @@ export function saveProgress(data) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     return true;
   } catch (e) {
-    console.error("Failed to save progress:", e);
+    if (e.name === "QuotaExceededError") {
+      console.warn("localStorage full — progress not saved. Clear site data to free space.");
+    }
     return false;
   }
 }
@@ -63,7 +65,9 @@ export function saveAssessment(data) {
     localStorage.setItem(ASSESSMENT_KEY, JSON.stringify(data));
     return true;
   } catch (e) {
-    console.error("Failed to save assessment:", e);
+    if (e.name === "QuotaExceededError") {
+      console.warn("localStorage full — assessment not saved. Clear site data to free space.");
+    }
     return false;
   }
 }
@@ -87,7 +91,48 @@ export function saveUserContext(data) {
     localStorage.setItem(CONTEXT_KEY, JSON.stringify(data));
     return true;
   } catch (e) {
-    console.error("Failed to save user context:", e);
+    if (e.name === "QuotaExceededError") {
+      console.warn("localStorage full — user context not saved. Clear site data to free space.");
+    }
+    return false;
+  }
+}
+
+// ── Safety banner flags ────────────────────────────────────
+
+const SAFETY_INTRO_KEY = "promptbridge_seen_safety_intro";
+const PRE_SCENARIO_KEY = "promptbridge_seen_pre_scenario";
+
+export function hasSeenSafetyIntro() {
+  try {
+    return localStorage.getItem(SAFETY_INTRO_KEY) === "true";
+  } catch (e) {
+    return false;
+  }
+}
+
+export function markSafetyIntroSeen() {
+  try {
+    localStorage.setItem(SAFETY_INTRO_KEY, "true");
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+export function hasSeenPreScenarioBanner() {
+  try {
+    return localStorage.getItem(PRE_SCENARIO_KEY) === "true";
+  } catch (e) {
+    return false;
+  }
+}
+
+export function markPreScenarioBannerSeen() {
+  try {
+    localStorage.setItem(PRE_SCENARIO_KEY, "true");
+    return true;
+  } catch (e) {
     return false;
   }
 }

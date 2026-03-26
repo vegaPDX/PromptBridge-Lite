@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   ArrowLeft, ArrowRight, MessageSquare, Lightbulb, RefreshCw,
-  PenTool, Send, Check, ChevronDown,
+  PenTool, Send, Check, ChevronDown, Star,
 } from "lucide-react";
 import { loadGuidedContent } from "../services/guided-data";
 import { scorePrompt, getFeedbackSummary } from "../services/heuristic-scorer";
@@ -31,16 +31,8 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
   const [tryPrompt, setTryPrompt] = useState("");
   const [tryHeuristic, setTryHeuristic] = useState(null);
 
-  // Resolve feedback format: nested (weak/medium/strong) → flat
+  // All generated JSON files use flat feedback format
   function resolveFeedback(data) {
-    if (!data?.feedback) return data;
-    // Already flat format (old files)
-    if (data.feedback.what_happened) return data;
-    // Nested format (new generated files) — use "strong" as default display
-    const fb = data.feedback.strong || data.feedback.medium || data.feedback.weak;
-    if (fb) {
-      return { ...data, feedback: { ...fb, _nested: data.feedback } };
-    }
     return data;
   }
 
@@ -119,12 +111,27 @@ export default function GuidedMode({ scenario, onComplete, onBack, practicedPrin
       {/* ── Step: Explore (collapsible accordion) ─────────────── */}
       {step === "explore" && content && (
         <div className="animate-fadeIn">
+          {/* P5 research callout */}
+          {scenario.principles.includes("P5") && (
+            <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 mb-4">
+              <div className="flex items-start gap-3">
+                <Star className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <p className="font-medium text-indigo-800 text-sm">This is the most powerful technique most people never use</p>
+                  <p className="text-stone-600 text-sm mt-1">
+                    Giving AI an example of what you want can improve its accuracy from 0% to 90%.
+                    Instead of describing what you need, <strong>show it</strong> — paste a sample of the format, tone, or style you're looking for.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
           <h3 className="font-semibold text-stone-700 mb-3">Compare three approaches to this scenario</h3>
           <p className="text-stone-600 text-sm mb-4">Click each tier to see the prompt and what the AI gives back.</p>
           <div className="space-y-3">
             {[
               { key: "weak", label: "Weak", quality: "weak", response: content.responses.response_weak,
-                icon: <span className="text-rose-500 text-sm font-bold" aria-hidden="true">&times;</span>,
+                icon: <span className="text-rose-700 text-sm font-bold" aria-hidden="true">&times;</span>,
                 colors: { border: "border-rose-200", bg: "bg-rose-50", headerBg: "bg-rose-50", headerText: "text-rose-700", iconBg: "bg-rose-100", responseBorder: "border-rose-100", responseFrom: "from-rose-50" } },
               { key: "medium", label: "Getting There", quality: "medium", response: content.responses.response_medium,
                 icon: <ArrowRight className="w-4 h-4 text-amber-500" aria-hidden="true" />,

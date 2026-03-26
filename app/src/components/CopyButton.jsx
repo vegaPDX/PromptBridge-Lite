@@ -15,8 +15,21 @@ export default function CopyButton({ text, label = "Copy", className = "" }) {
       await navigator.clipboard.writeText(text);
       setStatus("copied");
     } catch (err) {
-      console.error("Failed to copy text:", err);
-      setStatus("error");
+      // Fallback: hidden textarea + execCommand for older browsers / non-HTTPS
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        setStatus("copied");
+      } catch (fallbackErr) {
+        console.error("Failed to copy text:", fallbackErr);
+        setStatus("error");
+      }
     }
   };
 

@@ -2,6 +2,7 @@ import React from "react";
 import {
   ArrowRight, HelpCircle, BookOpen, PenTool, Shield,
   AlertTriangle, ExternalLink, ChevronRight, Target, BarChart3,
+  RefreshCw, Search, MessageSquare,
 } from "lucide-react";
 import { PRINCIPLES } from "../data/principles";
 import { resolveIcon } from "../data/icon-map";
@@ -13,7 +14,7 @@ export default function HelpPage({ onNavigate }) {
         <HelpCircle className="w-6 h-6 text-indigo-500" />
         <h1 className="font-serif text-3xl font-bold text-stone-800">Help</h1>
       </div>
-      <p className="text-stone-600 mb-8">Everything you need to get started.</p>
+      <p className="text-stone-600 mb-8">Everything you need to get the most out of AI.</p>
 
       {/* What is PromptBridge? */}
       <Section title="What is PromptBridge?">
@@ -99,7 +100,7 @@ export default function HelpPage({ onNavigate }) {
       {/* What are the skills? */}
       <Section title="What are the skills?">
         <p className="mb-3">
-          Every scenario teaches one or more of these communication skills:
+          Every scenario teaches one or more of these skills for talking to AI:
         </p>
         <div className="space-y-2">
           {PRINCIPLES.map(p => {
@@ -126,9 +127,9 @@ export default function HelpPage({ onNavigate }) {
           <h2 className="font-serif text-lg font-bold text-stone-800">Using AI wisely</h2>
         </div>
         <p className="text-stone-700 text-base mb-3">
-          AI tools are powerful, but they have real limitations — they can make things up,
-          agree with your mistakes, and reflect biases. We've put together a guide covering
-          everything you need to know to use AI safely.
+          AI can make things up, agree with you when it shouldn't, and reflect biases.
+          About 60% of frustrations come from how people talk to AI — but 40% come from
+          real limits in the AI itself. We cover both.
         </p>
         <button
           onClick={() => onNavigate("ai-safety")}
@@ -137,6 +138,66 @@ export default function HelpPage({ onNavigate }) {
           Read the Guide <ChevronRight className="w-4 h-4" />
         </button>
       </div>
+
+      {/* Debugging your conversation */}
+      <Section title="When AI isn't giving you what you want">
+        <p className="mb-3">
+          If you're going back and forth with AI and it keeps missing the mark, don't just say "try again."
+          Here's a 3-step process that actually works:
+        </p>
+        <div className="space-y-3 mb-4">
+          <div className="flex items-start gap-3 bg-white rounded-lg border border-stone-200 p-3">
+            <div className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
+              <Search className="w-4 h-4 text-rose-500" />
+            </div>
+            <div>
+              <p className="font-medium text-stone-800 text-sm">Step 1: Name exactly what's wrong</p>
+              <p className="text-stone-600 text-sm mt-0.5">
+                Don't just think "this is bad." Is the tone too formal? Too long? Missing key details? Wrong format?
+                The more specific you are about the problem, the better AI can fix it.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 bg-white rounded-lg border border-stone-200 p-3">
+            <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+              <MessageSquare className="w-4 h-4 text-amber-500" />
+            </div>
+            <div>
+              <p className="font-medium text-stone-800 text-sm">Step 2: Show what "right" looks like</p>
+              <p className="text-stone-600 text-sm mt-0.5">
+                Instead of "make it better," try: <em>"Make the opening more direct, add a statistic in paragraph 2, and cut the conclusion to 2 sentences."</em>
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 bg-white rounded-lg border border-stone-200 p-3">
+            <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+              <RefreshCw className="w-4 h-4 text-indigo-500" />
+            </div>
+            <div>
+              <p className="font-medium text-stone-800 text-sm">Step 3: If two tries don't fix it, start fresh</p>
+              <p className="text-stone-600 text-sm mt-0.5">
+                After 2-3 rounds of corrections, AI often gets confused by the growing conversation.
+                Start a new conversation with a restructured prompt that includes everything you learned from the failed attempts.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-amber-50 border border-amber-100 rounded-lg p-4">
+          <p className="font-medium text-stone-800 text-sm mb-2">Common traps to watch for</p>
+          <div className="space-y-2 text-stone-700 text-sm">
+            <p>
+              <strong>The endless redo loop:</strong> You keep saying "no, make it better" without explaining what "better" means. AI can't read your mind — it just changes random things and hopes for the best.
+            </p>
+            <p>
+              <strong>The accordion edit:</strong> You fix one thing, but AI breaks something else. Then you fix that, and the first thing breaks again. This usually means your instructions are contradicting each other — start over with a clear, complete prompt.
+            </p>
+            <p>
+              <strong>Cherry-picking frustration:</strong> You like parts of different AI responses but can't get them all in one. Try pasting the best parts together and saying: <em>"Combine these elements into one response: [paste the parts you liked]."</em>
+            </p>
+          </div>
+        </div>
+      </Section>
 
       {/* Do I need an account? */}
       <Section title="Do I need an account?">

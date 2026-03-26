@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   ArrowLeft, ArrowRight, PenTool, Send,
-  RefreshCw, Check,
+  RefreshCw, Check, Lightbulb,
 } from "lucide-react";
 import { PRINCIPLE_MAP } from "../data/principles";
 import { scorePrompt, getFeedbackSummary } from "../services/heuristic-scorer";
@@ -143,6 +143,22 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
             )}
           </div>
 
+          {/* Contextual P6 debugging tip — only for scenarios that target P6 */}
+          {scenario.principles.includes("P6") && heuristic.principlesMissing.includes("P6") && (
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <div className="flex items-start gap-3">
+                <Lightbulb className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <p className="font-medium text-amber-800 text-sm">Tip: Be specific when AI doesn't get it right</p>
+                  <p className="text-stone-600 text-sm mt-1">
+                    Instead of "try again" or "make it better," tell the AI exactly what to change.
+                    For example: <em>"The tone should be more casual"</em> works much better than <em>"that's not right."</em>
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Try it for real */}
           <AiToolLinks
             prompt={userPrompt}
@@ -152,7 +168,7 @@ export default function FreeformMode({ scenario, onComplete, onBack, practicedPr
           {/* Actions */}
           <div className="flex gap-3">
             <button
-              onClick={() => onComplete(scenario, [...(heuristic.principlesDetected || []), ...(heuristic.principlesMissing || [])])}
+              onClick={() => onComplete(scenario, heuristic.principlesDetected || [])}
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition-colors"
             >
               Next Scenario <ArrowRight className="w-4 h-4" />

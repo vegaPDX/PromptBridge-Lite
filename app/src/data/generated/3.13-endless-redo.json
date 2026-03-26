@@ -1,0 +1,33 @@
+{
+  "scenarioId": "3.13-endless-redo",
+  "generatedAt": "2026-03-25T12:00:00.000Z",
+  "generatedWith": "claude-opus-4-6-20260322",
+  "options": [
+    {
+      "id": "a",
+      "text": "That's not what I wanted. Make it better.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "This blog post doesn't sound right. Can you make it more professional and engaging? The current version is too bland.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "This blog post needs three specific changes:\n\n1. The opening is too soft — start with a provocative question or a surprising statistic instead of 'In today's world...'\n2. Paragraph 3 makes a claim about productivity but doesn't back it up — add a specific data point or real-world example\n3. The conclusion is 4 sentences and repeats the intro — cut it to 2 sentences with a clear call-to-action\n\nKeep everything else the same — the middle sections are good.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "I apologize that wasn't what you were looking for. Here's a revised version:\n\n**The Future of Remote Work**\n\nThe workplace is evolving rapidly. As organizations navigate the post-pandemic landscape, remote work has become a defining feature of modern employment. Companies large and small are rethinking their approach to where and how work gets done.\n\nStudies suggest that flexibility is now a top priority for workers. Many employees report higher satisfaction when given the option to work from home at least part of the time. This shift has implications for everything from real estate to management practices.\n\nLooking ahead, the trend toward hybrid models seems likely to continue. Companies that adapt to these changing expectations will be better positioned to attract and retain talent in an increasingly competitive market.",
+    "response_medium": "Here's a more polished and engaging version:\n\n**The Remote Work Revolution: What Companies Get Wrong**\n\nRemote work isn't just a trend — it's a fundamental shift in how we think about productivity. The companies that are thriving aren't the ones forcing everyone back to the office. They're the ones rethinking work from the ground up.\n\nThe data backs this up. Organizations that embrace flexible work models see measurable improvements in employee satisfaction and retention. But flexibility alone isn't enough — it requires intentional design around communication, collaboration, and culture.\n\nThe biggest mistake leaders make? Treating remote work as a temporary accommodation rather than a strategic advantage. The companies that figure this out first will have a significant edge in the talent market.\n\nThe future of work isn't about where you sit. It's about how effectively your organization enables people to do their best work, wherever they are. Companies ready to embrace this reality will lead the next decade of innovation.",
+    "response_strong": "**Did you know that 67% of remote workers say they'd take a pay cut to keep working from home?**\n\nThat number should make every CEO pause. The remote work debate isn't about productivity metrics or office lease ROI — it's about a workforce that has fundamentally recalibrated what a job is worth to them.\n\nThe companies that are thriving aren't the ones forcing everyone back to the office. They're the ones rethinking work from the ground up. Flexibility alone isn't enough — it requires intentional design around communication, collaboration, and culture.\n\nHere's what the data actually shows: GitLab's 2025 Remote Work Report found that fully remote companies had 25% lower turnover than hybrid ones, and teams with documented async workflows shipped features 30% faster than those relying on synchronous meetings. The gap isn't about where people sit — it's about whether organizations have built systems that work without a shared hallway.\n\nThe biggest mistake leaders make? Treating remote work as a temporary accommodation rather than a strategic advantage.\n\n**The question isn't whether remote work will stick. It's whether your company will figure it out before your best people leave for one that already has.**"
+  },
+  "feedback": {
+    "what_happened": "The weak prompt says 'make it better' — the single most common and most useless piece of feedback you can give AI. The AI just rewrites the whole thing with random changes and you're no closer to what you wanted. The medium prompt is slightly better — 'more professional and engaging' gives a direction — but the AI still has to guess what 'professional' and 'engaging' mean to you. The effective prompt names three exact problems and tells the AI precisely how to fix each one: change the opening to something provocative, add a data point in paragraph 3, cut the conclusion. It also says what to keep. That's the difference between going in circles and getting it right.",
+    "principle": "Give specific feedback",
+    "principle_name": "When AI doesn't get it right, name the exact problem and describe the exact fix. 'Make it better' gives AI nothing to work with — specific feedback gets specific results.",
+    "tip": "Next time AI gives you something that's not quite right, resist saying 'try again.' Instead, point to the specific section that's wrong and describe what you want instead. If two rounds of feedback don't fix it, start over with a clearer initial prompt."
+  }
+}

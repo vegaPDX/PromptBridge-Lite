@@ -1,7 +1,8 @@
 import { useState, useCallback } from "react";
 import { GUIDED_SCENARIOS, FREEFORM_SCENARIOS } from "./data/scenarios";
-import { loadProgress, saveProgress, loadAssessment, saveAssessment, loadUserContext, saveUserContext } from "./services/storage";
+import { loadProgress, saveProgress, loadAssessment, saveAssessment, loadUserContext, saveUserContext, hasSeenSafetyIntro, markSafetyIntroSeen, hasSeenPreScenarioBanner, markPreScenarioBannerSeen } from "./services/storage";
 import Header from "./components/Header";
+import AiSafetyBanner from "./components/AiSafetyBanner";
 import LandingPage from "./pages/LandingPage";
 import ScenarioSelector from "./pages/ScenarioSelector";
 import GuidedMode from "./pages/GuidedMode";
@@ -23,6 +24,13 @@ export default function App() {
   // User context for personalization
   const [userContext, setUserContext] = useState(() => loadUserContext());
   const handleSetUserContext = (ctx) => { setUserContext(ctx); saveUserContext(ctx); };
+
+  // Safety banner visibility
+  const [showSafetyBanner, setShowSafetyBanner] = useState(() => !hasSeenSafetyIntro());
+  const [showPreScenario, setShowPreScenario] = useState(() => !hasSeenPreScenarioBanner());
+
+  const dismissSafetyBanner = () => { setShowSafetyBanner(false); markSafetyIntroSeen(); };
+  const dismissPreScenario = () => { setShowPreScenario(false); markPreScenarioBannerSeen(); };
 
   // Assessment data
   const [assessmentData, setAssessmentData] = useState(() => loadAssessment());
@@ -81,7 +89,14 @@ export default function App() {
       {/* Pages */}
       <main id="main-content">
         {page === "landing" && (
-          <LandingPage onNavigate={navigate} />
+          <>
+            {showSafetyBanner && (
+              <div className="max-w-4xl mx-auto pt-6">
+                <AiSafetyBanner onDismiss={dismissSafetyBanner} />
+              </div>
+            )}
+            <LandingPage onNavigate={navigate} />
+          </>
         )}
         {page === "scenarios" && (
           <ScenarioSelector
@@ -90,6 +105,8 @@ export default function App() {
             practicedPrinciples={practicedPrinciples}
             userContext={userContext}
             onSetUserContext={handleSetUserContext}
+            showPreScenarioBanner={showPreScenario}
+            onDismissPreScenario={dismissPreScenario}
           />
         )}
         {page === "guided" && selectedScenario && (

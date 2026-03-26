@@ -44,10 +44,12 @@ const PRINCIPLE_CHECKS = {
   P5: {
     name: "Show what 'good' looks like",
     test(prompt) {
-      const exampleMarkers = /\b(for example|like this|such as|in the format|formatted as|bullet points|table|numbered list|similar to|here's an example|style of)\b/i;
-      return exampleMarkers.test(prompt);
+      const exampleMarkers = /\b(for example|like this|such as|in the format|formatted as|bullet points|table|numbered list|similar to|here's an example|style of|here's an example of what i want|here's a sample|something like|for reference|like this:|similar to:|for instance|modeled on|in the style of|based on this example)\b/i;
+      // Also detect quoted text blocks (users pasting examples)
+      const hasQuotedBlock = /["""\u201C\u201D][^"""\u201C\u201D]{20,}["""\u201C\u201D]/.test(prompt) || /```[\s\S]{10,}```/.test(prompt) || /^>.*$/m.test(prompt);
+      return exampleMarkers.test(prompt) || hasQuotedBlock;
     },
-    suggestion: "Give an example of the format, tone, or style you want in the response.",
+    suggestion: "Show the AI what you want — paste an example of the format, tone, or style you're looking for. This one technique can improve AI accuracy from 0% to 90%.",
   },
   P6: {
     name: "Give specific feedback",

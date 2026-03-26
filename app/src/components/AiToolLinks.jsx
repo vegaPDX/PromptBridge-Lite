@@ -23,8 +23,21 @@ export default function AiToolLinks({ prompt, message }) {
       await navigator.clipboard.writeText(prompt);
       setStatus("copied");
     } catch (err) {
-      console.error("Failed to copy:", err);
-      setStatus("error");
+      // Fallback: hidden textarea + execCommand for older browsers / non-HTTPS
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = prompt;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        setStatus("copied");
+      } catch (fallbackErr) {
+        console.error("Failed to copy:", fallbackErr);
+        setStatus("error");
+      }
     }
   };
 

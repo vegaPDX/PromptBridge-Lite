@@ -6,8 +6,8 @@ import { PRINCIPLE_MAP } from "../data/principles";
 
 /**
  * Get recommended next scenarios based on which principles the user
- * hasn't practiced yet. Prioritizes scenarios that teach the most
- * new (unpracticed) principles.
+ * hasn't practiced yet. Prioritizes scenarios by teachingOrder so
+ * new users start with P8, then P1, P2, P5, etc.
  *
  * @param {string[]} practicedPrinciples - IDs of principles already practiced (e.g., ["P1", "P2"])
  * @param {string[]} completedScenarios - IDs of scenarios already completed
@@ -19,6 +19,10 @@ export function getRecommendedScenarios(practicedPrinciples, completedScenarios,
   const practicedSet = new Set(practicedPrinciples);
   const completedSet = new Set(completedScenarios);
 
+  // Helper: lowest teachingOrder among a list of principle IDs
+  const minTeachingOrder = (principleIds) =>
+    Math.min(...principleIds.map(id => PRINCIPLE_MAP[id]?.teachingOrder ?? 99));
+
   const scored = scenarios
     .filter(s => !completedSet.has(s.id))
     .map(s => {
@@ -26,7 +30,13 @@ export function getRecommendedScenarios(practicedPrinciples, completedScenarios,
       return { scenario: s, unpracticedPrinciples: unpracticed };
     })
     .filter(r => r.unpracticedPrinciples.length > 0)
-    .sort((a, b) => b.unpracticedPrinciples.length - a.unpracticedPrinciples.length);
+    .sort((a, b) => {
+      // Primary: prefer scenarios teaching the earliest unpracticed principle
+      const orderDiff = minTeachingOrder(a.unpracticedPrinciples) - minTeachingOrder(b.unpracticedPrinciples);
+      if (orderDiff !== 0) return orderDiff;
+      // Tiebreaker: prefer scenarios covering more unpracticed principles
+      return b.unpracticedPrinciples.length - a.unpracticedPrinciples.length;
+    });
 
   return scored.slice(0, limit);
 }

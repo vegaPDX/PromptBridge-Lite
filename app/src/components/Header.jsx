@@ -45,15 +45,15 @@ export default function Header({ page, practicedPrinciples, onNavigate }) {
           </button>
           <button
             onClick={() => onNavigate("ai-safety")}
-            className={`p-1.5 rounded-lg transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
               page === "ai-safety"
                 ? "bg-amber-50 text-amber-700"
-                : "text-stone-400 hover:text-stone-600 hover:bg-stone-100"
+                : "text-stone-500 hover:text-stone-700 hover:bg-stone-100"
             }`}
             aria-label="Using AI Wisely"
-            title="Using AI Wisely"
           >
-            <AlertTriangle className="w-4.5 h-4.5" />
+            <AlertTriangle className="w-3.5 h-3.5" />
+            AI Limits
           </button>
           <button
             onClick={() => onNavigate("help")}

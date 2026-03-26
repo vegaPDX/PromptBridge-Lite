@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Check, BookOpen, PenTool, Sparkles, X, ChevronDown } from "lucide-react";
+import PreScenarioBanner from "../components/PreScenarioBanner";
 import { groupBy } from "lodash-es";
 import { GUIDED_SCENARIOS, FREEFORM_SCENARIOS } from "../data/scenarios";
 import { CATEGORIES } from "../data/categories";
@@ -20,7 +21,7 @@ function getMatchingTags(userContext) {
   return pill ? pill.tags : [];
 }
 
-export default function ScenarioSelector({ onSelectScenario, completedScenarios, practicedPrinciples = [], userContext, onSetUserContext }) {
+export default function ScenarioSelector({ onSelectScenario, completedScenarios, practicedPrinciples = [], userContext, onSetUserContext, showPreScenarioBanner, onDismissPreScenario }) {
   const [activeTab, setActiveTab] = useState("guided");
   const [bannerDismissed, setBannerDismissed] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState(new Set());
@@ -56,6 +57,8 @@ export default function ScenarioSelector({ onSelectScenario, completedScenarios,
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="font-serif text-3xl font-bold text-stone-800 mb-2">Choose a Scenario</h1>
       <p className="text-stone-600 mb-6">Pick a situation and practice talking to AI effectively.</p>
+
+      {showPreScenarioBanner && <PreScenarioBanner onDismiss={onDismissPreScenario} />}
 
       {/* Onboarding banner */}
       {!userContext && !bannerDismissed && (

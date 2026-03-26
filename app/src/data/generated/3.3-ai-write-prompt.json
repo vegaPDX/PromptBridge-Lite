@@ -26,7 +26,7 @@
   },
   "feedback": {
     "what_happened": "The weak prompt gives the AI almost nothing to work with — just 'meal prep' — so it creates a generic template that misses all your specific needs. The medium prompt captures some key details (high-protein, quick cooking) but leaves out crucial elements like the budget constraint and leftover requirement, resulting in an incomplete prompt. The effective prompt transforms your entire conversation into a detailed, copy-paste-ready template with specific numbers, clear formatting instructions, and even explains why each element matters — giving you a tool that will work consistently every week.",
-    "principle": "Include everything needed — but nothing extra",
+    "principle": "A reusable prompt needs to capture every important detail from your situation — but only the ones that actually affect the output. The strong version includes specific numbers, preferences, and constraints without any filler.",
     "principle_name": "Include everything needed — but nothing extra",
     "tip": "When asking an AI to create something reusable for you, explicitly list every requirement that matters to your situation, including specific numbers or constraints you've discovered through trial and error."
   },

@@ -19,7 +19,7 @@ export const CATEGORIES = {
   },
   smart_strategies: {
     label: "Smart Strategies",
-    description: "Power techniques that level up your results — step-by-step thinking, examples, structured prompts, and more. These scenarios also teach critical thinking skills: catching hallucinations, interviewing AI about its own limitations, decoding refusals, and asking AI to critique its own work for errors and bias.",
+    description: "Power techniques that level up your results — step-by-step thinking, examples, structured prompts, and more. These scenarios also teach critical thinking skills: catching made-up facts, interviewing AI about its own limitations, understanding why AI says no, and asking AI to critique its own work for errors and bias.",
     icon: "Sparkles",
     color: "rose",
   },

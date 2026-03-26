@@ -22,7 +22,7 @@ export default function LandingPage({ onNavigate }) {
           className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-stone-500 hover:text-amber-600 hover:bg-stone-100 rounded-lg transition-colors"
         >
           <AlertTriangle className="w-4 h-4" />
-          Heads Up
+          AI Limits
         </button>
         <button
           onClick={() => onNavigate("help")}
@@ -39,7 +39,7 @@ export default function LandingPage({ onNavigate }) {
           Learn to talk to AI
         </h1>
         <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-          What you put in determines what you get out. Better prompts, better results.
+          Tired of generic AI responses? What you say determines what you get back.
           <br className="hidden md:block" />
           See the difference in 5 seconds.
         </p>
@@ -110,9 +110,9 @@ export default function LandingPage({ onNavigate }) {
       {showGood && (
         <div className="px-4 mb-8 animate-fadeIn">
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 text-center">
-            <Lightbulb className="w-5 h-5 text-amber-500 mx-auto mb-2" />
+            <Lightbulb className="w-5 h-5 text-amber-500 mx-auto mb-2" aria-hidden="true" />
             <p className="text-stone-700 text-base max-w-xl mx-auto">
-              <strong>Same topic. Wildly different results.</strong> The first question can be answered with one word. The second tells the AI exactly what you need — and it delivers.
+              <strong>Same topic. Wildly different results.</strong> The first question gets a one-word answer. The second tells AI exactly what you need — and it actually delivers.
             </p>
           </div>
         </div>
@@ -123,13 +123,58 @@ export default function LandingPage({ onNavigate }) {
         <div className="px-4 mb-8 animate-fadeIn">
           <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 text-center">
             <p className="text-stone-700 text-base">
-              Research shows that how you talk to AI really matters —
-              clear communication can improve AI accuracy by{" "}
-              <strong className="text-indigo-600">up to 27%</strong>.
+              How you talk to AI really matters — giving it an example of what you want
+              can improve accuracy from <strong className="text-indigo-600">0% to 90%</strong>.
             </p>
             <p className="text-stone-500 text-xs mt-1">
-              Based on peer-reviewed AI research, 2025
+              Based on peer-reviewed AI communication research
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* AI honesty section */}
+      {showGood && (
+        <div className="px-4 mb-8 animate-fadeIn">
+          <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6">
+            <h2 className="font-serif text-xl font-bold text-stone-800 mb-1">
+              We believe in being honest about AI
+            </h2>
+            <p className="text-stone-600 text-sm mb-4">
+              AI is a powerful tool — but like any tool, it works better when you know its limits.
+            </p>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+                </div>
+                <p className="text-stone-700 text-sm leading-relaxed pt-0.5">
+                  <strong>AI makes things up.</strong> It can generate statistics, citations, and URLs that don't exist — and it sounds equally confident whether it's right or wrong.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />
+                </div>
+                <p className="text-stone-700 text-sm leading-relaxed pt-0.5">
+                  <strong>AI tells you what you want to hear.</strong> It's trained to agree with you — even when you're wrong.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                  <Lightbulb className="w-3.5 h-3.5 text-indigo-500" />
+                </div>
+                <p className="text-stone-700 text-sm leading-relaxed pt-0.5">
+                  <strong>How you talk to AI really matters.</strong> About 60% of frustrations come from communication gaps — and that's exactly what you'll practice here.
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => onNavigate("ai-safety")}
+              className="mt-4 inline-flex items-center gap-1.5 text-sm text-amber-600 hover:text-amber-700 font-medium transition-colors"
+            >
+              Learn more about AI limitations <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       )}
@@ -143,23 +188,14 @@ export default function LandingPage({ onNavigate }) {
           Try It Yourself <ChevronRight className="w-5 h-5" />
         </button>
         <p className="text-stone-600 text-sm mt-3">
-          Interactive scenarios that build real skills
-        </p>
-        <p className="text-stone-600 text-base mt-4 max-w-md mx-auto">
-          AI tools are powerful but not perfect — they can sound confident even when wrong.{" "}
-          <button
-            onClick={() => onNavigate("help")}
-            className="text-indigo-500 hover:text-indigo-700 underline"
-          >
-            Learn how to verify what you get back
-          </button>
+          Hands-on practice that works with any AI tool
         </p>
       </div>
 
       {/* What you'll learn */}
       <div className="px-4 pb-12">
         <h2 className="font-serif text-2xl font-bold text-stone-800 text-center mb-6">
-          {PRINCIPLES.length} skills that work with any AI
+          {PRINCIPLES.length} ways to stop getting generic AI slop
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {PRINCIPLES.map(p => {

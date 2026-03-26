@@ -26,7 +26,7 @@
   },
   "feedback": {
     "what_happened": "The weak prompt dumps everything and asks vaguely, so the AI creates a lengthy, formal report that rehashes the entire brief instead of focusing on current status. The medium prompt asks for brevity but still includes unnecessary information, so the AI produces a shorter but still wordy response. The effective prompt extracts only the essential current details and specifies the exact format needed, resulting in a crisp, actionable update that tells the team lead exactly what they need to know.",
-    "principle": "Include everything needed — but nothing extra",
+    "principle": "Your prompt included a lot of background, but AI works best when you distill your request to just the essential details. Extra information buries the actual question and leads to unfocused responses.",
     "principle_name": "Include everything needed — but nothing extra",
     "tip": "Before hitting send, ask yourself: 'What's the minimum information the AI needs to give me exactly what I want?' Extract just those key details instead of copy-pasting entire documents."
   },

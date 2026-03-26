@@ -1,0 +1,33 @@
+{
+  "scenarioId": "4a.20-safety-wall",
+  "generatedAt": "2026-03-25T12:00:00.000Z",
+  "generatedWith": "claude-opus-4-6-20260322",
+  "options": [
+    {
+      "id": "a",
+      "text": "What happens if you mix ibuprofen and blood thinners?",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "I'm a nurse and I need to know about interactions between ibuprofen and warfarin. Can you explain the risks?",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "I'm a registered nurse creating a patient education handout for our cardiology clinic. I need to explain the interaction risks between NSAIDs (specifically ibuprofen) and warfarin in plain language that patients can understand.\n\nPlease cover:\n- Why these medications interact (the mechanism, simplified)\n- What symptoms patients should watch for\n- What patients should do if they accidentally take both\n- When to seek emergency care\n\nThis is for clinical patient education use — approved by our pharmacy department. I need medically accurate information presented at a 6th-grade reading level.",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Mixing medications can be dangerous, and I'd strongly recommend consulting with a healthcare professional before combining any medications. A doctor or pharmacist can review your specific situation and provide personalized guidance.\n\nIf you're currently taking blood thinners, it's especially important to check with your prescribing physician before taking any over-the-counter medications, including pain relievers.\n\nWould you like me to help you find resources for speaking with a healthcare provider?",
+    "response_medium": "As a healthcare professional, you likely know that combining ibuprofen with warfarin can increase bleeding risk. Here's a summary:\n\n**Interaction Risk:**\nNSAIDs like ibuprofen can increase the anticoagulant effect of warfarin through several mechanisms. They inhibit platelet function, can irritate the GI lining, and may displace warfarin from protein binding sites.\n\n**Key Risks:**\n- Increased risk of GI bleeding\n- Elevated INR levels\n- Potential for bruising and prolonged bleeding from minor injuries\n\n**Clinical Guidance:**\n- Acetaminophen is generally preferred as a first-line analgesic for patients on warfarin\n- If an NSAID is necessary, the lowest effective dose for the shortest duration is recommended\n- More frequent INR monitoring may be needed\n\nI'd recommend checking with your facility's pharmacy team for the most current clinical guidelines specific to your patient population.\n\n*Note: This is general information. Always refer to current clinical guidelines and consult with a pharmacist for patient-specific recommendations.*",
+    "response_strong": "Here's the patient education content, written at an accessible reading level:\n\n---\n\n## Why Ibuprofen and Warfarin Don't Mix Well\n\n**What's happening in your body:**\nWarfarin works by slowing down your blood's ability to clot. That's its job — it keeps dangerous clots from forming. Ibuprofen (Advil, Motrin) also affects clotting, but in a different way — it makes your blood platelets less \"sticky.\"\n\nWhen you take both at the same time, you get a double effect on your blood's clotting ability. Think of it like having two people turn down the thermostat at the same time — things can get too cold, too fast.\n\n**Warning signs to watch for:**\n- Unusual bruising or bruises that seem bigger than expected\n- Bleeding that takes longer than normal to stop (from a cut, your gums, or a nosebleed)\n- Blood in your urine (pink or red) or stool (dark/tarry)\n- Stomach pain, especially if it's new or getting worse\n- Feeling unusually tired or dizzy\n\n**What to do if you accidentally took both:**\n- Don't panic — a single dose is unlikely to cause a crisis\n- Do NOT take any more ibuprofen\n- Call your doctor's office or clinic to report it (they may want to check your INR sooner)\n- Watch for the warning signs listed above for the next 24-48 hours\n\n**When to go to the ER:**\n- You can't stop bleeding from a cut or nosebleed after 10 minutes of pressure\n- You see blood in your vomit or stool\n- You have a sudden severe headache or confusion\n- You feel faint or lightheaded\n\n**What to use instead for pain:**\nAsk your doctor about acetaminophen (Tylenol) — it works differently and is generally safer with warfarin. But always check first, because the safe dose may be lower than what's on the bottle.\n\n---\n\n*Source note for your handout: This content aligns with current ACC/AHA anticoagulation guidelines. Recommend review by your facility's pharmacy department before distribution.*"
+  },
+  "feedback": {
+    "what_happened": "The weak prompt asks a clinical question with zero context about who's asking or why — so AI plays it safe with a generic 'ask your doctor' response. It's not wrong, but it's useless for a healthcare professional who needs actual clinical information. The medium prompt mentions nursing credentials, which unlocks more detailed information, but the AI still hedges with disclaimers and uses clinical jargon that wouldn't work for patient education. The effective prompt provides the full professional context — who you are, what the content is for, who will read it, and the reading level you need. It even mentions pharmacy department approval. This gives the AI everything it needs to produce genuinely useful, appropriately detailed content.",
+    "principle": "State your intent",
+    "principle_name": "AI can't tell the difference between a casual question and a professional need. Explaining who you are and why you need the information helps AI calibrate its response appropriately.",
+    "tip": "When AI gives you a generic disclaimer instead of useful information, add your professional context: who you are, what you'll use it for, and why you need this level of detail. Most safety filters respond to context — a nurse asking about drug interactions is very different from an anonymous question."
+  }
+}

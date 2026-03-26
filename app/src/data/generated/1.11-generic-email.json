@@ -1,0 +1,33 @@
+{
+  "scenarioId": "1.11-generic-email",
+  "generatedAt": "2026-03-25T12:00:00.000Z",
+  "generatedWith": "claude-opus-4-6-20260322",
+  "options": [
+    {
+      "id": "a",
+      "text": "Write a marketing email for our spring sale.",
+      "quality": "weak"
+    },
+    {
+      "id": "b",
+      "text": "Write a marketing email for our spring sale. We sell outdoor furniture and the sale is 20% off everything. Keep it short and professional.",
+      "quality": "medium"
+    },
+    {
+      "id": "c",
+      "text": "Write a marketing email for our spring sale to existing customers who bought from us last year. We sell outdoor furniture — patio sets, Adirondack chairs, and fire pits. The sale is 20% off sitewide, running April 5-15. Tone should be warm and casual, like a friendly neighbor, not corporate. Call-to-action: shop the sale with a link.\n\nHere's an email we sent last fall that got great engagement — use it as a style reference:\n\"Hey [name], remember that perfect fall evening on your patio? We're making this spring even better. Our Fall Favorites sale is live — 25% off everything that makes your backyard the place to be. Your neighbors will be jealous. → Shop the sale\"",
+      "quality": "strong"
+    }
+  ],
+  "responses": {
+    "response_weak": "Subject: Spring Sale!\n\nDear Valued Customer,\n\nWe are excited to announce our annual spring sale! Take advantage of amazing deals across our entire product line. This is the perfect time to refresh and renew.\n\nDon't miss out on these incredible savings. Visit our website today to browse our selection and find exactly what you need this spring.\n\nBest regards,\nThe Team",
+    "response_medium": "Subject: Spring Sale — 20% Off All Outdoor Furniture\n\nHello,\n\nSpring is here, and we're celebrating with 20% off everything in our outdoor furniture collection. Whether you're looking for a new patio dining set, lounge chairs, or accent pieces, now is the perfect time to upgrade your outdoor space.\n\nOur collection features durable, weather-resistant pieces designed to last season after season. From intimate balcony setups to full patio transformations, we have options for every space and budget.\n\nShop now and save 20% on your entire order.\n\nBest,\nThe Team",
+    "response_strong": "Subject: Your backyard is about to have its best spring yet 🌿\n\nHey [name],\n\nRemember how good last summer felt out on the patio? Let's make this spring even better.\n\nOur Spring Sale is live — **20% off everything** from April 5-15. Patio sets, Adirondack chairs, fire pits — all the stuff that turns your backyard into the place everyone wants to hang out.\n\nA few favorites flying off the shelves:\n- The Cedar Creek patio set (finally, a table that fits the umbrella)\n- Our best-selling Adirondack chairs (your porch called, it's lonely)\n- The Copper Ridge fire pit (s'mores season is coming)\n\nYou already know the quality — this is just the excuse to add that next piece.\n\n**→ [Shop the Spring Sale](link)**\n\nHappy spring,\nThe Team\n\nP.S. Last year's fall sale sold out of Adirondacks in 3 days. Just saying. 😉"
+  },
+  "feedback": {
+    "what_happened": "The weak prompt says 'write a marketing email' with no other details, so the AI produces something that could be about literally anything — no product, no personality, no audience. It's the textbook definition of generic AI slop. The medium prompt adds the product and discount, which gets a more relevant email, but it still reads like a template — no brand voice, no personality, no reason for the customer to care. The effective prompt includes the audience (returning customers), specific products, the sale dates, the desired tone, AND an example of a previous email the user liked. That example is the game-changer — it gives the AI a concrete style to match instead of guessing.",
+    "principle": "Show what 'good' looks like",
+    "principle_name": "Giving AI an example of what you want — even just one — can transform generic output into something that actually sounds like you.",
+    "tip": "Next time you ask AI to write something, paste in an example of similar writing you liked. It doesn't have to be perfect — even a rough sample gives the AI a pattern to follow instead of defaulting to corporate robot voice."
+  }
+}

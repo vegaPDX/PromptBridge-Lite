@@ -164,10 +164,30 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// ── Hand-crafted file protection ─────────────────────────────
+// These scenario JSON files were hand-crafted (not pipeline-generated).
+// They should never be overwritten by the generation script.
+const HAND_CRAFTED_IDS = new Set([
+  "1.11-generic-email",
+  "2.15-code-almost-works",
+  "2.16-context-window-cliff",
+  "3.13-endless-redo",
+  "4a.18-ai-agreed-bad-idea",
+  "4a.19-prompt-stopped-working",
+  "4a.20-safety-wall",
+  "4a.21-five-minute-expert",
+]);
+
 // ── Generation Pipeline ─────────────────────────────────────
 
 async function generateForScenario(scenario) {
   const outputPath = path.join(OUTPUT_DIR, `${scenario.id}.json`);
+
+  // Protect hand-crafted files from being overwritten
+  if (HAND_CRAFTED_IDS.has(scenario.id)) {
+    console.log(`  🛡  Skipping ${scenario.id} (hand-crafted — protected from overwrite)`);
+    return;
+  }
 
   // ── Feedback-only mode: regenerate just the feedback for existing files ──
   if (feedbackOnly) {
