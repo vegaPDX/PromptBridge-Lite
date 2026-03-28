@@ -2,7 +2,7 @@
 
 **An interactive, open-source tool that teaches people how to communicate effectively with AI assistants.**
 
-### **[Try it now — https://vegapdx.github.io/PromptBridge/](https://vegapdx.github.io/PromptBridge/)**
+### **[Try it now — https://vegapdx.github.io/PromptBridge-Lite/](https://vegapdx.github.io/PromptBridge-Lite/)**
 
 No signup. No API key. No backend. Just open and start learning.
 
