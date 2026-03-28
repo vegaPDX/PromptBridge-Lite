@@ -15,7 +15,7 @@
     },
     {
       "id": "c",
-      "text": "Extract the key productivity techniques from this article and format them as 5 numbered bullet points with the technique name and a brief explanation of how to implement it. I need this for quick reference during my workday.",
+      "text": "Pull out the key productivity techniques from this article. I need them for quick reference during my workday.\n\nHere's the format I'm looking for:\n\n1. **Time Blocking** — Schedule dedicated focus periods for your most important work and treat them like meetings you can't cancel.\n\nUse that same structure for each one: bold the technique name, then a dash and one sentence on how to actually implement it. Give me the 5 most actionable techniques.",
       "quality": "strong"
     }
   ],
@@ -25,10 +25,10 @@
     "response_strong": "Here are the 5 key productivity techniques from the article, formatted for quick reference:\n\n1. **Time Blocking** — Schedule 90-minute focus blocks on your calendar for your highest-priority work, and treat them as non-negotiable meetings with yourself.\n\n2. **The Two-Minute Rule** — If a task takes less than two minutes, handle it immediately instead of adding it to your to-do list, preventing small tasks from piling up and draining mental energy.\n\n3. **Task Batching** — Group similar tasks (emails, phone calls, admin work) into dedicated windows rather than scattering them throughout the day, reducing the mental cost of context switching.\n\n4. **Energy Mapping** — Track your energy levels for one week to identify your peak hours, then schedule your most demanding work during those windows and routine tasks during low-energy periods.\n\n5. **The Weekly Review** — Spend 30 minutes every Friday reviewing what you accomplished, what stalled, and what to prioritize next week — this keeps your system aligned with your actual goals."
   },
   "feedback": {
-    "what_happened": "The weak prompt says 'summarize this article' with no other guidance, so the AI produces a vague overview that reads like a book jacket — it mentions techniques exist but doesn't name most of them or explain how to use any of them. The medium prompt adds your goal (referencing the techniques later) and asks for the main methods, so the AI identifies each technique by name and explains how they connect — much more useful, but the flowing paragraph format means you'd have to re-read it each time to find what you need. The effective prompt specifies the exact format (5 numbered bullet points), what each bullet should contain (technique name plus how to implement it), and how you'll use it (quick reference during your workday), so the AI delivers a clean, scannable list you can glance at between tasks.",
-    "principle": "When you're specific about the format and context you need, AI can tailor the output to fit exactly how you'll actually use it.",
-    "principle_name": "Be specific, not vague",
-    "tip": "When asking for summaries or extracts, always specify the format you want (bullet points, numbered list, table) and mention how you'll use it (quick reference, presentation, study notes) — this helps the AI tailor the response to your actual needs."
+    "what_happened": "The weak prompt says 'summarize this article' with no other guidance, so the AI produces a vague overview that reads like a book jacket — it mentions techniques exist but doesn't name most of them or explain how to use any of them. The medium prompt adds your goal (referencing the techniques later) and asks for the main methods, so the AI identifies each technique by name and explains how they connect — much more useful, but still a flowing paragraph you'd have to re-read each time. The effective prompt shows the AI exactly what one entry should look like — a bold technique name, a dash, and one implementation sentence — and the AI follows that pattern for all five. Instead of describing the format, you demonstrated it, and the output matched.",
+    "principle": "Show what 'good' looks like — giving AI a concrete example of the format you want produces output that matches exactly.",
+    "principle_name": "Show what \"good\" looks like",
+    "tip": "Instead of describing the format you want, show a single example of it. Paste one bullet point, one row, or one entry in the style you need — the AI will follow that pattern for the rest, which is faster and more reliable than writing out format instructions."
   },
   "feedbackUpdatedAt": "2026-03-28T12:00:00.000Z"
 }
