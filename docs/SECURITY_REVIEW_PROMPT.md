@@ -105,7 +105,7 @@ const formatted = escaped
 - Several components render strings from pre-generated JSON as React text nodes (e.g., `{content.feedback.what_happened}`). Confirm these are all safe (React auto-escapes text nodes).
 - `AiSafetyPage.jsx` renders hardcoded JSX strings. Verify no dynamic content is rendered unsafely on this page.
 - **NEW:** `AiSafetyBanner.jsx` and `PreScenarioBanner.jsx` render hardcoded text. Verify no dynamic content paths exist.
-- **NEW:** The 8 hand-crafted JSON files in Phase 4 were not pipeline-generated. Verify they don't contain any HTML or script content that could bypass escaping. Spot-check at least 3 of these files: `1.11-generic-email.json`, `4a.18-ai-agreed-bad-idea.json`, `4a.20-safety-wall.json`.
+- **NEW:** The 8 hand-crafted JSON files in Phase 4 were not pipeline-generated. Verify they don't contain any HTML or script content that could bypass escaping. Spot-check at least 3 of these files: `3.1-generic-email.json`, `6.4-ai-agreed-bad-idea.json`, `6.6-safety-wall.json`.
 
 ---
 
@@ -247,7 +247,7 @@ The data layer was significantly expanded in Phases 1 and 4. Verify internal con
 - Every guided scenario must have a corresponding JSON file in `generated/`. List any guided scenario IDs that are missing a generated file.
 - Every generated JSON file must have a corresponding scenario in `scenarios.js`. List any orphaned JSON files.
 - Every principle referenced in a scenario's `principles` array must exist in `principles.js`. No dangling references like "P13".
-- **NEW:** Verify the 8 new scenario IDs match their generated JSON filenames: `1.11-generic-email`, `2.15-code-almost-works`, `2.16-context-window-cliff`, `3.13-endless-redo`, `4a.18-ai-agreed-bad-idea`, `4a.19-prompt-stopped-working`, `4a.20-safety-wall`, `4a.21-five-minute-expert`.
+- **NEW:** Verify the 8 new scenario IDs match their generated JSON filenames: `3.1-generic-email`, `2.15-code-almost-works`, `2.16-context-window-cliff`, `3.13-endless-redo`, `6.4-ai-agreed-bad-idea`, `6.5-refusal-decoder`, `6.6-safety-wall`, `4a.21-five-minute-expert`.
 
 **Feedback format:**
 - All 61 generated JSON files should have flat feedback: `{ what_happened, principle, principle_name, tip }`. No nested `{ weak: {...}, medium: {...}, strong: {...} }` format should remain.
@@ -259,7 +259,7 @@ The data layer was significantly expanded in Phases 1 and 4. Verify internal con
 
 **Categories:**
 - `categories.js` defines 5 categories. Verify every `category` value used in `scenarios.js` exists in `categories.js`.
-- **NEW:** Verify the new scenario category assignments are correct: `1.11-generic-email` → `vague_vs_specific`, `2.15-code-almost-works` and `2.16-context-window-cliff` → `context_and_framing`, `3.13-endless-redo` → `iterative_refinement`, `4a.18` through `4a.21` → `smart_strategies`.
+- **NEW:** Verify the new scenario category assignments are correct: `3.1-generic-email` → `vague_vs_specific`, `2.15-code-almost-works` and `2.16-context-window-cliff` → `context_and_framing`, `3.13-endless-redo` → `iterative_refinement`, `4a.18` through `4a.21` → `smart_strategies`.
 
 **Prompts:**
 - `prompts.js` lists principles in the `FEEDBACK_GENERATOR_SYSTEM` prompt. Verify all 12 principle names are listed and match `principles.js`.
@@ -374,7 +374,7 @@ The 61 generated JSON files contain AI-written or hand-crafted text for:
 - Condescending or judgmental tone
 - References to "prompt engineering" instead of "how you talk to AI"
 - **NEW:** The 8 hand-crafted files (Phase 4) should use the same user vernacular style as the Phase 3 language updates. Verify they use "generic AI slop," "sounds confident and still be wrong," etc. where appropriate — not academic phrasing.
-- **NEW:** P5 scenarios (`1.11-generic-email`, `4a.19-prompt-stopped-working`) should demonstrate few-shot prompting in their "strong" prompt option (pasting an example of desired output). Verify the examples are realistic and helpful.
+- **NEW:** P5 scenarios (`3.1-generic-email`, `6.5-refusal-decoder`) should demonstrate few-shot prompting in their "strong" prompt option (pasting an example of desired output). Verify the examples are realistic and helpful.
 
 ### 12d. Principle names and descriptions
 

@@ -1,8 +1,10 @@
-# PromptBridge — Project Overview
+# PromptBridge Lite — Project Overview
 
-## What PromptBridge Is
+## What PromptBridge Lite Is
 
-PromptBridge is a free, open-source learning tool that teaches anyone — regardless of technical background — how to communicate effectively with AI assistants. It's not a prompt library or a cheat sheet. It's a hands-on practice environment where people build real skills through real scenarios, then take those skills to any AI tool they already use.
+PromptBridge Lite is a free, open-source learning tool that teaches anyone — regardless of technical background — how to communicate effectively with AI assistants. It's not a prompt library or a cheat sheet. It's a hands-on practice environment where people build real skills through real scenarios, then take those skills to any AI tool they already use.
+
+**PromptBridge Lite** is a focused version of the full [PromptBridge](https://github.com/vegaPDX/PromptBridge) app, distilled down to the core teaching framework: 6 maxims, 13 sub-maxims, and 26 carefully selected guided scenarios (2 per sub-maxim). The full PromptBridge app offers nearly 3x as many scenarios across both guided and freeform modes. Lite is designed as a complete introduction that covers every principle without overwhelming new users.
 
 The core belief behind PromptBridge is simple: **the biggest barrier to getting value from AI isn't access to the technology — it's knowing how to talk to it.** Millions of people now have access to powerful AI tools, but most have never been taught how to use them well. They type a few words, get a mediocre response, and walk away thinking AI isn't that useful. PromptBridge exists to close that gap.
 
@@ -14,7 +16,7 @@ AI tools are available to almost everyone, but the skills to use them effectivel
 
 This leaves out the people who would benefit most: teachers preparing lessons, small business owners writing marketing copy, students researching papers, parents trying to help with homework, job seekers polishing resumes. These people don't need to learn prompt engineering. They need to learn how to have a clear conversation — and that's a skill anyone can build.
 
-PromptBridge meets people where they are. No accounts. No API keys. No jargon. You open the tool, pick a scenario that looks like something from your actual life, and start practicing.
+PromptBridge Lite meets people where they are. No accounts. No API keys. No jargon. You open the tool, pick a scenario that looks like something from your actual life, and start practicing.
 
 ---
 
@@ -22,19 +24,36 @@ PromptBridge meets people where they are. No accounts. No API keys. No jargon. Y
 
 PromptBridge's mission is to make AI communication skills accessible to everyone, not just early adopters and technical users. This means:
 
-**Beginner-first design.** Every decision is filtered through the question: "Would someone who has never used AI before understand this?" If the answer is no, it gets rewritten. Academic terminology never appears in the user interface. Concepts like "hallucination" are explained as "AI sounds confident and still be wrong." Concepts like "sycophancy" are explained as "AI is trained to agree with you." The tool teaches the ideas without requiring people to learn a vocabulary first.
+**Beginner-first design.** Every decision is filtered through the question: "Would someone who has never used AI before understand this?" If the answer is no, it gets rewritten. Academic terminology never appears in the user interface. Concepts like "hallucination" are explained as "AI can sound confident and still be wrong." Concepts like "sycophancy" are explained as "AI is trained to agree with you." The tool teaches the ideas without requiring people to learn a vocabulary first.
 
-**No setup, no barriers.** PromptBridge is a static website. There is no signup, no login, no API key, no backend server. You open a URL and start learning. Progress is saved in your browser. This matters because the people most in need of AI literacy are often the least likely to navigate technical setup steps.
+**No setup, no barriers.** PromptBridge Lite is a static website. There is no signup, no login, no API key, no backend server. You open a URL and start learning. Progress is saved in your browser. This matters because the people most in need of AI literacy are often the least likely to navigate technical setup steps.
 
 **Tool-agnostic skills.** PromptBridge doesn't teach you how to use ChatGPT, Claude, or Gemini specifically. It teaches communication skills that work with all of them. After practicing a scenario, you copy your prompt and try it in whichever AI tool you prefer. The skills transfer because they're fundamentally about clear communication, not about any particular product.
 
-**Copy-paste as the primary workflow.** The main action in PromptBridge is: learn a skill, write a prompt, copy it, paste it into a real AI tool, and see the result. This bridges the gap between learning and doing. Every scenario includes one-click copy buttons and direct links to ChatGPT, Claude, Gemini, and Copilot.
+**Copy-paste as the primary workflow.** The main action in PromptBridge Lite is: learn a skill, write a prompt, copy it, paste it into a real AI tool, and see the result. This bridges the gap between learning and doing. Every scenario includes one-click copy buttons and direct links to ChatGPT, Claude, Gemini, and Copilot.
+
+---
+
+## How Lite Is Organized
+
+PromptBridge Lite structures its teaching around **6 maxims** — broad communication principles drawn from Gricean pragmatics and extended by recent human-AI interaction research:
+
+1. **Be Clear & Specific** — The difference between useful and useless AI output almost always comes down to clarity.
+2. **Provide Context & Intent** — AI can't read your mind. Tell it who you are and why you need something.
+3. **Guide the Output** — Don't just describe what you want — show it. Examples and boundaries are your most powerful tools.
+4. **Iterate & Collaborate** — Great results rarely come from a single prompt. Learn to steer AI with feedback.
+5. **Verify & Think Critically** — AI sounds confident whether it's right or wrong. Your job is to check.
+6. **Use AI Responsibly** — AI can reflect biases, agree when it shouldn't, and refuse when it needn't. You are the human quality filter.
+
+Each maxim breaks into **sub-maxims** (13 total), and each sub-maxim has **2 practice scenarios** — for **26 guided scenarios** that comprehensively cover all 12 communication principles. Maxim 6 receives extra emphasis with 3 sub-maxims and 6 scenarios, reflecting the project's commitment to responsible AI use.
+
+Every scenario uses the same guided practice format: compare three prompt approaches (weak, getting there, effective) side by side, see the AI response each produces, and receive specific feedback explaining why the effective approach works. Then write your own version and get scored.
 
 ---
 
 ## Guided by Research
 
-PromptBridge's 12 communication skills and 76 practice scenarios aren't invented from intuition — they're guided by a body of academic research on how humans and AI systems communicate, where those conversations break down, and what makes them work.
+PromptBridge Lite's 12 communication skills and 26 practice scenarios aren't invented from intuition — they're guided by a body of academic research on how humans and AI systems communicate, where those conversations break down, and what makes them work.
 
 ### The NeuroBridge Foundation
 
@@ -50,7 +69,7 @@ Beneath both NeuroBridge and PromptBridge is a theory from the philosophy of lan
 
 Research over the past several years has shown that Gricean maxims apply directly to human-AI conversation — and that AI systems routinely violate them. AI can be too verbose or too brief (Quantity violations). AI can state false information confidently (Quality violations). AI can go off-topic or fail to address what you actually need (Relevance violations). AI can be disorganized or use overly technical language (Manner violations).
 
-PromptBridge's first 8 skills map to these four maxims: "Be specific" and "Include everything needed — but nothing extra" teach Quantity. "State your intent" and "Ask the AI to ask you questions" teach Relevance. "Avoid ambiguity" and "Show what good looks like" teach Manner. "Provide context" bridges Quantity and Relevance.
+PromptBridge Lite's first 8 skills map to these four maxims: "Be specific" and "Include everything needed — but nothing extra" teach Quantity. "State your intent" and "Ask the AI to ask you questions" teach Relevance. "Avoid ambiguity" and "Show what good looks like" teach Manner. "Provide context" bridges Quantity and Relevance.
 
 A synthesis of 11 core papers and 15+ supporting studies (2002–2025) — including work from CHI, EMNLP, ASSETS, and other top venues — validated this mapping and revealed where PromptBridge had gaps.
 
@@ -64,15 +83,30 @@ In 2024, IBM researchers led by Erik Miehling published a paper at EMNLP that ex
 
 Miehling et al.'s paper also provided a complete taxonomy mapping every known AI failure mode to a specific maxim violation — transforming vague complaints like "AI makes stuff up" into precise, teachable categories. This taxonomy directly shaped PromptBridge's last four skills (P9–P12) and the "Using AI Wisely" guide.
 
-PromptBridge now covers all six maxims: Quantity, Quality, Relevance, Manner, Transparency, and Benevolence.
+PromptBridge Lite covers all six maxims: Quantity, Quality, Relevance, Manner, Transparency, and Benevolence.
 
 ### Research Informing Design, Not Dictating It
 
-An important note: PromptBridge is guided by this research, not a mechanical implementation of it. Academic frameworks use terms like "Gricean maxims," "sub-maxim violations," "pragmatic competence," and "cooperative principle." None of these terms appear anywhere in PromptBridge's user interface. The research provides the structure and identifies the gaps. PromptBridge translates that into plain language, everyday scenarios, and hands-on practice.
+An important note: PromptBridge is guided by this research, not a mechanical implementation of it. Academic frameworks use terms like "Gricean maxims," "sub-maxim violations," "pragmatic competence," and "cooperative principle." None of these terms appear anywhere in PromptBridge Lite's user interface. The research provides the structure and identifies the gaps. PromptBridge translates that into plain language, everyday scenarios, and hands-on practice.
 
-When Miehling et al. describe "Transparency₁ (Knowledge Boundaries)," PromptBridge teaches it as: "AI has a training cutoff, can't browse the web, has no personal experience, and sometimes avoids topics without explaining why." When they describe "Quality₂ (Honesty) violations via sycophancy," PromptBridge teaches it through a scenario called "The sycophancy test" where users tell AI an incorrect fact and see whether it corrects them or goes along with it.
+When Miehling et al. describe "Transparency₁ (Knowledge Boundaries)," PromptBridge Lite teaches it as: "AI has a training cutoff, can't browse the web, has no personal experience, and sometimes avoids topics without explaining why." When they describe "Quality₂ (Honesty) violations via sycophancy," PromptBridge Lite teaches it through a scenario called "When AI agrees too much" where users tell AI an incorrect fact and see whether it corrects them or goes along with it.
 
 The goal is always the same: give people practical skills they can use immediately, grounded in the best available understanding of how human-AI communication works.
+
+---
+
+## Lite vs. Full PromptBridge
+
+| | PromptBridge Lite | PromptBridge (Full) |
+|---|---|---|
+| **Scenarios** | 26 guided | 76 (61 guided + 15 freeform) |
+| **Organization** | 6 maxims, 13 sub-maxims | 5 categories |
+| **Modes** | Guided practice | Guided practice + Write Your Own |
+| **Safety emphasis** | 6 scenarios (23%) in Maxim 6 | Safety woven throughout |
+| **Assessment** | Planned | Pre/post skill assessment |
+| **Best for** | Complete introduction, new users | Deep practice, all skill levels |
+
+PromptBridge Lite covers every communication principle and every maxim — it's a complete learning experience, not a demo. The full app adds more scenarios per skill, freeform practice, and broader context coverage.
 
 ---
 

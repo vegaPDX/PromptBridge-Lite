@@ -4,5 +4,5 @@
 // but covering a similar principle spread.
 // ============================================================
 
-export const PRE_SCENARIOS = ["1.3-error-message", "2.2-audience-mismatch", "3.1-vague-rejection"];
-export const POST_SCENARIOS = ["1.5-product-comparison", "2.4-role-switch", "3.4-try-again-trap"];
+export const PRE_SCENARIOS = ["1.3-meal-plan", "2.4-tone-mismatch", "4.1-vague-rejection"];
+export const POST_SCENARIOS = ["1.4-product-comparison", "2.2-cover-letter", "4.2-try-again-trap"];

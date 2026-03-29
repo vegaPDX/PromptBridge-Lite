@@ -20,7 +20,7 @@ export const SCENARIOS = [
     relevance: ["personal"],
   },
   {
-    id: "1.4-email-draft",
+    id: "1.2-email-draft",
     maxim: "M1",
     subMaxim: "M1a",
     title: "The email draft",
@@ -33,7 +33,7 @@ export const SCENARIOS = [
 
   // M1b: Avoid ambiguity
   {
-    id: "1.2-meal-plan",
+    id: "1.3-meal-plan",
     maxim: "M1",
     subMaxim: "M1b",
     title: "The meal plan",
@@ -44,7 +44,7 @@ export const SCENARIOS = [
     relevance: ["personal"],
   },
   {
-    id: "1.5-product-comparison",
+    id: "1.4-product-comparison",
     maxim: "M1",
     subMaxim: "M1b",
     title: "The product comparison",
@@ -70,7 +70,7 @@ export const SCENARIOS = [
     relevance: ["school", "personal"],
   },
   {
-    id: "2.5-cover-letter",
+    id: "2.2-cover-letter",
     maxim: "M2",
     subMaxim: "M2a",
     title: "The cover letter",
@@ -94,7 +94,7 @@ export const SCENARIOS = [
     relevance: ["work"],
   },
   {
-    id: "2.6-tone-mismatch",
+    id: "2.4-tone-mismatch",
     maxim: "M2",
     subMaxim: "M2b",
     title: "The tone mismatch",
@@ -109,7 +109,7 @@ export const SCENARIOS = [
 
   // M3a: Show what "good" looks like
   {
-    id: "1.11-generic-email",
+    id: "3.1-generic-email",
     maxim: "M3",
     subMaxim: "M3a",
     title: "The generic email",
@@ -120,7 +120,7 @@ export const SCENARIOS = [
     relevance: ["work"],
   },
   {
-    id: "2.7-format-request",
+    id: "3.2-format-request",
     maxim: "M3",
     subMaxim: "M3a",
     title: "The format request",
@@ -133,7 +133,7 @@ export const SCENARIOS = [
 
   // M3b: Include everything needed — nothing extra
   {
-    id: "1.9-kitchen-sink",
+    id: "3.3-kitchen-sink",
     maxim: "M3",
     subMaxim: "M3b",
     title: "The kitchen sink prompt",
@@ -144,7 +144,7 @@ export const SCENARIOS = [
     relevance: ["personal"],
   },
   {
-    id: "4a.11-signal-vs-noise",
+    id: "3.4-signal-vs-noise",
     maxim: "M3",
     subMaxim: "M3b",
     title: "Signal vs. noise",
@@ -159,7 +159,7 @@ export const SCENARIOS = [
 
   // M4a: Give specific feedback
   {
-    id: "3.1-vague-rejection",
+    id: "4.1-vague-rejection",
     maxim: "M4",
     subMaxim: "M4a",
     title: "The vague rejection",
@@ -170,7 +170,7 @@ export const SCENARIOS = [
     relevance: ["work"],
   },
   {
-    id: "3.4-try-again-trap",
+    id: "4.2-try-again-trap",
     maxim: "M4",
     subMaxim: "M4a",
     title: "The 'try again' trap",
@@ -183,7 +183,7 @@ export const SCENARIOS = [
 
   // M4b: Collaborate with AI
   {
-    id: "3.2-ai-interview",
+    id: "4.3-ai-interview",
     maxim: "M4",
     subMaxim: "M4b",
     title: "Let the AI interview you",
@@ -194,7 +194,7 @@ export const SCENARIOS = [
     relevance: ["work"],
   },
   {
-    id: "3.3-ai-write-prompt",
+    id: "4.4-ai-write-prompt",
     maxim: "M4",
     subMaxim: "M4b",
     title: "Have the AI write your prompt",
@@ -209,7 +209,7 @@ export const SCENARIOS = [
 
   // M5a: Verify before you trust
   {
-    id: "4a.8-fact-check-trap",
+    id: "5.1-fact-check-trap",
     maxim: "M5",
     subMaxim: "M5a",
     title: "The fact-check trap",
@@ -220,7 +220,7 @@ export const SCENARIOS = [
     relevance: ["work"],
   },
   {
-    id: "4a.9-hallucination-catcher",
+    id: "5.2-hallucination-catcher",
     maxim: "M5",
     subMaxim: "M5a",
     title: "Catching made-up facts",
@@ -233,7 +233,7 @@ export const SCENARIOS = [
 
   // M5b: Know what AI can't do
   {
-    id: "2.12-time-traveler",
+    id: "5.3-time-traveler",
     maxim: "M5",
     subMaxim: "M5b",
     title: "The time traveler",
@@ -244,7 +244,7 @@ export const SCENARIOS = [
     relevance: ["personal", "work"],
   },
   {
-    id: "2.13-emotional-ai",
+    id: "5.4-emotional-ai",
     maxim: "M5",
     subMaxim: "M5b",
     title: "The emotional AI",
@@ -259,7 +259,7 @@ export const SCENARIOS = [
 
   // M6a: Recognize and challenge bias
   {
-    id: "2.14-invisible-bias",
+    id: "6.1-invisible-bias",
     maxim: "M6",
     subMaxim: "M6a",
     title: "The invisible bias",
@@ -270,7 +270,7 @@ export const SCENARIOS = [
     relevance: ["work"],
   },
   {
-    id: "3.12-bias-audit",
+    id: "6.2-bias-audit",
     maxim: "M6",
     subMaxim: "M6a",
     title: "The bias audit",
@@ -283,7 +283,7 @@ export const SCENARIOS = [
 
   // M6b: Maintain human oversight
   {
-    id: "1.10-sycophancy-test",
+    id: "6.3-sycophancy-test",
     maxim: "M6",
     subMaxim: "M6b",
     title: "When AI agrees too much",
@@ -294,7 +294,7 @@ export const SCENARIOS = [
     relevance: ["school", "work"],
   },
   {
-    id: "4a.18-ai-agreed-bad-idea",
+    id: "6.4-ai-agreed-bad-idea",
     maxim: "M6",
     subMaxim: "M6b",
     title: "The AI agreed with my bad idea",
@@ -307,7 +307,7 @@ export const SCENARIOS = [
 
   // M6c: Understand safety boundaries
   {
-    id: "4a.16-refusal-decoder",
+    id: "6.5-refusal-decoder",
     maxim: "M6",
     subMaxim: "M6c",
     title: "The refusal decoder",
@@ -318,7 +318,7 @@ export const SCENARIOS = [
     relevance: ["personal", "school", "work"],
   },
   {
-    id: "4a.20-safety-wall",
+    id: "6.6-safety-wall",
     maxim: "M6",
     subMaxim: "M6c",
     title: "The safety wall",

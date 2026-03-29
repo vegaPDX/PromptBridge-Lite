@@ -68,8 +68,8 @@ describe("AssessmentMode", () => {
     render(<AssessmentMode {...PRE_PROPS} />);
     fireEvent.click(screen.getByRole("button", { name: /Start/ }));
 
-    // First PRE_SCENARIO is "1.3-error-message" with title "The error message"
-    expect(screen.getByText("The error message")).toBeInTheDocument();
+    // First PRE_SCENARIO is "1.3-meal-plan" with title "The meal plan"
+    expect(screen.getByText("The meal plan")).toBeInTheDocument();
     expect(screen.getByLabelText("Write your prompt")).toBeInTheDocument();
     expect(screen.getByPlaceholderText("How would you ask an AI to help with this?")).toBeInTheDocument();
   });
@@ -143,8 +143,8 @@ describe("AssessmentMode", () => {
 
     expect(screen.getByText("Per-scenario scores")).toBeInTheDocument();
     // All three PRE scenario titles should appear in the breakdown
-    expect(screen.getByText("The error message")).toBeInTheDocument();
-    expect(screen.getByText("The audience mismatch")).toBeInTheDocument();
+    expect(screen.getByText("The meal plan")).toBeInTheDocument();
+    expect(screen.getByText("The tone mismatch")).toBeInTheDocument();
     expect(screen.getByText("The vague rejection")).toBeInTheDocument();
   });
 

@@ -168,14 +168,9 @@ function sleep(ms) {
 // These scenario JSON files were hand-crafted (not pipeline-generated).
 // They should never be overwritten by the generation script.
 const HAND_CRAFTED_IDS = new Set([
-  "1.11-generic-email",
-  "2.15-code-almost-works",
-  "2.16-context-window-cliff",
-  "3.13-endless-redo",
-  "4a.18-ai-agreed-bad-idea",
-  "4a.19-prompt-stopped-working",
-  "4a.20-safety-wall",
-  "4a.21-five-minute-expert",
+  "3.1-generic-email",
+  "6.4-ai-agreed-bad-idea",
+  "6.6-safety-wall",
 ]);
 
 // ── Generation Pipeline ─────────────────────────────────────

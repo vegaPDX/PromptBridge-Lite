@@ -125,20 +125,21 @@ describe("LandingPage", () => {
     render(<LandingPage onNavigate={() => {}} />);
     fireEvent.click(screen.getByText(/Now see what happens/));
     // After click, the AI honesty section should appear
-    expect(screen.getByText("We believe in being honest about AI")).toBeInTheDocument();
+    expect(screen.getByText(/AI is powerful/)).toBeInTheDocument();
   });
 
-  it("renders all 12 principle names", () => {
+  it("renders maxim names on landing page", () => {
     render(<LandingPage onNavigate={() => {}} />);
-    expect(screen.getByText("Be specific, not vague")).toBeInTheDocument();
-    expect(screen.getByText("Ask the AI to write prompts for you")).toBeInTheDocument();
-    expect(screen.getByText("Use AI responsibly")).toBeInTheDocument();
+    // Check a sample of maxims are visible
+    expect(screen.getByText("Be Clear & Specific")).toBeInTheDocument();
+    expect(screen.getByText("Iterate & Collaborate")).toBeInTheDocument();
+    expect(screen.getByText("Use AI Responsibly")).toBeInTheDocument();
   });
 
   it("calls onNavigate when CTA button is clicked", () => {
     const onNavigate = vi.fn();
     render(<LandingPage onNavigate={onNavigate} />);
-    fireEvent.click(screen.getByText("Try It Yourself"));
+    fireEvent.click(screen.getByText("Start Learning"));
     expect(onNavigate).toHaveBeenCalledWith("scenarios");
   });
 });

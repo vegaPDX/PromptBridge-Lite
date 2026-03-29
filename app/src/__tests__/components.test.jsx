@@ -53,9 +53,9 @@ describe("PreScenarioBanner", () => {
 });
 
 describe("Header", () => {
-  it("renders 'AI Limits' text label", () => {
+  it("renders 'AI Safety' text label", () => {
     render(<Header page="landing" practicedPrinciples={[]} onNavigate={() => {}} />);
-    expect(screen.getByText("AI Limits")).toBeInTheDocument();
+    expect(screen.getByText("AI Safety")).toBeInTheDocument();
   });
 
   it("renders Scenarios and Progress nav buttons", () => {
@@ -82,9 +82,9 @@ describe("Header", () => {
 
   it("highlights AI safety button when on ai-safety page", () => {
     render(<Header page="ai-safety" practicedPrinciples={[]} onNavigate={() => {}} />);
-    const aiLimitsButton = screen.getByText("AI Limits").closest("button");
-    expect(aiLimitsButton.className).toContain("bg-amber-50");
-    expect(aiLimitsButton.className).toContain("text-amber-700");
+    const aiLimitsButton = screen.getByText("AI Safety").closest("button");
+    expect(aiLimitsButton.className).toContain("bg-rose-50");
+    expect(aiLimitsButton.className).toContain("text-rose-700");
   });
 
   it("calls onNavigate with correct page when buttons are clicked", () => {
@@ -97,7 +97,7 @@ describe("Header", () => {
     fireEvent.click(screen.getByText("Progress"));
     expect(onNavigate).toHaveBeenCalledWith("progress");
 
-    fireEvent.click(screen.getByText("AI Limits"));
+    fireEvent.click(screen.getByText("AI Safety"));
     expect(onNavigate).toHaveBeenCalledWith("ai-safety");
   });
 });

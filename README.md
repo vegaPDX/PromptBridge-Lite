@@ -1,4 +1,4 @@
-# PromptBridge-Lite
+# PromptBridge Lite
 
 **An interactive, open-source tool that teaches people how to communicate effectively with AI assistants.**
 
@@ -8,7 +8,11 @@ No signup. No API key. No backend. Just open and start learning.
 
 ---
 
-PromptBridge teaches the universal communication skills that make AI conversations productive — being specific, providing context, verifying AI output, understanding AI limitations, and using AI responsibly. The skills you learn here work with any AI tool: ChatGPT, Claude, Gemini, Copilot, or any other conversational AI.
+> **Lite version** — PromptBridge Lite is a focused introduction to AI communication, organized around 6 core maxims with 26 guided scenarios. The full [PromptBridge](https://github.com/vegaPDX/PromptBridge) app offers nearly 3x as many scenarios across guided and freeform modes.
+
+---
+
+PromptBridge Lite teaches the universal communication skills that make AI conversations productive — being specific, providing context, verifying AI output, understanding AI limitations, and using AI responsibly. The skills you learn here work with any AI tool: ChatGPT, Claude, Gemini, Copilot, or any other conversational AI.
 
 No technical background required. No AI experience required. The tool meets people where they are.
 
@@ -27,7 +31,7 @@ NeuroBridge trains neurotypical people to communicate more clearly with autistic
 | Provide explicit context | Tell the AI who you are and what you need |
 | Don't assume shared knowledge | State your intent and constraints |
 
-NeuroBridge uses a see-consequences, compare-approaches, receive-feedback interaction model. PromptBridge adapts this same pedagogical approach for AI communication training: users compare weak, medium, and strong prompts side by side, see the dramatically different AI responses each produces, and get specific feedback tied to communication principles.
+NeuroBridge uses a see-consequences, compare-approaches, receive-feedback interaction model. PromptBridge Lite adapts this same pedagogical approach for AI communication training: users compare weak, medium, and strong prompts side by side, see the dramatically different AI responses each produces, and get specific feedback tied to communication principles.
 
 **Citation:**
 > Haroon, R., Wigdor, K., Yang, K., Toumanios, N., Crehan, E.T., & Dogar, F. (2025). "NeuroBridge: Using Generative AI to Bridge Cross-neurotype Communication Differences through Neurotypical Perspective-taking." In *Proceedings of the 27th International ACM SIGACCESS Conference on Computers and Accessibility (ASSETS '25)*. ACM. DOI: [10.1145/3663547.3746337](https://dl.acm.org/doi/10.1145/3663547.3746337)
@@ -35,6 +39,21 @@ NeuroBridge uses a see-consequences, compare-approaches, receive-feedback intera
 ---
 
 ## Features
+
+### 6 Maxims, 13 Sub-maxims
+
+PromptBridge Lite organizes its teaching around 6 core maxims — broad communication principles drawn from Gricean pragmatics and human-AI interaction research. Each maxim contains 2–3 sub-maxims with 2 practice scenarios each, for 26 guided scenarios total. Maxim 6 (Use AI Responsibly) receives extra emphasis with 3 sub-maxims and 6 scenarios.
+
+| Maxim | Sub-maxims | Scenarios |
+|-------|------------|-----------|
+| **M1: Be Clear & Specific** | Be specific, not vague / Avoid ambiguity | 4 |
+| **M2: Provide Context & Intent** | Provide relevant context / State your intent | 4 |
+| **M3: Guide the Output** | Show what "good" looks like / Include everything needed, nothing extra | 4 |
+| **M4: Iterate & Collaborate** | Give specific feedback / Collaborate with AI | 4 |
+| **M5: Verify & Think Critically** | Verify before you trust / Know what AI can't do | 4 |
+| **M6: Use AI Responsibly** | Recognize and challenge bias / Maintain human oversight / Understand safety boundaries | 6 |
+
+See [SCENARIO-MAP.md](SCENARIO-MAP.md) for the full mapping of all 26 scenarios to maxims, sub-maxims, and principles.
 
 ### 12 Communication Skills
 
@@ -58,34 +77,24 @@ Every scenario teaches one or more of these principles, guided by research in Gr
 11. **Know what AI can't do** — AI has a training cutoff, can't browse the web, has no personal experience, and sometimes avoids topics without explaining why
 12. **Use AI responsibly** — AI can reflect biases, agree when it shouldn't, and produce harmful content — you're the human quality filter
 
-### 76 Practice Scenarios
+### 26 Guided Scenarios
 
-61 guided scenarios and 15 freeform "Write Your Own" scenarios across 5 categories, covering personal, work, school, and coding contexts:
+All scenarios use a **guided practice** format: compare 3 prompt approaches (weak, getting there, effective) side by side, see the AI response each produces, and receive specific feedback tied to communication principles. Then write your own version and get scored.
 
-- **Vague vs. Specific** (14) — Learn why "help me with this" fails and specificity succeeds. Includes sycophancy awareness — spotting when AI agrees with your mistakes instead of correcting them.
-- **Context & Framing** (19) — Practice giving the AI the background it needs. Covers training cutoffs, AI's lack of personal experience, and how AI can reflect demographic biases in its output.
-- **Iterative Refinement** (15) — Build the skill of steering AI through follow-ups. Includes verifying AI accuracy, resetting long conversations, and auditing AI output for bias.
-- **Smart Strategies** (23) — Advanced techniques like step-by-step reasoning, few-shot examples, structured prompts, interviewing AI about its own limitations, decoding AI refusals, and red-teaming AI output for errors and bias.
-- **Full Conversation Loop** (5) — Open-ended freeform scenarios to combine all skills in realistic workflows.
-
-### 2 Learning Modes
-
-- **Guided Practice** — Compare 3 prompt approaches (weak, medium, effective) side by side. See the AI response each one produces. Learn why specific, context-rich prompts get dramatically better results. Then write your own version and get scored.
-- **Write Your Own** — Write a prompt from scratch for any of 15 freeform scenarios spread across all 5 categories. Get instant feedback on which communication skills you applied. Copy your prompt and try it in any real AI tool — ChatGPT, Claude, Gemini, or Copilot.
+Scenarios span personal, work, and school contexts — from writing emails and planning meals to catching AI hallucinations, decoding AI refusals, and auditing for bias.
 
 ### Additional Features
 
 - **Welcome Banner** — First-visit banner highlighting 3 key facts most people don't know about AI: confident-sounding errors, sycophancy, and how communication skills fix most frustrations.
 - **Pre-Scenario Reminders** — Dismissible reminder before each scenario that AI can sound confident and still be wrong.
-- **Using AI Wisely** — Standalone guide covering 9 critical AI limitations: hallucination, sycophancy, bias, knowledge cutoffs, operational limits, evasiveness, and more. Accessible from the landing page ("Heads Up") and the header navigation.
-- **Collapsible Scenario Categories** — Categories default to collapsed with completion counters, keeping the scenario page clean as the library grows.
-- **Skill Assessment** — Pre/post assessment to measure improvement over time
-- **Progression Recommendations** — The tool suggests what to try next based on which skills you haven't practiced yet
-- **Personalization** — Optional "What do you use AI for?" question to surface the most relevant scenarios
-- **Progress Tracking** — Tracks completed scenarios and practiced principles in your browser
-- **Copy-to-Real-AI Workflow** — Every scenario includes copy buttons and links to ChatGPT, Claude, Gemini, and Copilot so you can immediately practice in real tools
-- **Accessible** — ARIA labels, reduced motion support, color contrast compliant, semantic HTML
-- **Mobile Friendly** — Responsive design that works on phones, tablets, and desktops
+- **Using AI Wisely** — Standalone guide covering critical AI limitations: hallucination, sycophancy, bias, knowledge cutoffs, operational limits, evasiveness, and more. Accessible from the landing page and header navigation.
+- **Collapsible Maxim Groups** — Scenarios organized by maxim, defaulting to collapsed with completion counters.
+- **Progression Recommendations** — The tool suggests what to try next based on which skills you haven't practiced yet.
+- **Personalization** — Optional "What do you use AI for?" question to surface the most relevant scenarios.
+- **Progress Tracking** — Tracks completed scenarios and practiced principles in your browser.
+- **Copy-to-Real-AI Workflow** — Every scenario includes copy buttons and links to ChatGPT, Claude, Gemini, and Copilot so you can immediately practice in real tools.
+- **Accessible** — Skip-to-content link, ARIA labels, reduced motion support, color contrast compliant, semantic HTML.
+- **Mobile Friendly** — Responsive design that works on phones, tablets, and desktops.
 
 ---
 
@@ -94,7 +103,7 @@ Every scenario teaches one or more of these principles, guided by research in Gr
 The public web app is a **fully static site** with no backend and no outbound network requests. All content is pre-generated at build time. No API keys are needed or accepted in the deployed app.
 
 - **Frontend:** React 19, Vite 8, Tailwind CSS v4
-- **Content:** 61 pre-generated JSON scenario files (generated once by a local script using Claude or Gemini APIs)
+- **Content:** 26 pre-generated JSON scenario files (generated once by a local script using Claude or Gemini APIs)
 - **Scoring:** Client-side heuristic scorer using regex pattern matching against the 12 communication principles
 - **Testing:** Vitest + React Testing Library
 - **Storage:** Progress saved in browser `localStorage`
@@ -105,7 +114,7 @@ The public web app is a **fully static site** with no backend and no outbound ne
 
 ## Security
 
-PromptBridge is designed as a zero-trust static site:
+PromptBridge Lite is designed as a zero-trust static site:
 
 **Application security:**
 
@@ -138,8 +147,8 @@ If you find a security issue, please open an issue or contact the maintainer dir
 
 ```bash
 # Clone the repository
-git clone https://github.com/vegaPDX/PromptBridge.git
-cd PromptBridge/app
+git clone https://github.com/vegaPDX/PromptBridge-Lite.git
+cd PromptBridge-Lite/app
 
 # Install dependencies
 npm install
@@ -150,7 +159,7 @@ npm run dev
 
 The app will be available at `http://localhost:5173`.
 
-All 76 scenarios work immediately — 61 guided scenarios with pre-generated content, and 15 write-your-own scenarios with heuristic scoring. No API key required.
+All 26 guided scenarios work immediately with pre-generated content. No API key required.
 
 ### Regenerating Content
 
@@ -184,9 +193,10 @@ Output goes to `app/dist/`. The GitHub Actions workflow handles production build
 ### Project Structure
 
 ```
-promptbridge/
+promptbridge_lite/
 ├── README.md
 ├── PROJECT_OVERVIEW.md                # Project vision, goals, and research foundation
+├── SCENARIO-MAP.md                    # Full mapping of 26 scenarios to maxims and principles
 ├── LICENSE                            # AGPL-3.0
 ├── docs/                              # Project documentation
 │   ├── ARCHITECTURE.md
@@ -212,30 +222,42 @@ promptbridge/
     │   ├── generate-content.js        # Static content generation pipeline
     │   └── validate-scenario.js       # Scenario validation script
     └── src/
-        ├── App.jsx                    # Main app — state management and routing
+        ├── App.jsx                    # Main app — hash-based routing and state
         ├── main.jsx                   # Entry point with frame-buster
         ├── index.css                  # Tailwind CSS + animations
         ├── __tests__/                 # Vitest + React Testing Library tests
         ├── data/
-        │   ├── scenarios.js           # All 76 scenario definitions
+        │   ├── scenarios.js           # 26 scenario definitions
+        │   ├── maxims.js              # 6 maxims with 13 sub-maxims
         │   ├── principles.js          # 12 communication principles
-        │   ├── categories.js          # Category labels and descriptions
+        │   ├── categories.js          # Maxim display labels and colors
         │   ├── assessment-scenarios.js # Pre/post assessment scenario IDs
         │   ├── demo.js                # Landing page demo prompts and responses
         │   ├── icon-map.js            # Dynamic Lucide icon resolver
         │   ├── prompts.js             # LLM prompt templates (used by generate-content.js)
-        │   └── generated/             # 61 pre-generated JSON files (one per guided scenario)
-        ├── pages/                     # 8 page components
+        │   └── generated/             # 26 pre-generated JSON files (one per scenario)
+        ├── pages/
         │   ├── LandingPage.jsx        # Home page with demo
-        │   ├── ScenarioSelector.jsx   # Collapsible category browser with tabs
+        │   ├── ScenarioSelector.jsx   # Maxim-grouped scenario browser
         │   ├── GuidedMode.jsx         # Guided practice with pre-generated content
-        │   ├── FreeformMode.jsx       # Write-your-own with heuristic scoring
-        │   ├── AssessmentMode.jsx     # Pre/post skill assessment
         │   ├── ProgressPage.jsx       # Progress tracking dashboard
         │   ├── HelpPage.jsx           # Help and getting started
         │   └── AiSafetyPage.jsx       # "Using AI Wisely" standalone guide
-        ├── services/                  # Storage, heuristic scoring, guided data, recommendations
-        └── components/                # Header, CopyButton, AiToolLinks, AiSafetyBanner, etc.
+        ├── services/
+        │   ├── guided-data.js         # Data loading for guided scenarios
+        │   ├── heuristic-scorer.js    # Client-side prompt quality scoring
+        │   ├── recommendations.js     # Next-scenario recommendations
+        │   └── storage.js             # localStorage persistence
+        └── components/
+            ├── Header.jsx             # Navigation header
+            ├── AiSafetyBanner.jsx     # First-visit safety awareness banner
+            ├── AiToolLinks.jsx        # Links to ChatGPT, Claude, Gemini, Copilot
+            ├── CopyButton.jsx         # One-click copy to clipboard
+            ├── ErrorBanner.jsx        # Error display
+            ├── LoadingSpinner.jsx     # Loading state
+            ├── MarkdownText.jsx       # Safe markdown rendering
+            ├── PreScenarioBanner.jsx   # Pre-scenario AI accuracy reminder
+            └── PrincipleBadge.jsx     # Principle tag display
 ```
 
 ---

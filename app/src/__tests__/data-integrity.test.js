@@ -46,22 +46,22 @@ describe("Principles data integrity", () => {
 });
 
 describe("Scenarios data integrity", () => {
-  it("has correct total count (76 scenarios)", () => {
-    expect(SCENARIOS).toHaveLength(76);
+  it("has correct total count (26 scenarios)", () => {
+    expect(SCENARIOS).toHaveLength(26);
   });
 
-  it("has 61 guided and 15 freeform scenarios", () => {
-    expect(GUIDED_SCENARIOS).toHaveLength(61);
-    expect(FREEFORM_SCENARIOS).toHaveLength(15);
+  it("has 26 guided and 0 freeform scenarios", () => {
+    expect(GUIDED_SCENARIOS).toHaveLength(26);
+    expect(FREEFORM_SCENARIOS).toHaveLength(0);
   });
 
   it("every scenario has required fields", () => {
     for (const s of SCENARIOS) {
       expect(s.id).toBeTruthy();
-      expect(s.category).toBeTruthy();
+      expect(s.maxim).toBeTruthy();
       expect(s.title).toBeTruthy();
       expect(s.situation).toBeTruthy();
-      expect(["guided", "freeform"]).toContain(s.mode);
+      expect(s.mode).toBe("guided");
       expect(Array.isArray(s.principles)).toBe(true);
       expect(s.principles.length).toBeGreaterThan(0);
     }
@@ -81,10 +81,10 @@ describe("Scenarios data integrity", () => {
     }
   });
 
-  it("all categories used in scenarios exist in categories.js", () => {
+  it("all maxims used in scenarios exist in categories.js", () => {
     const validCategories = Object.keys(CATEGORIES);
     for (const s of SCENARIOS) {
-      expect(validCategories).toContain(s.category);
+      expect(validCategories).toContain(s.maxim);
     }
   });
 });

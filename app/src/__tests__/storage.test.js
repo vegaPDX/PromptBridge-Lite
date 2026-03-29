@@ -43,7 +43,7 @@ describe("Progress storage", () => {
 
   it("saves and loads progress correctly", () => {
     const data = {
-      completedScenarios: ["1.1-snow-shoveling", "1.2-meal-plan"],
+      completedScenarios: ["1.1-snow-shoveling", "1.3-meal-plan"],
       practicedPrinciples: ["P1", "P2"],
     };
     saveProgress(data);
@@ -52,7 +52,7 @@ describe("Progress storage", () => {
   });
 
   it("handles corrupt JSON gracefully", () => {
-    localStorage.setItem("promptbridge_progress", "not valid json{{{");
+    localStorage.setItem("promptbridge_lite_progress", "not valid json{{{");
     const progress = loadProgress();
     expect(progress).toEqual({
       completedScenarios: [],
@@ -61,7 +61,7 @@ describe("Progress storage", () => {
   });
 
   it("handles missing fields in stored data", () => {
-    localStorage.setItem("promptbridge_progress", JSON.stringify({ completedScenarios: ["1.1-snow-shoveling"] }));
+    localStorage.setItem("promptbridge_lite_progress", JSON.stringify({ completedScenarios: ["1.1-snow-shoveling"] }));
     const progress = loadProgress();
     expect(progress.completedScenarios).toEqual(["1.1-snow-shoveling"]);
     expect(progress.practicedPrinciples).toEqual([]);
@@ -69,7 +69,7 @@ describe("Progress storage", () => {
 
   it("handles old/stale format data gracefully", () => {
     localStorage.setItem(
-      "promptbridge_progress",
+      "promptbridge_lite_progress",
       JSON.stringify({ completedScenarios: ["1.1-snow-shoveling"], oldField: true, version: 1 })
     );
     const progress = loadProgress();
@@ -104,7 +104,7 @@ describe("Safety intro banner storage", () => {
   it("persists across calls", () => {
     markSafetyIntroSeen();
     expect(hasSeenSafetyIntro()).toBe(true);
-    expect(localStorage.getItem("promptbridge_seen_safety_intro")).toBe("true");
+    expect(localStorage.getItem("promptbridge_lite_seen_safety_intro")).toBe("true");
   });
 
   it("markSafetyIntroSeen returns true on success", () => {
@@ -126,7 +126,7 @@ describe("Pre-scenario banner storage", () => {
   it("persists across calls", () => {
     markPreScenarioBannerSeen();
     expect(hasSeenPreScenarioBanner()).toBe(true);
-    expect(localStorage.getItem("promptbridge_seen_pre_scenario")).toBe("true");
+    expect(localStorage.getItem("promptbridge_lite_seen_pre_scenario")).toBe("true");
   });
 
   it("markPreScenarioBannerSeen returns true on success", () => {
