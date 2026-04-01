@@ -93,13 +93,6 @@ PromptBridge is designed as a zero-trust static site:
 - **Input length limits** — All user prompt textareas are capped at 4,000 characters.
 - **No bundled secrets** — The `.env.example` only contains non-`VITE_` prefixed variables used by the local content generation script.
 
-**GitHub & supply chain security:**
-
-- **GitHub Actions pinned to commit SHAs** — All actions in the deploy workflow use immutable commit hashes, not mutable version tags, to prevent supply chain attacks.
-- **Secret scanning & push protection** — GitHub secret scanning is enabled with push protection to block accidental commits containing API keys or tokens.
-- **Dependabot security updates** — Automated vulnerability alerts and security PRs for dependencies.
-- **Branch protection** — `main` requires code owner review, blocks force pushes and branch deletions, and enforces rules for admins.
-
 If you find a security issue, please open an issue or contact the maintainer directly.
 
 ---
