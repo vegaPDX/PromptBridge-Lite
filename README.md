@@ -1,6 +1,6 @@
 # PromptBridge
 
-**An interactive, open-source tool that teaches people how to communicate effectively with AI assistants.**
+**An interactive, open-source tool that teaches people how to write effective prompts for AI tools.**
 
 ### **[Try it now — https://vegapdx.github.io/PromptBridge/](https://vegapdx.github.io/PromptBridge/)**
 
@@ -8,7 +8,7 @@ No signup. No API key. No backend. Just open and start learning.
 
 ---
 
-PromptBridge teaches the universal communication skills that make AI conversations productive — being specific, providing context, verifying AI output, understanding AI limitations, and using AI responsibly. The skills you learn here work with any AI tool: ChatGPT, Claude, Gemini, Copilot, or any other conversational AI.
+PromptBridge teaches the universal prompting skills that make AI tools productive — being specific, providing context, verifying AI output, understanding AI limitations, and using AI responsibly. The skills you learn here work with any AI tool: ChatGPT, Claude, Gemini, Copilot, or any other AI assistant.
 
 No technical background required. No AI experience required. The tool meets people where they are.
 
@@ -63,7 +63,7 @@ Scenarios span personal, work, and school contexts — from writing emails and p
 
 ### Additional Features
 
-- **Welcome Banner** — First-visit banner highlighting 3 key facts most people don't know about AI: confident-sounding errors, sycophancy, and how communication skills fix most frustrations.
+- **Welcome Banner** — First-visit banner highlighting 3 key facts most people don't know about AI: confident-sounding errors, sycophancy, and how better prompts fix most frustrations.
 - **Pre-Scenario Reminders** — Dismissible reminder before each scenario that AI can sound confident and still be wrong.
 - **Using AI Wisely** — Standalone guide covering critical AI limitations: hallucination, sycophancy, bias, knowledge cutoffs, operational limits, evasiveness, and more. Accessible from the landing page and header navigation.
 - **Collapsible Skill Groups** — Scenarios organized by skill group, defaulting to collapsed with completion counters.
