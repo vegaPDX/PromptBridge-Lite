@@ -14,16 +14,6 @@ No technical background required. No AI experience required. The tool meets peop
 
 ---
 
-## Inspiration
-
-PromptBridge was personally inspired by [NeuroBridge](https://dl.acm.org/doi/10.1145/3663547.3746337),
-a training tool from Tufts University (ASSETS 2025 Best Student Paper). NeuroBridge's
-comparison-based teaching approach — showing learners the consequences of different
-choices side by side — shaped how PromptBridge teaches. The side-by-side practice
-format used throughout PromptBridge is adapted from this pedagogical model.
-
----
-
 ## Features
 
 ### 2 Focus Areas, 12 Skills
@@ -252,6 +242,5 @@ This license was chosen to ensure that improvements to AI literacy tools remain 
 
 ## Acknowledgments
 
-- **NeuroBridge** (Haroon et al., Tufts University) — Inspired the comparison-based teaching format
 - **Anthropic**, **OpenAI**, and **Google** — Prompting best practices documentation that informed
   the skills and AI safety guidance
